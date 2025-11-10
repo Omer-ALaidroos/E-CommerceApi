@@ -1,0 +1,82 @@
+using System.Text.Json.Serialization;
+using eCommerceApp.Application.DependencyInjection;
+using eCommerceApp.Infrastructure.Dependency_Injection;
+using Microsoft.OpenApi.Models;
+using Serilog;
+
+var builder = WebApplication.CreateBuilder(args);
+
+Log.Logger = new LoggerConfiguration()
+    .Enrich.FromLogContext()
+    .WriteTo.Console()
+    .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+
+
+
+builder.Host.UseSerilog();
+Log.Logger.Information("Application is Building ...");
+builder.Services.AddInfrastructureServices(builder.Configuration);
+builder.Services.AddApplicationServices();
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+});
+builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddCors(builder =>
+{
+    builder.AddDefaultPolicy(options =>
+    {
+        options.AllowAnyHeader()
+              .AllowAnyMethod()
+              .WithOrigins("http://localhost:5214")
+              .AllowCredentials();
+    });
+});
+
+// Register a Swagger document
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "eCommerceApp API", Version = "v1" });
+});
+
+try
+{
+    var app = builder.Build();
+    app.UseCors();
+
+    if (app.Environment.IsDevelopment())
+    {
+        // Show startup exceptions in the browser so we can see what's breaking Swagger generation
+        app.UseDeveloperExceptionPage();
+
+        // Serve Swagger early so it's not blocked by other middleware
+        app.UseSwagger();
+
+        app.UseSwaggerUI(c =>
+        {
+            // explicit endpoint so UI loads the correct document
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "eCommerceApp API v1");
+            // If you want the UI at the app root, uncomment:
+            // c.RoutePrefix = string.Empty;
+        });
+    }
+
+    app.UseInfrastructureService();
+
+    app.UseHttpsRedirection();
+    app.UseAuthorization();
+    app.MapControllers();
+
+    Log.Logger.Information("Applicationis running ..");
+    app.Run();
+
+}catch(Exception ex)
+{
+    Log.Fatal(ex, "Application start-up failed");
+}
+finally
+{
+    Log.CloseAndFlush();
+}
