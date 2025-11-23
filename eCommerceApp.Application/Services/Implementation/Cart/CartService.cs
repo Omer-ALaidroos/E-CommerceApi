@@ -4,6 +4,7 @@ using eCommerceApp.Application.DTOs.Cart;
 using eCommerceApp.Application.Services.Interfaces.Cart;
 using eCommerceApp.Domain.Entities;
 using eCommerceApp.Domain.Entities.Cart;
+using eCommerceApp.Domain.Entities.Identity;
 using eCommerceApp.Domain.Interfaces;
 using eCommerceApp.Domain.Interfaces.Authentication;
 using eCommerceApp.Domain.Interfaces.Cart;
@@ -12,26 +13,33 @@ namespace eCommerceApp.Application.Services.Implementation.Cart
 {
     public class CartService(ICart cartInterface, IMapper mapper,
      IGeneric<Product> ProductInterface,IPaymentMethodService paymentMethodService
-     ,IPaymentService paymentService ,IUserManagement userManagement ) : ICartService
+     , IPaymentService paymentService, IUserManagement userManagement) : ICartService
     {
         public async Task<ServicesResponse> Checkout(Checkout checkout)
         {
            var (products, totalAmount) = await GetCartTotalAmount(checkout.Carts);
 
-            var PaymentMethods = await paymentMethodService.GetPaymntMethods();
-            if (checkout.PaymentMethodId == PaymentMethods.FirstOrDefault()!.Id)
+            if (!products.Any())
             {
-                return await paymentService.Pay(totalAmount, products, checkout.Carts);
+                return new ServicesResponse(false, "Cart is empty or products not found.");
+            }
 
-            }
-            else
+            var PaymentMethods = await paymentMethodService.GetPaymntMethods();
+            if (PaymentMethods.All(p => p.Id != checkout.PaymentMethodId))
             {
-                return new ServicesResponse
-                {
-                    IsSuccess = false,
-                    Message = "Invalid Payment Method"
-                };
+                return new ServicesResponse(false, "Invalid Payment Method");
             }
+
+            
+
+         
+
+            var paymentResponse = await paymentService.Pay(totalAmount, products, checkout.Carts);
+
+            if (!paymentResponse.IsSuccess) return paymentResponse;
+            
+            // Assuming payment is successful, we can update order status or perform other actions here.
+            return paymentResponse;
             
            
         }
@@ -117,5 +125,7 @@ namespace eCommerceApp.Application.Services.Implementation.Cart
            var mapperData = mapper.Map<IEnumerable<GetAchieve>>(achieves);
             return mapperData;
         }
+
+       
     }
 }

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace eCommerceApp.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class First : Migration
+    public partial class first : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -57,7 +57,8 @@ namespace eCommerceApp.Infrastructure.Migrations
                 name: "Categories",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -69,8 +70,10 @@ namespace eCommerceApp.Infrastructure.Migrations
                 name: "CheckoutAchieves",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    productId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    OrderId = table.Column<int>(type: "int", nullable: false),
+                    productId = table.Column<int>(type: "int", nullable: false),
                     quantity = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     createdDate = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -84,7 +87,8 @@ namespace eCommerceApp.Infrastructure.Migrations
                 name: "PaymentMethods",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -96,7 +100,8 @@ namespace eCommerceApp.Infrastructure.Migrations
                 name: "RefreshTokens",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Token = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
@@ -122,6 +127,28 @@ namespace eCommerceApp.Infrastructure.Migrations
                         name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
                         column: x => x.RoleId,
                         principalTable: "AspNetRoles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Addresses",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Street = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Addresses", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Addresses_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -215,13 +242,15 @@ namespace eCommerceApp.Infrastructure.Migrations
                 name: "Products",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Quantity = table.Column<int>(type: "int", nullable: false),
-                    CategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    CategoryId = table.Column<int>(type: "int", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -230,6 +259,70 @@ namespace eCommerceApp.Infrastructure.Migrations
                         name: "FK_Products_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Orders",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    TotalAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ShippingAddressId = table.Column<int>(type: "int", nullable: false),
+                    PaymentMethodId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Orders", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Orders_Addresses_ShippingAddressId",
+                        column: x => x.ShippingAddressId,
+                        principalTable: "Addresses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Orders_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Orders_PaymentMethods_PaymentMethodId",
+                        column: x => x.PaymentMethodId,
+                        principalTable: "PaymentMethods",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "OrderItems",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    OrderId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_OrderItems", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_OrderItems_Orders_OrderId",
+                        column: x => x.OrderId,
+                        principalTable: "Orders",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_OrderItems_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -248,9 +341,14 @@ namespace eCommerceApp.Infrastructure.Migrations
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("b8f4c2a1-2e3d-4f6a-9c8b-abcdef012345"), "PayPal" },
-                    { new Guid("d3c9a8e2-1f2b-4a9b-8d7f-1234567890ab"), "Credit Card" }
+                    { 1, "Credit Card" },
+                    { 2, "PayPal" }
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Addresses_UserId",
+                table: "Addresses",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -292,6 +390,31 @@ namespace eCommerceApp.Infrastructure.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_OrderItems_OrderId",
+                table: "OrderItems",
+                column: "OrderId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OrderItems_ProductId",
+                table: "OrderItems",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_PaymentMethodId",
+                table: "Orders",
+                column: "PaymentMethodId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_ShippingAddressId",
+                table: "Orders",
+                column: "ShippingAddressId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_UserId",
+                table: "Orders",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Products_CategoryId",
                 table: "Products",
                 column: "CategoryId");
@@ -319,10 +442,7 @@ namespace eCommerceApp.Infrastructure.Migrations
                 name: "CheckoutAchieves");
 
             migrationBuilder.DropTable(
-                name: "PaymentMethods");
-
-            migrationBuilder.DropTable(
-                name: "Products");
+                name: "OrderItems");
 
             migrationBuilder.DropTable(
                 name: "RefreshTokens");
@@ -331,10 +451,22 @@ namespace eCommerceApp.Infrastructure.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Orders");
+
+            migrationBuilder.DropTable(
+                name: "Products");
+
+            migrationBuilder.DropTable(
+                name: "Addresses");
+
+            migrationBuilder.DropTable(
+                name: "PaymentMethods");
 
             migrationBuilder.DropTable(
                 name: "Categories");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
         }
     }
 }

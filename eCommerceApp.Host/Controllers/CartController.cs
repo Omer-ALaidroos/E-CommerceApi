@@ -1,5 +1,6 @@
 ﻿using eCommerceApp.Application.DTOs.Cart;
 using eCommerceApp.Application.Services.Interfaces.Cart;
+using eCommerceApp.Domain.Entities.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

@@ -15,7 +15,7 @@ namespace eCommerceApp.Infrastructure.Repository
             return await context.SaveChangesAsync() ;
         }
 
-        public async Task<int> DeleteAsync(Guid id)
+        public async Task<int> DeleteAsync(int id)
         {
             var entity =await context.Set<TEntity>().FindAsync(id);
 
@@ -25,6 +25,8 @@ namespace eCommerceApp.Infrastructure.Repository
             context.Set<TEntity>().Remove(entity);
             return await context.SaveChangesAsync();
         }
+
+       
 
         public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
@@ -40,6 +42,14 @@ namespace eCommerceApp.Infrastructure.Repository
 
 
 
+        }
+
+        public async Task<TEntity> GetByIdAsync(int id)
+        {
+           TEntity entity = await context.Set<TEntity>().FindAsync( id);
+            if (entity is null) return null;
+
+            return entity;
         }
 
         public async Task<int> UpdateAsync(TEntity entity)

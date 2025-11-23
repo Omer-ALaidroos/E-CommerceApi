@@ -12,8 +12,8 @@ using eCommerceApp.Infrastructure.Data;
 namespace eCommerceApp.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251106105814_UpdateProduct")]
-    partial class UpdateProduct
+    [Migration("20251120084112_first")]
+    partial class first
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,105 @@ namespace eCommerceApp.Infrastructure.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Address", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Street")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Addresses");
+                });
+
+            modelBuilder.Entity("ECommerce.Core.Entities.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("PaymentMethodId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ShippingAddressId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("TotalAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PaymentMethodId");
+
+                    b.HasIndex("ShippingAddressId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("ECommerce.Core.Entities.OrderItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("OrderItems");
+                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -178,9 +277,14 @@ namespace eCommerceApp.Infrastructure.Migrations
 
             modelBuilder.Entity("eCommerceApp.Domain.Entities.Cart.Achieve", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
@@ -188,8 +292,8 @@ namespace eCommerceApp.Infrastructure.Migrations
                     b.Property<DateTime>("createdDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("productId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("productId")
+                        .HasColumnType("int");
 
                     b.Property<int>("quantity")
                         .HasColumnType("int");
@@ -201,8 +305,11 @@ namespace eCommerceApp.Infrastructure.Migrations
 
             modelBuilder.Entity("eCommerceApp.Domain.Entities.Cart.PaymentMethod", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -215,21 +322,23 @@ namespace eCommerceApp.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d3c9a8e2-1f2b-4a9b-8d7f-1234567890ab"),
+                            Id = 1,
                             Name = "Credit Card"
                         },
                         new
                         {
-                            Id = new Guid("b8f4c2a1-2e3d-4f6a-9c8b-abcdef012345"),
+                            Id = 2,
                             Name = "PayPal"
                         });
                 });
 
             modelBuilder.Entity("eCommerceApp.Domain.Entities.Category", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -310,9 +419,11 @@ namespace eCommerceApp.Infrastructure.Migrations
 
             modelBuilder.Entity("eCommerceApp.Domain.Entities.Identity.RefreshToken", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Token")
                         .IsRequired()
@@ -329,12 +440,14 @@ namespace eCommerceApp.Infrastructure.Migrations
 
             modelBuilder.Entity("eCommerceApp.Domain.Entities.Product", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("CategoryId")
-                        .HasColumnType("uniqueidentifier");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -359,6 +472,59 @@ namespace eCommerceApp.Infrastructure.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("Address", b =>
+                {
+                    b.HasOne("eCommerceApp.Domain.Entities.Identity.AppUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ECommerce.Core.Entities.Order", b =>
+                {
+                    b.HasOne("eCommerceApp.Domain.Entities.Cart.PaymentMethod", null)
+                        .WithMany()
+                        .HasForeignKey("PaymentMethodId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Address", null)
+                        .WithMany()
+                        .HasForeignKey("ShippingAddressId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("eCommerceApp.Domain.Entities.Identity.AppUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ECommerce.Core.Entities.OrderItem", b =>
+                {
+                    b.HasOne("ECommerce.Core.Entities.Order", "Order")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("eCommerceApp.Domain.Entities.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -421,6 +587,11 @@ namespace eCommerceApp.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("category");
+                });
+
+            modelBuilder.Entity("ECommerce.Core.Entities.Order", b =>
+                {
+                    b.Navigation("OrderItems");
                 });
 
             modelBuilder.Entity("eCommerceApp.Domain.Entities.Category", b =>

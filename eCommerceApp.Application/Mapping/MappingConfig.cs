@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using eCommerceApp.Application.DTOs;
+using eCommerceApp.Application.DTOs.Address;
 using eCommerceApp.Application.DTOs.Cart;
 using eCommerceApp.Application.DTOs.Category;
 using eCommerceApp.Application.DTOs.Product;
@@ -26,6 +27,9 @@ namespace eCommerceApp.Application.Mapping
             CreateMap<UpdateCategory, Category>();
             CreateMap<UpdateProduct, Product>();
 
+            CreateMap<CreateAddress, Address>();
+            CreateMap<UpdateAddress, Address>();
+            CreateMap<Address, GetAddress>();
           
         }
 

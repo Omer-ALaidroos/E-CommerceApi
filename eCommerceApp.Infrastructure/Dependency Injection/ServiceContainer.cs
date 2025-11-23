@@ -1,27 +1,29 @@
-﻿using eCommerceApp.Application.Services.Interfaces.Logger;
+﻿using eCommerceApp.Application.Services.Interfaces.Cart;
+using eCommerceApp.Application.Services.Interfaces.Logger;
 using eCommerceApp.Domain.Entities;
-using eCommerceApp.Domain.Interfaces;
+using eCommerceApp.Domain.Entities.Cart;
 using eCommerceApp.Domain.Entities.Identity;
+using eCommerceApp.Domain.Interfaces;
+using eCommerceApp.Domain.Interfaces.Authentication;
+using eCommerceApp.Domain.Interfaces.Cart;
+using eCommerceApp.Domain.Interfaces.CategorySpecifics;
 using eCommerceApp.Infrastructure.Data;
 using eCommerceApp.Infrastructure.Middleware;
 using eCommerceApp.Infrastructure.Repository;
+using eCommerceApp.Infrastructure.Repository.Authentication;
+using eCommerceApp.Infrastructure.Repository.Cart;
+using eCommerceApp.Infrastructure.Repository.CategorySpecifics;
 using eCommerceApp.Infrastructure.Sevices;
 using EntityFramework.Exceptions.SqlServer;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 using System.Text;
-using eCommerceApp.Domain.Interfaces.Authentication;
-using eCommerceApp.Infrastructure.Repository.Authentication;
-using eCommerceApp.Domain.Interfaces.Cart;
-using eCommerceApp.Infrastructure.Repository.Cart;
-using eCommerceApp.Application.Services.Interfaces.Cart;
-using eCommerceApp.Domain.Interfaces.CategorySpecifics;
-using eCommerceApp.Infrastructure.Repository.CategorySpecifics;
 
 namespace eCommerceApp.Infrastructure.Dependency_Injection
 {
@@ -45,6 +47,8 @@ namespace eCommerceApp.Infrastructure.Dependency_Injection
 
             services.AddScoped<IGeneric<Product>, GenericRepository<Product>>();
             services.AddScoped<IGeneric<Category>, GenericRepository<Category>>();
+            services.AddScoped<IGeneric<Address>, GenericRepository<Address>>();
+
             services.AddScoped(typeof(IAppLogger<>), typeof(SerilogLoggerAdapter<>));
             services.AddDefaultIdentity<AppUser>(options =>
             {
@@ -59,31 +63,42 @@ namespace eCommerceApp.Infrastructure.Dependency_Injection
             }).AddRoles<IdentityRole>()
               .AddEntityFrameworkStores<AppDbContext>();
 
-            services.AddAuthentication(Options =>
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
+           services.AddAuthentication(options =>
             {
-                Options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                Options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-                Options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(options =>
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(options =>
             {
                 options.SaveToken = true;
-                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
-                {
+               
+                var keyBytes = Encoding.UTF8.GetBytes(config["JWT:Key"]!);
+                var signingKey = new SymmetricSecurityKey(keyBytes);
+
+                options.TokenValidationParameters = new TokenValidationParameters
+                 {
+
                     ValidateAudience = true,
                     ValidateIssuer = true,
                     ValidateLifetime = true,
                     RequireExpirationTime = true,
                     ValidateIssuerSigningKey = true,
+
                     ClockSkew = TimeSpan.Zero,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["JWT:Key"]!)),
+                     IssuerSigningKey = signingKey,
 
                     ValidAudience = config["JWT:Audience"],
                     ValidIssuer = config["JWT:Issuer"],
 
-
+                     
+                    RoleClaimType = "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
                 };
-            }
 
+               
+            }
             );
 
             services.AddScoped<IUserManagement, UserManagement>();

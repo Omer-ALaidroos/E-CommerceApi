@@ -8,11 +8,11 @@ namespace eCommerceApp.Application.Services.Interfaces
     {
         public Task<IEnumerable<GetCategory>> GetAllAsync();
 
-        public Task<GetCategory> GetByIdAsync(Guid id);
+        public Task<GetCategory> GetByIdAsync(int id);
         public Task<ServicesResponse> AddAsync(CreateCategory category);
         public Task<ServicesResponse> UpdateAsync(UpdateCategory category);
-        public Task<ServicesResponse> DeleteAsync(Guid id);
-        Task<IEnumerable<GetProduct>> GetProductsByCategoryAsync(Guid categoryId);
+        public Task<ServicesResponse> DeleteAsync(int id);
+        Task<IEnumerable<GetProduct>> GetProductsByCategoryAsync(int categoryId);
 
     }
 }

@@ -12,6 +12,7 @@ namespace eCommerceApp.Host.Controllers
     {
 
         [HttpGet("All")]
+        [Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> GetAll()
         {
             var Products = await productServise.GetAllAsync();
@@ -21,7 +22,8 @@ namespace eCommerceApp.Host.Controllers
 
 
         [HttpGet("Single/{id}")]
-        public async Task<IActionResult> GetSingle(Guid id)
+        [Authorize(Roles = "User,Admin")]
+        public async Task<IActionResult> GetSingle(int id)
         {
             var Product = await productServise.GetByIdAsync(id);
 
@@ -53,7 +55,7 @@ namespace eCommerceApp.Host.Controllers
 
         [HttpDelete("Delete/{id}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Delete(Guid id)
+        public async Task<IActionResult> Delete(int id)
         {
             var response = await productServise.DeleteAsync(id);
             return response.IsSuccess ? Ok(response) : BadRequest(response);

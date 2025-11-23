@@ -20,6 +20,7 @@ namespace eCommerceApp.Application.DependencyInjection
             services.AddAutoMapper(typeof(MappingConfig).Assembly);
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IAddressService, AddressService>();
 
             services.AddFluentValidationAutoValidation();
             services.AddValidatorsFromAssemblyContaining<CreateUserValidator>();

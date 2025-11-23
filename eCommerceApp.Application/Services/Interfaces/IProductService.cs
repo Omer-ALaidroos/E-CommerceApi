@@ -7,10 +7,10 @@ namespace eCommerceApp.Application.Services.Interfaces
     {
         Task<IEnumerable<GetProduct>> GetAllAsync();
 
-        Task<GetProduct> GetByIdAsync(Guid id);
+        Task<GetProduct> GetByIdAsync(int id);
         Task<ServicesResponse> AddAsync(CreateProduct product);
         Task<ServicesResponse> UpdateAsync(UpdateProduct product);
-        Task<ServicesResponse> DeleteAsync(Guid id);
+        Task<ServicesResponse> DeleteAsync(int id);
     }
 
     

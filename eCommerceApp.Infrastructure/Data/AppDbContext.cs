@@ -1,13 +1,14 @@
 ﻿using eCommerceApp.Domain.Entities;
 using eCommerceApp.Domain.Entities.Cart;
+using ECommerce.Core.Entities;
 using eCommerceApp.Domain.Entities.Identity;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace eCommerceApp.Infrastructure.Data
 {
-    using System;
-    using Microsoft.AspNetCore.Identity;
-    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-    using Microsoft.EntityFrameworkCore;
+   
 
     public class AppDbContext : IdentityDbContext<AppUser>
     {
@@ -20,7 +21,9 @@ namespace eCommerceApp.Infrastructure.Data
         public DbSet<RefreshToken> RefreshTokens { get; set; }
         public DbSet<PaymentMethod> PaymentMethods { get; set; }
         public DbSet<Achieve> CheckoutAchieves { get; set; }
-
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -41,24 +44,71 @@ namespace eCommerceApp.Infrastructure.Data
                 }
             );
 
-            // If PaymentMethod.Id is a Guid, make sure EF doesn't treat it as generated
-            builder.Entity<PaymentMethod>()
-                   .Property(pm => pm.Id)
-                   .ValueGeneratedNever();
+            foreach (var entityType in builder.Model.GetEntityTypes())
+            {
+                var primaryKey = entityType.FindPrimaryKey();
+                if (primaryKey != null)
+                {
+                    foreach (var property in primaryKey.Properties)
+                    {
+                        if (property.ClrType == typeof(int) || property.ClrType == typeof(long))
+                        {
+                            property.ValueGenerated = Microsoft.EntityFrameworkCore.Metadata.ValueGenerated.OnAdd;
+                        }
+                    }
+                }
+            }
 
-            // Seed payment methods with Guid values (use valid GUID strings)
+            // Seed payment methods with int values
             builder.Entity<PaymentMethod>().HasData(
                 new PaymentMethod
                 {
-                    Id = Guid.Parse("d3c9a8e2-1f2b-4a9b-8d7f-1234567890ab"),
+                    Id = 1,
                     Name = "Credit Card"
                 },
                 new PaymentMethod
                 {
-                    Id = Guid.Parse("b8f4c2a1-2e3d-4f6a-9c8b-abcdef012345"),
+                    Id = 2,
                     Name = "PayPal"
                 }
             );
+
+            builder.Entity<PaymentMethod>().Property(p => p.Id).UseIdentityColumn();
+
+            // Configure Order entity
+            builder.Entity<Order>(order =>
+            {
+                // Set the primary key
+                order.HasKey(o => o.Id);
+
+                // Configure the TotalAmount to store up to 2 decimal places, which is standard for currency
+                order.Property(o => o.TotalAmount).HasColumnType("decimal(18,2)");
+
+                // Configure the OrderStatus enum to be stored as a string (e.g., "Pending", "Shipped")
+                order.Property(o => o.Status).HasConversion<string>();
+
+                // --- Relationships ---
+
+                // One-to-Many: An Order has many OrderItems.
+                // If an Order is deleted, its associated OrderItems should also be deleted (Cascade).
+                order.HasMany(o => o.OrderItems)
+                     .WithOne(oi => oi.Order)
+                     .HasForeignKey(oi => oi.OrderId)
+                     .OnDelete(DeleteBehavior.Cascade);
+
+                // Many-to-One: Many Orders can have one ShippingAddress.
+                // Deleting a ShippingAddress is not allowed if it's linked to an order (Restrict).
+                order.HasOne<Address>()
+                     .WithMany()
+                     .HasForeignKey(o => o.ShippingAddressId)
+                     .OnDelete(DeleteBehavior.Restrict);
+
+                // Many-to-One: Many Orders can use one PaymentMethod.
+                order.HasOne<PaymentMethod>()
+                     .WithMany()
+                     .HasForeignKey(o => o.PaymentMethodId)
+                     .OnDelete(DeleteBehavior.Restrict);
+            });
         }
     }
 

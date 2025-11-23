@@ -5,7 +5,7 @@ namespace eCommerceApp.Application.DTOs.Category
     public class GetCategory :CategoryBase
     {
         
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         public ICollection<GetProduct>? Products { get; set; }
     }

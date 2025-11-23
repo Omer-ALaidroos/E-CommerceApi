@@ -27,7 +27,7 @@ namespace eCommerceApp.Application.Services.Implementation
             }
         }
 
-        public async Task<ServicesResponse> DeleteAsync(Guid id)
+        public async Task<ServicesResponse> DeleteAsync(int id)
         {
             int result = await ProductInterface.DeleteAsync(id);
 
@@ -50,7 +50,7 @@ namespace eCommerceApp.Application.Services.Implementation
             return mapper.Map<IEnumerable<GetProduct>>(products);
         }
 
-        public async Task<GetProduct> GetByIdAsync(Guid id)
+        public async Task<GetProduct> GetByIdAsync(int id)
         {
           var product =  await ProductInterface.GetByIdAsync(id);
 

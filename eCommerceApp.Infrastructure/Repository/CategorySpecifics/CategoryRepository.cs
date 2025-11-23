@@ -7,7 +7,7 @@ namespace eCommerceApp.Infrastructure.Repository.CategorySpecifics
 {
     public class CategoryRepository(AppDbContext context) : ICategory
     {
-        public async Task<IEnumerable<Product>> GetProductsByCategory(Guid categoryId)
+        public async Task<IEnumerable<Product>> GetProductsByCategory(int categoryId)
         {
             var Products =await context.Products
                    .Include(p => p.category)

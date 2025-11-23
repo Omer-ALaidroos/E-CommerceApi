@@ -5,7 +5,7 @@ namespace eCommerceApp.Application.DTOs.Product
     public  class UpdateProduct :Productbase
     {
         [Required]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
        
     }
 }

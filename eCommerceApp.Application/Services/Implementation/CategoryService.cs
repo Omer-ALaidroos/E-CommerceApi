@@ -30,7 +30,7 @@ namespace eCommerceApp.Application.Services.Implementation
             }
         }
 
-        public async Task<ServicesResponse> DeleteAsync(Guid id)
+        public async Task<ServicesResponse> DeleteAsync(int id)
         {
             int result = await CategoryInterface.DeleteAsync(id);
 
@@ -53,27 +53,27 @@ namespace eCommerceApp.Application.Services.Implementation
             return mapper.Map<IEnumerable<GetCategory>>(Categories);
         }
 
-        public async Task<GetCategory> GetByIdAsync(Guid id)
+        public async Task<GetCategory> GetByIdAsync(int id)
         {
-           var Category = await CategoryInterface.GetByIdAsync(id);
+            var Category = await CategoryInterface.GetByIdAsync(id);
             return mapper.Map<GetCategory>(Category);
         }
 
-        public async Task<IEnumerable<GetProduct>> GetProductsByCategoryAsync(Guid categoryId)
+        public async Task<IEnumerable<GetProduct>> GetProductsByCategoryAsync(int categoryId)
         {
             var products = await categoryService.GetProductsByCategory(categoryId);
             if (!products.Any()) return [];
 
             return mapper.Map<IEnumerable<GetProduct>>(products);
-        } 
+        }
 
         public async Task<ServicesResponse> UpdateAsync(UpdateCategory category)
         {
-           var mappedCategory = mapper.Map<Category>(category);
+            var mappedCategory = mapper.Map<Category>(category);
             int result = await CategoryInterface.UpdateAsync(mappedCategory);
             if (result > 0)
             {
-                return  new ServicesResponse(true, "Category updated successfully.");
+                return new ServicesResponse(true, "Category updated successfully.");
             }
             else
             {
