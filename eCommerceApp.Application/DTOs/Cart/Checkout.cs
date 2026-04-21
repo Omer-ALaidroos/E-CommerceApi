@@ -7,6 +7,12 @@ namespace eCommerceApp.Application.DTOs.Cart
 
         [Required]
         public required int PaymentMethodId { get; set; }
+
+        [Required] public string UserId { get; set; }
+
+        [Required]
+        public required int ShippingAddressId { get; set; }
+
         [Required]
         public required IEnumerable<ProcessCart> Carts;
     }

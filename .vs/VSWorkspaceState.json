@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\eCommerceApp.Application",
+    "\\eCommerceApp.Application\\Validations",
+    "\\eCommerceApp.Domain",
+    "\\eCommerceApp.Domain\\Entities"
+  ],
+  "SelectedNode": "\\eCommerceApp.Infrastructure",
+  "PreviewInSolutionExplorer": false
+}

@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
-using System.Net;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
@@ -22,7 +21,7 @@ namespace eCommerceApp.Infrastructure.Repository.Authentication
 
                      UserId = userId,
                      Token = refreshToken
-                 } // Replace with actual user ID
+                 } 
              );
             
             return await context.SaveChangesAsync();

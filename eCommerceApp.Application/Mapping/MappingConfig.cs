@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using ECommerce.Core.DTOs.Order;
+using ECommerce.Core.Entities;
 using eCommerceApp.Application.DTOs;
 using eCommerceApp.Application.DTOs.Address;
 using eCommerceApp.Application.DTOs.Cart;
@@ -30,6 +32,10 @@ namespace eCommerceApp.Application.Mapping
             CreateMap<CreateAddress, Address>();
             CreateMap<UpdateAddress, Address>();
             CreateMap<Address, GetAddress>();
+
+            CreateMap<Order, GetOrder>();
+            CreateMap<CreateOrder,Order>();
+
           
         }
 

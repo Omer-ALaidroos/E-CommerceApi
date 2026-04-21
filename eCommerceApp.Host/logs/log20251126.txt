@@ -1,0 +1,149 @@
+2025-11-26 07:28:12.490 +03:00 [INF] Application is Building ...
+2025-11-26 07:28:17.307 +03:00 [INF] User profile is available. Using 'C:\Users\alsharga\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-26 07:28:18.055 +03:00 [INF] Applicationis running ..
+2025-11-26 07:28:18.952 +03:00 [INF] Now listening on: http://localhost:5214
+2025-11-26 07:28:19.762 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-26 07:28:19.765 +03:00 [INF] Hosting environment: Development
+2025-11-26 07:28:19.767 +03:00 [INF] Content root path: D:\برمجة\eCommerceAppSolution\eCommerceApp.Host
+2025-11-26 07:28:26.983 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/index.html - null null
+2025-11-26 07:28:27.841 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/index.html - 200 null text/html;charset=utf-8 871.1446ms
+2025-11-26 07:28:27.923 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/index.js - null null
+2025-11-26 07:28:27.923 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-26 07:28:27.937 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/index.js - 200 null application/javascript;charset=utf-8 14.9113ms
+2025-11-26 07:28:27.989 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/_framework/aspnetcore-browser-refresh.js - 200 16518 application/javascript; charset=utf-8 67.5483ms
+2025-11-26 07:28:28.012 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/_vs/browserLink - null null
+2025-11-26 07:28:28.098 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/_vs/browserLink - 200 null text/javascript; charset=UTF-8 85.7994ms
+2025-11-26 07:28:28.295 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/v1/swagger.json - null null
+2025-11-26 07:28:28.331 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 36.0018ms
+2025-11-26 07:35:47.338 +03:00 [INF] Application is Building ...
+2025-11-26 07:35:48.113 +03:00 [INF] User profile is available. Using 'C:\Users\alsharga\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-26 07:35:48.323 +03:00 [INF] Applicationis running ..
+2025-11-26 07:35:48.553 +03:00 [INF] Now listening on: http://localhost:5214
+2025-11-26 07:35:48.948 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-26 07:35:48.950 +03:00 [INF] Hosting environment: Development
+2025-11-26 07:35:48.952 +03:00 [INF] Content root path: D:\برمجة\eCommerceAppSolution\eCommerceApp.Host
+2025-11-26 07:35:49.148 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/index.html - null null
+2025-11-26 07:35:49.486 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/index.html - 200 null text/html;charset=utf-8 352.7489ms
+2025-11-26 07:35:49.533 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/index.js - null null
+2025-11-26 07:35:49.533 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-26 07:35:49.541 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/index.js - 200 null application/javascript;charset=utf-8 9.2192ms
+2025-11-26 07:35:49.612 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/_framework/aspnetcore-browser-refresh.js - 200 16518 application/javascript; charset=utf-8 80.5194ms
+2025-11-26 07:35:49.621 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/_vs/browserLink - null null
+2025-11-26 07:35:49.670 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/_vs/browserLink - 200 null text/javascript; charset=UTF-8 48.8698ms
+2025-11-26 07:35:49.829 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/v1/swagger.json - null null
+2025-11-26 07:35:49.863 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 34.1418ms
+2025-11-26 07:46:53.112 +03:00 [INF] Application is Building ...
+2025-11-26 07:46:54.015 +03:00 [INF] User profile is available. Using 'C:\Users\alsharga\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-26 07:46:54.246 +03:00 [INF] Applicationis running ..
+2025-11-26 07:46:54.518 +03:00 [INF] Now listening on: http://localhost:5214
+2025-11-26 07:46:54.882 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-26 07:46:54.887 +03:00 [INF] Hosting environment: Development
+2025-11-26 07:46:54.891 +03:00 [INF] Content root path: D:\برمجة\eCommerceAppSolution\eCommerceApp.Host
+2025-11-26 07:46:55.704 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/index.html - null null
+2025-11-26 07:46:56.941 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/index.html - 200 null text/html;charset=utf-8 1272.8006ms
+2025-11-26 07:46:57.053 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-26 07:46:57.053 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/index.js - null null
+2025-11-26 07:46:57.087 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/_framework/aspnetcore-browser-refresh.js - 200 16518 application/javascript; charset=utf-8 36.5518ms
+2025-11-26 07:46:57.087 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/index.js - 200 null application/javascript;charset=utf-8 36.9231ms
+2025-11-26 07:46:57.255 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/_vs/browserLink - null null
+2025-11-26 07:46:57.391 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/_vs/browserLink - 200 null text/javascript; charset=UTF-8 136.0719ms
+2025-11-26 07:46:57.894 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/v1/swagger.json - null null
+2025-11-26 07:46:58.003 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 109.3653ms
+2025-11-26 08:11:10.423 +03:00 [INF] Application is Building ...
+2025-11-26 08:11:12.889 +03:00 [INF] User profile is available. Using 'C:\Users\alsharga\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-26 08:11:13.521 +03:00 [INF] Applicationis running ..
+2025-11-26 08:11:14.325 +03:00 [INF] Now listening on: http://localhost:5214
+2025-11-26 08:11:14.897 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-26 08:11:14.905 +03:00 [INF] Hosting environment: Development
+2025-11-26 08:11:14.924 +03:00 [INF] Content root path: D:\برمجة\eCommerceAppSolution\eCommerceApp.Host
+2025-11-26 08:11:15.783 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/index.html - null null
+2025-11-26 08:11:16.900 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/index.html - 200 null text/html;charset=utf-8 1146.6884ms
+2025-11-26 08:11:17.009 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-26 08:11:17.012 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/index.js - null null
+2025-11-26 08:11:17.070 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/_framework/aspnetcore-browser-refresh.js - 200 16518 application/javascript; charset=utf-8 78.0388ms
+2025-11-26 08:11:17.083 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/index.js - 200 null application/javascript;charset=utf-8 72.5257ms
+2025-11-26 08:11:17.125 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/_vs/browserLink - null null
+2025-11-26 08:11:17.318 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/_vs/browserLink - 200 null text/javascript; charset=UTF-8 193.2006ms
+2025-11-26 08:11:17.710 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/v1/swagger.json - null null
+2025-11-26 08:11:17.826 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 116.6816ms
+2025-11-26 08:15:40.774 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5214/api/Order/Add - application/json 223
+2025-11-26 08:15:40.802 +03:00 [INF] CORS policy execution successful.
+2025-11-26 08:15:40.872 +03:00 [WRN] Failed to determine the https port for redirect.
+2025-11-26 08:15:40.892 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (User)
+2025-11-26 08:15:40.905 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-11-26 08:15:40.911 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5214/api/Order/Add - 401 0 null 137.0537ms
+2025-11-26 08:16:51.926 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5214/api/Authentication/login - application/json 56
+2025-11-26 08:16:51.940 +03:00 [INF] CORS policy execution successful.
+2025-11-26 08:16:51.999 +03:00 [INF] Executing endpoint 'eCommerceApp.Host.Controllers.AuthenticationController.LoginUser (eCommerceApp.Host)'
+2025-11-26 08:16:52.112 +03:00 [INF] Route matched with {action = "LoginUser", controller = "Authentication", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginUser(eCommerceApp.Application.DTOs.LoginUser) on controller eCommerceApp.Host.Controllers.AuthenticationController (eCommerceApp.Host).
+2025-11-26 08:16:55.424 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'OrderItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-11-26 08:16:58.179 +03:00 [INF] Executed DbCommand (126ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-11-26 08:16:58.531 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-11-26 08:16:58.652 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-11-26 08:16:58.938 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'eCommerceApp.Application.DTOs.LoginResponse'.
+2025-11-26 08:16:58.964 +03:00 [INF] Executed action eCommerceApp.Host.Controllers.AuthenticationController.LoginUser (eCommerceApp.Host) in 6838.4683ms
+2025-11-26 08:16:58.969 +03:00 [INF] Executed endpoint 'eCommerceApp.Host.Controllers.AuthenticationController.LoginUser (eCommerceApp.Host)'
+2025-11-26 08:16:58.983 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5214/api/Authentication/login - 400 null application/json; charset=utf-8 7115.0591ms
+2025-11-26 08:17:08.223 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5214/api/Authentication/login - application/json 57
+2025-11-26 08:17:08.242 +03:00 [INF] CORS policy execution successful.
+2025-11-26 08:17:08.254 +03:00 [INF] Executing endpoint 'eCommerceApp.Host.Controllers.AuthenticationController.LoginUser (eCommerceApp.Host)'
+2025-11-26 08:17:08.256 +03:00 [INF] Route matched with {action = "LoginUser", controller = "Authentication", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginUser(eCommerceApp.Application.DTOs.LoginUser) on controller eCommerceApp.Host.Controllers.AuthenticationController (eCommerceApp.Host).
+2025-11-26 08:17:08.490 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-11-26 08:17:08.508 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-11-26 08:17:08.526 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-11-26 08:17:08.796 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-11-26 08:17:08.810 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-11-26 08:17:08.820 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-11-26 08:17:08.826 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-11-26 08:17:08.961 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__RefreshToken_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[Token], [r].[UserId]
+FROM [RefreshTokens] AS [r]
+WHERE [r].[Token] = @__RefreshToken_0
+2025-11-26 08:17:09.327 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1);
+2025-11-26 08:17:09.379 +03:00 [INF] Executing OkObjectResult, writing value of type 'eCommerceApp.Application.DTOs.LoginResponse'.
+2025-11-26 08:17:09.382 +03:00 [INF] Executed action eCommerceApp.Host.Controllers.AuthenticationController.LoginUser (eCommerceApp.Host) in 1121.4798ms
+2025-11-26 08:17:09.385 +03:00 [INF] Executed endpoint 'eCommerceApp.Host.Controllers.AuthenticationController.LoginUser (eCommerceApp.Host)'
+2025-11-26 08:17:09.387 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5214/api/Authentication/login - 200 null application/json; charset=utf-8 1163.9512ms
+2025-11-26 08:17:30.944 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5214/api/Order/Add - application/json 223
+2025-11-26 08:17:31.107 +03:00 [INF] CORS policy execution successful.
+2025-11-26 08:17:31.111 +03:00 [INF] Executing endpoint 'eCommerceApp.Host.Controllers.OrderController.Add (eCommerceApp.Host)'
+2025-11-26 08:17:31.121 +03:00 [INF] Route matched with {action = "Add", controller = "Order", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Add(ECommerce.Core.DTOs.Order.CreateOrder) on controller eCommerceApp.Host.Controllers.OrderController (eCommerceApp.Host).

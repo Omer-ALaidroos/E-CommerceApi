@@ -1,6 +1,6 @@
 public enum OrderStatus
 {
-    Pending,
+    Pending=1,
     PaymentReceived,
     Shipped,
     Delivered,

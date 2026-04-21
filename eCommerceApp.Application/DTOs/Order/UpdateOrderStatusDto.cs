@@ -3,6 +3,6 @@
     public class UpdateOrderStatusDto
     {
         public int Id { get; set; }
-        public required string Status { get; set; }
+        public string Status { get; set; }
     }
 }

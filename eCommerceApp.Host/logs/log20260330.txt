@@ -1,0 +1,7 @@
+2026-03-30 17:12:52.442 +03:00 [INF] Application is Building ...
+2026-03-30 17:12:55.341 +03:00 [INF] User profile is available. Using 'C:\Users\alsharga\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-30 17:12:55.756 +03:00 [INF] Applicationis running ..
+2026-03-30 17:12:56.341 +03:00 [INF] Now listening on: http://localhost:5214
+2026-03-30 17:12:57.099 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-30 17:12:57.109 +03:00 [INF] Hosting environment: Development
+2026-03-30 17:12:57.119 +03:00 [INF] Content root path: D:\Dot Net Projects\eCommerceAppSolution\eCommerceApp.Host

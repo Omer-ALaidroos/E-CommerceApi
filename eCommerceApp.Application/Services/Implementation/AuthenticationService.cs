@@ -33,6 +33,7 @@ namespace eCommerceApp.Application.Services.Implementation
             if (!result)
                 return new ServicesResponse(Message: "email address is already in use or unKown Error occured.");
 
+            //look at this
             var users = await userManagement.GetAllUsers();
 
             var assignRoleResult = await roleManagement.AddUserToRole(mapperUser, users!.Count() == 1 ? "Admin" : "User");

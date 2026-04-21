@@ -7,7 +7,7 @@ namespace ECommerce.Core.Entities
         public int Id { get; set; }
         public required string UserId { get; set; }
         public decimal TotalAmount { get; set; }
-        public required OrderStatus Status { get; set; } 
+        public required OrderStatus Status { get; set; } = OrderStatus.Pending;
         public DateTime OrderDate { get; set; } = DateTime.Now;
         public required int ShippingAddressId { get; set; }
 
