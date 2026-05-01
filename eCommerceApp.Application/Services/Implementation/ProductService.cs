@@ -7,7 +7,7 @@ using eCommerceApp.Domain.Interfaces;
 
 namespace eCommerceApp.Application.Services.Implementation
 {
-    public class ProductService(IGeneric<Product> ProductInterface, IMapper mapper) : IProductService
+    public class ProductService(IProduct ProductInterface, IMapper mapper) : IProductService
     {
         public async Task<ServicesResponse> AddAsync(CreateProduct product)
         {
@@ -57,6 +57,14 @@ namespace eCommerceApp.Application.Services.Implementation
           if(product == null) return new GetProduct();
 
            return mapper.Map<GetProduct>(product);
+        }
+
+        public async Task<IEnumerable<GetProduct>> GetProductsByCategoryAsync(int categoryId)
+        {
+            var products = await ProductInterface.GetProductsByCategory(categoryId);
+            if (!products.Any()) return [];
+
+            return mapper.Map<IEnumerable<GetProduct>>(products);
         }
 
         public async Task<ServicesResponse> UpdateAsync(UpdateProduct product)

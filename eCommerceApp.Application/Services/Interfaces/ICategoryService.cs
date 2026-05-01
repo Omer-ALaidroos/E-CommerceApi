@@ -12,7 +12,7 @@ namespace eCommerceApp.Application.Services.Interfaces
         public Task<ServicesResponse> AddAsync(CreateCategory category);
         public Task<ServicesResponse> UpdateAsync(UpdateCategory category);
         public Task<ServicesResponse> DeleteAsync(int id);
-        Task<IEnumerable<GetProduct>> GetProductsByCategoryAsync(int categoryId);
+        
 
     }
 }

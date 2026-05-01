@@ -2,20 +2,15 @@
 using eCommerceApp.Application.Services.Interfaces.Cart;
 using eCommerceApp.Application.Services.Interfaces.Logger;
 using eCommerceApp.Domain.Entities;
-using eCommerceApp.Domain.Entities.Cart;
 using eCommerceApp.Domain.Entities.Identity;
 using eCommerceApp.Domain.Interfaces;
 using eCommerceApp.Domain.Interfaces.Authentication;
 using eCommerceApp.Domain.Interfaces.Cart;
-using eCommerceApp.Domain.Interfaces.CategorySpecifics;
-using eCommerceApp.Domain.Interfaces.Orders;
 using eCommerceApp.Infrastructure.Data;
 using eCommerceApp.Infrastructure.Middleware;
 using eCommerceApp.Infrastructure.Repository;
 using eCommerceApp.Infrastructure.Repository.Authentication;
 using eCommerceApp.Infrastructure.Repository.Cart;
-using eCommerceApp.Infrastructure.Repository.CategorySpecifics;
-using eCommerceApp.Infrastructure.Repository.Orders;
 using eCommerceApp.Infrastructure.Sevices;
 using EntityFramework.Exceptions.SqlServer;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -51,7 +46,10 @@ namespace eCommerceApp.Infrastructure.Dependency_Injection
             services.AddScoped<IGeneric<Product>, GenericRepository<Product>>();
             services.AddScoped<IGeneric<Category>, GenericRepository<Category>>();
             services.AddScoped<IGeneric<Address>, GenericRepository<Address>>();
-           
+           services.AddScoped<IGeneric<Order>, GenericRepository<Order>>();
+
+
+
             services.AddScoped(typeof(IAppLogger<>), typeof(SerilogLoggerAdapter<>));
             services.AddDefaultIdentity<AppUser>(options =>
             {
@@ -110,10 +108,9 @@ namespace eCommerceApp.Infrastructure.Dependency_Injection
             services.AddScoped<IPaymentMethod,PaymentMethodRepository>();
             services.AddScoped<IPaymentService, StripPaymentService>();
             services.AddScoped<ICategory, CategoryRepository>();
+            services.AddScoped<IProduct, ProductRepository>();
             services.AddScoped<ICart, CartRepository>();
-            services.AddScoped<IGeneric<Order>, OrderRepository>();
-
-            Stripe.StripeConfiguration.ApiKey = config["Stripe:SecretKey"];
+           
             return services;
 
         }

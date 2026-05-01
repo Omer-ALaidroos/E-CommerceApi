@@ -58,11 +58,6 @@ namespace eCommerceApp.Host.Controllers
             return response.IsSuccess ? Ok(response) : BadRequest(response);
         }
 
-        [HttpGet("Products-by-category/{categoryId}")]
-        public async Task<IActionResult> GetProductsByCategory(int categoryId)
-        {
-            var products = await categoryService.GetProductsByCategoryAsync(categoryId);
-            return products.Any() ? Ok(products) : NotFound();
-        }
+        
     }
 }

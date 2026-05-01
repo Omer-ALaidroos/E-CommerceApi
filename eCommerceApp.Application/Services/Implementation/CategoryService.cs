@@ -5,12 +5,11 @@ using eCommerceApp.Application.DTOs.Product;
 using eCommerceApp.Application.Services.Interfaces;
 using eCommerceApp.Domain.Entities;
 using eCommerceApp.Domain.Interfaces;
-using eCommerceApp.Domain.Interfaces.CategorySpecifics;
 
 namespace eCommerceApp.Application.Services.Implementation
 {
-    public class CategoryService(IGeneric<Category> CategoryInterface,
-     IMapper mapper,ICategory categoryService) : ICategoryService
+    public class CategoryService(ICategory CategoryInterface,
+     IMapper mapper) : ICategoryService
     {
         public async Task<ServicesResponse> AddAsync(CreateCategory category)
         {
@@ -59,13 +58,7 @@ namespace eCommerceApp.Application.Services.Implementation
             return mapper.Map<GetCategory>(Category);
         }
 
-        public async Task<IEnumerable<GetProduct>> GetProductsByCategoryAsync(int categoryId)
-        {
-            var products = await categoryService.GetProductsByCategory(categoryId);
-            if (!products.Any()) return [];
-
-            return mapper.Map<IEnumerable<GetProduct>>(products);
-        }
+      
 
         public async Task<ServicesResponse> UpdateAsync(UpdateCategory category)
         {
