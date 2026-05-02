@@ -37,7 +37,6 @@ namespace eCommerceApp.Application.Services.Implementation.Cart
 
             if (!paymentResponse.IsSuccess) return paymentResponse;
             
-            // Assuming payment is successful, we can update order status or perform other actions here.
             return paymentResponse;
             
            

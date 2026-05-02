@@ -2,5 +2,6 @@
 {
     public class CreateProduct :Productbase
     {
+      required  public int CategoryId { get; set; }
     }
 }

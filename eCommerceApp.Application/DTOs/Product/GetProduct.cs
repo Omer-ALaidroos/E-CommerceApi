@@ -1,5 +1,4 @@
-﻿using eCommerceApp.Application.DTOs.Category;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace eCommerceApp.Application.DTOs.Product
 {
@@ -7,7 +6,9 @@ namespace eCommerceApp.Application.DTOs.Product
     {
         [Required]
         public int Id { get; set; }
-        public GetCategory? Category { get; set; }
+        public string? ImageUrl { get; set; }
+
+        public int CategoryId { get; set; }
         public DateTime CreatedAt { get; set; }
     }
 }

@@ -4,14 +4,25 @@ using eCommerceApp.Application.DTOs.Product;
 using eCommerceApp.Application.Services.Interfaces;
 using eCommerceApp.Domain.Entities;
 using eCommerceApp.Domain.Interfaces;
+using Microsoft.AspNetCore.Http;
 
 namespace eCommerceApp.Application.Services.Implementation
 {
-    public class ProductService(IProduct ProductInterface, IMapper mapper) : IProductService
+    public class ProductService(IProduct ProductInterface, IMapper mapper,ImageUploader imageUploader) : IProductService
     {
-        public async Task<ServicesResponse> AddAsync(CreateProduct product)
+        public async Task<ServicesResponse> AddAsync(CreateProduct product,IFormFile formFile)
         {
+           
+            var imagePath = await imageUploader.UploadImage(formFile);
+
+            if (imagePath == null)
+            {
+                return new ServicesResponse(false, "Image not saved ,please upload image with extention jpg,jpeg,png");
+            }
+           
             var mappedProduct = mapper.Map<Product>(product);
+
+            mappedProduct.ImageUrl = imagePath;
 
             int result = await ProductInterface.AddAsync(mappedProduct);
 

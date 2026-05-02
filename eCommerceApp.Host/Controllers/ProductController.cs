@@ -31,14 +31,18 @@ namespace eCommerceApp.Host.Controllers
         }
 
         [HttpPost("Add")]
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Add([FromBody] CreateProduct product)
-        {
+        [Authorize(Roles = "Admin,User")]
+        public async Task<IActionResult> Add([FromForm] CreateProduct product,IFormFile image)
 
+        {
+            Console.WriteLine(image == null ? "No image uploaded" : $"Image uploaded: {image.FileName}");
+            Console.WriteLine($"Received product: {product.Name}, Image: {image?.FileName}");   
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var response = await productServise.AddAsync(product);
+            var response = await productServise.AddAsync(product,image);
+
+            Console.WriteLine($"Service response: Success={response.IsSuccess}, Message={response.Message}");
             return response.IsSuccess ? Ok(response) : BadRequest(response);
         }
 
@@ -59,6 +63,15 @@ namespace eCommerceApp.Host.Controllers
         {
             var response = await productServise.DeleteAsync(id);
             return response.IsSuccess ? Ok(response) : BadRequest(response);
+        }
+
+        [HttpGet("GetProductByCategoryId")]
+        [Authorize(Roles ="Admin,User")]
+        public async Task<IActionResult> GetProductsByCategoryId(int categoryId)
+        {
+            var Products = await productServise.GetProductsByCategoryAsync(categoryId);
+
+            return Products.Any() ? Ok(Products) : NotFound();
         }
     }
 }
