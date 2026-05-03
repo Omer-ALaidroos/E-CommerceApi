@@ -3,7 +3,7 @@
     public class CreateOrder
     {
         
-        public required string UserId { get; set; }
+        public required int UserId { get; set; }
         public DateTime OrderDate { get; set; } = DateTime.Now;
         public required int ShippingAddressId { get; set; }
 
