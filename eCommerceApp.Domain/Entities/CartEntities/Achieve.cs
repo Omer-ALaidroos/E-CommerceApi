@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace eCommerceApp.Domain.Entities.Cart
+namespace eCommerceApp.Domain.Entities.CartEntities
 {
     public class Achieve
     {
@@ -9,7 +9,7 @@ namespace eCommerceApp.Domain.Entities.Cart
         public int OrderId { get; set; }
         public int productId { get; set; }
         public int quantity { get; set; }
-        public string? UserId { get; set; }
+        public string UserId { get; set; }
         public DateTime createdDate { get; set; } = DateTime.Now;
 
 

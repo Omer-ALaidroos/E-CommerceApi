@@ -1,9 +1,10 @@
-﻿using eCommerceApp.Domain.Entities.Cart;
-using eCommerceApp.Domain.Interfaces.Cart;
+﻿
+using eCommerceApp.Domain.Entities.CartEntities;
+using eCommerceApp.Domain.Interfaces.CartInterface;
 using eCommerceApp.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace eCommerceApp.Infrastructure.Repository.Cart
+namespace eCommerceApp.Infrastructure.Repository.CartRepo
 {
     public class PaymentMethodRepository(AppDbContext context) : IPaymentMethod
     {

@@ -8,6 +8,12 @@ namespace eCommerceApp.Infrastructure.Repository
 {
     public class ProductRepository(AppDbContext context) : IProduct
     {
+         public async Task<List<Product>> GetByIdsAsync(IEnumerable<int> ids)
+    {
+        return await context.Products
+            .Where(p => ids.Contains(p.Id))
+            .ToListAsync();
+    }
         public async Task<int> AddAsync(Product entity)
         {
             await context.Set<Product>().AddAsync(entity);

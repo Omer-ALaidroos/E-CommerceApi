@@ -1,8 +1,9 @@
-using System.Text.Json.Serialization;
 using eCommerceApp.Application.DependencyInjection;
+using eCommerceApp.Application.Mapping;
 using eCommerceApp.Infrastructure.Dependency_Injection;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +12,7 @@ Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
     .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day)
     .CreateLogger();
-
+builder.Services.AddAutoMapper(typeof(MappingConfig).Assembly);
 
 
 builder.Host.UseSerilog();

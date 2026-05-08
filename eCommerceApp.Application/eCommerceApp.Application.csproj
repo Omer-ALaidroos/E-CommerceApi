@@ -10,7 +10,7 @@
     <ProjectReference Include="..\eCommerceApp.Domain\eCommerceApp.Domain.csproj" />
   </ItemGroup>
 
-  <!-- Optional: add these only if you need AutoMapper DI -->
+  <!-- AutoMapper versions must match the DI package major -->
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />

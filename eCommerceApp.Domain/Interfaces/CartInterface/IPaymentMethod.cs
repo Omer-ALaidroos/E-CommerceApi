@@ -1,6 +1,6 @@
-﻿using eCommerceApp.Domain.Entities.Cart;
+﻿using eCommerceApp.Domain.Entities.CartEntities;
 
-namespace eCommerceApp.Domain.Interfaces.Cart
+namespace eCommerceApp.Domain.Interfaces.CartInterface
 {
     public interface IPaymentMethod
     {

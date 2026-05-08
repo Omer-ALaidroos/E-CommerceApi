@@ -2,128 +2,162 @@ using AutoMapper;
 using eCommerceApp.Application.DTOs;
 using eCommerceApp.Application.DTOs.Cart;
 using eCommerceApp.Application.Services.Interfaces.Cart;
-using eCommerceApp.Domain.Entities;
-using eCommerceApp.Domain.Entities.Cart;
+using eCommerceApp.Domain.Entities.CartEntities;
 using eCommerceApp.Domain.Interfaces;
 using eCommerceApp.Domain.Interfaces.Authentication;
-using eCommerceApp.Domain.Interfaces.Cart;
+using eCommerceApp.Domain.Interfaces.CartInterface;
 
-namespace eCommerceApp.Application.Services.Implementation.Cart
+class CartService(
+	ICart cartInterface,
+	IMapper mapper,
+	IProduct ProductInterface,
+	IPaymentMethodService paymentMethodService,
+	IPaymentService paymentService,
+	IUserManagement userManagement) : ICartService
 {
-    public class CartService(ICart cartInterface, IMapper mapper,
-     IGeneric<Product> ProductInterface,IPaymentMethodService paymentMethodService
-     , IPaymentService paymentService, IUserManagement userManagement) : ICartService
-    {
-        public async Task<ServicesResponse> Checkout(Checkout checkout)
-        {
-           var (products, totalAmount) = await GetCartTotalAmount(checkout.Carts);
 
-            if (!products.Any())
-            {
-                return new ServicesResponse(false, "Cart is empty or products not found.");
-            }
+	public async Task<ServicesResponse> AddToCart(string userId, int productId, int quantity)
+	{
+		if (quantity <= 0)
+			return new ServicesResponse(false, "Invalid quantity");
 
-            var PaymentMethods = await paymentMethodService.GetPaymntMethods();
-            if (PaymentMethods.All(p => p.Id != checkout.PaymentMethodId))
-            {
-                return new ServicesResponse(false, "Invalid Payment Method");
-            }
+		var product = await ProductInterface.GetByIdAsync(productId);
+		if (product == null)
+			return new ServicesResponse(false, "Product not found");
 
-            
+		var cart = await cartInterface.GetActiveCart(userId);
 
-         
+		if (cart == null)
+		{
+			cart = new Cart
+			{
+				UserId = userId,
+				CreatedAt = DateTime.UtcNow,
+				IsCheckedOut = false
+			};
 
-            var paymentResponse = await paymentService.Pay(totalAmount, products, checkout.Carts);
+			await cartInterface.CreateCart(cart);
+		}
 
-            if (!paymentResponse.IsSuccess) return paymentResponse;
-            
-            return paymentResponse;
-            
-           
-        }
+		var item = cart.Items.FirstOrDefault(i => i.ProductId == productId);
 
-        public async Task<ServicesResponse> SaveCheckoutHistory(IEnumerable<CreateAchieve> achieves)
-        {
-            var mappedData = mapper.Map<IEnumerable<Achieve>>(achieves);
+		if (item != null)
+		{
+			item.Quantity += quantity;
+			await cartInterface.UpdateCartItem(item);
+		}
+		else
+		{
+			await cartInterface.AddCartItem(new CartItem
+			{
+				Cart = cart,
+				ProductId = productId,
+				Quantity = quantity,
+				PriceAtTime = product.Price
+			});
+		}
 
-            var result = await cartInterface.SaveCheckoutHistory(mappedData);
-            return result > 0 ? new ServicesResponse
-            {
-                IsSuccess = true,
-                Message = "Checkout Achieved",
+		await cartInterface.SaveChanges();
 
-            } : new ServicesResponse
-            {
-                IsSuccess = false,
-                Message = "Errror occured while saving achieves",
+		return new ServicesResponse(true, "Added to cart");
+	}
 
-            };
+	public async Task<IEnumerable<GetCartDto>> GetMyCart(string userId)
+	{
+		var cart = await cartInterface.GetActiveCart(userId);
 
-        }
-        public async Task<IEnumerable<GetAchieve>> GetAllCheckoutHistory()
-        {
-            var history = await cartInterface.GetAllCheckoutHistory();
-            if (history == null) return [];
+		if (cart == null || !cart.Items.Any())
+			return Enumerable.Empty<GetCartDto>();
 
-            var GroupByCustomerID = history.GroupBy(h => h.UserId).ToList();
-            var Products = await ProductInterface.GetAllAsync();
-            var Achieves = new List<GetAchieve>();
+		var products = await ProductInterface.GetAllAsync();
 
-            foreach (var customerId in GroupByCustomerID)
-            {
-                var CustomerDetails = await userManagement.GetUserById(customerId.Key!);
-                foreach (var item in customerId)
-                {
-                    var product = Products.FirstOrDefault(p => p.Id == item.productId);
-                    Achieves.Add(new GetAchieve
-                    {
-                        ProductName = product?.Name,
-                        QuantityOrderd = item.quantity,
-                        AmountPayed = item.quantity * product!.Price,
-                        CustomerName = CustomerDetails?.FullName,
-                        CustomerEmail = CustomerDetails?.Email,
-                        DatePurchased = item.createdDate
-                    });
-                }
+		return cart.Items.Select(i =>
+		{
+			var p = products.FirstOrDefault(x => x.Id == i.ProductId);
 
-            }
-            
-            return Achieves;
-        }
-        
-        private async Task<(IEnumerable<Product>,decimal)> GetCartTotalAmount(IEnumerable<ProcessCart> carts)
-        {
-            if (!carts.Any())
-                return ([], 0);
+			return new GetCartDto
+			{
+				ProductId = i.ProductId,
+				ProductName = p?.Name ?? "Unknown Product",
+				Quantity = i.Quantity,
+				Price = i.PriceAtTime,
+				Total = i.Quantity * i.PriceAtTime
+			};
+		});
+	}
 
-            var Products = await ProductInterface.GetAllAsync();
+	public async Task<ServicesResponse> RemoveFromCart(string userId, int productId)
+	{
+		var cart = await cartInterface.GetActiveCart(userId);
 
-            if (!Products.Any())
-                return ([], 0);
+		if (cart == null)
+			return new ServicesResponse(false, "Cart not found");
 
-            var CartProducts = carts
-            .Select(cartItem => Products.FirstOrDefault(p => p.Id == cartItem.ProductId))
-            .Where(p => p != null)
-            .ToList();
+		var item = cart.Items.FirstOrDefault(i => i.ProductId == productId);
 
-            var TotalAmount = carts
-            .Where(cartITem => CartProducts.Any(p => p.Id == cartITem.ProductId))
-            .Sum(cartItem => cartItem.Quantity *
-            (CartProducts.First(p => p.Id == cartItem.ProductId)!.Price));
-           
-            return (CartProducts!, TotalAmount);
-        }
+		if (item == null)
+			return new ServicesResponse(false, "Item not found");
 
-        public async Task<IEnumerable<GetAchieve>> GetAchieves()
-        {
-            var achieves =await cartInterface.GetAllCheckoutHistory();
+		cart.Items.Remove(item);
 
-            if (!achieves.Any()) return [];
+		await cartInterface.SaveChanges();
 
-           var mapperData = mapper.Map<IEnumerable<GetAchieve>>(achieves);
-            return mapperData;
-        }
+		return new ServicesResponse(true, "Removed");
+	}
 
-       
-    }
+	public async Task<ServicesResponse> Checkout(string userId, int paymentMethodId)
+	{
+		var cart = await cartInterface.GetActiveCart(userId);
+
+		if (cart == null || !cart.Items.Any())
+			return new ServicesResponse(false, "Cart is empty");
+
+		var paymentMethods = await paymentMethodService.GetPaymntMethods();
+		if (paymentMethods.All(p => p.Id != paymentMethodId))
+			return new ServicesResponse(false, "Invalid Payment Method");
+
+		var total = cart.Items.Sum(i => i.Quantity * i.PriceAtTime);
+
+        var productIds = cart.Items.Select(i => i.ProductId).ToList();
+         var products = await ProductInterface.GetByIdsAsync(productIds);
+
+var paymentResponse = await paymentService.Pay(total, cart.Items, products);
+		if (!paymentResponse.IsSuccess)
+			return paymentResponse;
+
+		var achieves = cart.Items.Select(i => new Achieve
+		{
+			UserId = userId,
+			productId = i.ProductId,
+			quantity = i.Quantity,
+			createdDate = DateTime.UtcNow
+		});
+
+		await cartInterface.SaveCheckoutHistory(achieves);
+
+		cart.IsCheckedOut = true;
+
+		await cartInterface.SaveChanges();
+
+		return new ServicesResponse(true, "Checkout done");
+	}
+
+	public async Task<ServicesResponse> SaveCheckoutHistory(IEnumerable<CreateAchieve> achieves)
+	{
+		var mappedData = mapper.Map<IEnumerable<Achieve>>(achieves);
+		if (mappedData == null)
+			return new ServicesResponse(false, "Mapping failed");
+
+		var result = await cartInterface.SaveCheckoutHistory(mappedData);
+
+		return result > 0
+			? new ServicesResponse(true, "Saved")
+			: new ServicesResponse(false, "Error");
+	}
+
+	public async Task<IEnumerable<GetAchieve>> GetAchieves()
+	{
+		var achieves = await cartInterface.GetAllCheckoutHistory();
+		return mapper.Map<IEnumerable<GetAchieve>>(achieves);
+	}
 }

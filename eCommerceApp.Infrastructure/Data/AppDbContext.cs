@@ -1,11 +1,11 @@
 ﻿using ECommerce.Core.Entities;
 using eCommerceApp.Domain.Entities;
-using eCommerceApp.Domain.Entities.Cart;
+
+using eCommerceApp.Domain.Entities.CartEntities;
 using eCommerceApp.Domain.Entities.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Emit;
 
 namespace eCommerceApp.Infrastructure.Data
 {

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using eCommerceApp.Application.DTOs.Cart;
 using eCommerceApp.Application.Services.Interfaces.Cart;
-using eCommerceApp.Domain.Interfaces.Cart;
+using eCommerceApp.Domain.Interfaces.CartInterface;
 namespace eCommerceApp.Application.Services.Implementation.Cart
 {
     public class PaymentMethodService(IPaymentMethod paymentMethod, IMapper mapper) : IPaymentMethodService

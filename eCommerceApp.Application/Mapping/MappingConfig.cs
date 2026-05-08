@@ -7,7 +7,7 @@ using eCommerceApp.Application.DTOs.Cart;
 using eCommerceApp.Application.DTOs.Category;
 using eCommerceApp.Application.DTOs.Product;
 using eCommerceApp.Domain.Entities;
-using eCommerceApp.Domain.Entities.Cart;
+using eCommerceApp.Domain.Entities.CartEntities;
 using eCommerceApp.Domain.Entities.Identity;
 
 namespace eCommerceApp.Application.Mapping
@@ -35,10 +35,8 @@ namespace eCommerceApp.Application.Mapping
 
             CreateMap<Order, GetOrder>();
             CreateMap<CreateOrder,Order>();
-
-          
         }
 
-
+       
     }
 }

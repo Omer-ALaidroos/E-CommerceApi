@@ -6,7 +6,7 @@ namespace eCommerceApp.Domain.Interfaces
     {
         Task<IEnumerable<Product>> GetProductsByCategory(int categoryId);
         public Task<IEnumerable<Product>> GetAllAsync();
-
+        Task<List<Product>> GetByIdsAsync(IEnumerable<int> ids);
         public Task<Product> GetByIdAsync(int id);
         public Task<int> AddAsync(Product entity);
         public Task<int> UpdateAsync(Product entity);

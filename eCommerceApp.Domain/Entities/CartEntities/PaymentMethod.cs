@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace eCommerceApp.Domain.Entities.Cart
+namespace eCommerceApp.Domain.Entities.CartEntities
 {
     public class PaymentMethod
     {
