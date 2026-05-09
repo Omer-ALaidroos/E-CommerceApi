@@ -1,13 +1,15 @@
 ﻿using eCommerceApp.Application.DTOs;
 using eCommerceApp.Application.DTOs.Cart;
 using eCommerceApp.Application.Services.Interfaces.Cart;
+using eCommerceApp.Application.Services.Interfaces.Logger;
 using eCommerceApp.Domain.Entities;
 using eCommerceApp.Domain.Entities.CartEntities;
+using Microsoft.Extensions.Configuration;
 using Stripe.Checkout;
 
 namespace eCommerceApp.Infrastructure.Sevices
 {
-   public class StripPaymentService : IPaymentService
+   public class StripPaymentService(IConfiguration configuration, IAppLogger<StripPaymentService> logger) : IPaymentService
 {
     public async Task<ServicesResponse> Pay(
         decimal amount,
@@ -16,13 +18,12 @@ namespace eCommerceApp.Infrastructure.Sevices
     {
         try
         {
+            var productDict = products.ToDictionary(p => p.Id);
             var lineItems = new List<SessionLineItemOptions>();
 
             foreach (var item in cartItems)
             {
-                var product = products.FirstOrDefault(p => p.Id == item.ProductId);
-
-                if (product == null)
+                if (!productDict.TryGetValue(item.ProductId, out var product))
                     continue;
 
                 lineItems.Add(new SessionLineItemOptions
@@ -47,8 +48,8 @@ namespace eCommerceApp.Infrastructure.Sevices
                 PaymentMethodTypes = ["card"],
                 LineItems = lineItems,
                 Mode = "payment",
-                SuccessUrl = "http://localhost:5214/payment/success",
-                CancelUrl = "http://localhost:5214/payment/cancel",
+                SuccessUrl = configuration["Stripe:SuccessUrl"],
+                CancelUrl = configuration["Stripe:CancelUrl"],
             };
 
             var service = new SessionService();
@@ -58,7 +59,8 @@ namespace eCommerceApp.Infrastructure.Sevices
         }
         catch (Exception ex)
         {
-            return new ServicesResponse(false, ex.Message);
+            logger.LogError(ex, "Error occurred during Stripe session creation.");
+            return new ServicesResponse(false, "An error occurred while processing your payment.");
         }
     }
 }

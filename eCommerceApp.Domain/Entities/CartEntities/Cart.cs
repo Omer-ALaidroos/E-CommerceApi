@@ -8,6 +8,6 @@
         public bool IsCheckedOut { get; set; } 
         public DateTime CreatedAt { get; set; }
 
-        public List<CartItem>? Items { get; set; }
+        public List<CartItem>? Items { get; set; } = new List<CartItem>();
     }
 }

@@ -1,0 +1,1441 @@
+2026-05-09 10:13:13.299 +03:00 [INF] Application is Building ...
+2026-05-09 10:13:15.241 +03:00 [INF] User profile is available. Using 'C:\Users\alsharga\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-09 10:13:16.087 +03:00 [INF] Applicationis running ..
+2026-05-09 10:13:16.546 +03:00 [INF] Now listening on: http://localhost:5214
+2026-05-09 10:13:16.821 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-09 10:13:16.824 +03:00 [INF] Hosting environment: Development
+2026-05-09 10:13:16.825 +03:00 [INF] Content root path: D:\Dot Net Projects\eCommerceAppSolution\eCommerceApp.Host
+2026-05-09 10:13:18.989 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/index.html - null null
+2026-05-09 10:13:19.860 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/index.html - 200 null text/html;charset=utf-8 881.7368ms
+2026-05-09 10:13:19.929 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-09 10:13:19.944 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/index.js - null null
+2026-05-09 10:13:19.981 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 53.4973ms
+2026-05-09 10:13:19.982 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/index.js - 200 null application/javascript;charset=utf-8 38.2509ms
+2026-05-09 10:13:20.037 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/_vs/browserLink - null null
+2026-05-09 10:13:20.562 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/_vs/browserLink - 200 null text/javascript; charset=UTF-8 526.0187ms
+2026-05-09 10:13:20.809 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/v1/swagger.json - null null
+2026-05-09 10:13:20.871 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 62.1876ms
+2026-05-09 10:14:19.620 +03:00 [INF] Request starting HTTP/1.1 POST http://10.0.2.2:5214/api/Authentication/login - application/json 49
+2026-05-09 10:14:19.754 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '5/8/2026 9:18:29 PM', Current time (UTC): '5/9/2026 7:14:19 AM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-05-09 10:14:19.863 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '5/8/2026 9:18:29 PM', Current time (UTC): '5/9/2026 7:14:19 AM'.
+2026-05-09 10:14:20.222 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-05-09 10:14:20.229 +03:00 [INF] Executing endpoint 'eCommerceApp.Host.Controllers.AuthenticationController.LoginUser (eCommerceApp.Host)'
+2026-05-09 10:14:20.311 +03:00 [INF] Route matched with {action = "LoginUser", controller = "Authentication", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginUser(eCommerceApp.Application.DTOs.LoginUser) on controller eCommerceApp.Host.Controllers.AuthenticationController (eCommerceApp.Host).
+2026-05-09 10:14:22.443 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'OrderItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-09 10:14:22.446 +03:00 [WRN] No store type was specified for the decimal property 'PriceAtTime' on entity type 'CartItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-09 10:14:24.197 +03:00 [INF] Executed DbCommand (102ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-05-09 10:14:24.359 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-05-09 10:14:24.443 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2026-05-09 10:14:24.589 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-05-09 10:14:24.597 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-05-09 10:14:24.602 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-05-09 10:14:24.608 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2026-05-09 10:14:24.649 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__RefreshToken_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[Token], [r].[UserId]
+FROM [RefreshTokens] AS [r]
+WHERE [r].[Token] = @__RefreshToken_0
+2026-05-09 10:14:24.910 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1);
+2026-05-09 10:14:24.963 +03:00 [INF] Executing OkObjectResult, writing value of type 'eCommerceApp.Application.DTOs.LoginResponse'.
+2026-05-09 10:14:24.984 +03:00 [INF] Executed action eCommerceApp.Host.Controllers.AuthenticationController.LoginUser (eCommerceApp.Host) in 4663.6298ms
+2026-05-09 10:14:24.986 +03:00 [INF] Executed endpoint 'eCommerceApp.Host.Controllers.AuthenticationController.LoginUser (eCommerceApp.Host)'
+2026-05-09 10:14:25.007 +03:00 [INF] Request finished HTTP/1.1 POST http://10.0.2.2:5214/api/Authentication/login - 200 null application/json; charset=utf-8 5386.6775ms
+2026-05-09 10:14:25.465 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Product/All - null null
+2026-05-09 10:14:25.512 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Category/All - null null
+2026-05-09 10:14:25.519 +03:00 [INF] Executing endpoint 'eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host)'
+2026-05-09 10:14:25.519 +03:00 [INF] Executing endpoint 'eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host)'
+2026-05-09 10:14:25.525 +03:00 [INF] Route matched with {action = "GetAll", controller = "Category", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller eCommerceApp.Host.Controllers.CategoryController (eCommerceApp.Host).
+2026-05-09 10:14:25.526 +03:00 [INF] Route matched with {action = "GetAll", controller = "Product", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller eCommerceApp.Host.Controllers.ProductController (eCommerceApp.Host).
+2026-05-09 10:14:25.705 +03:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+2026-05-09 10:14:25.723 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[eCommerceApp.Application.DTOs.Category.GetCategory, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 10:14:25.723 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 10:14:25.739 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[eCommerceApp.Application.DTOs.Product.GetProduct, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 10:14:25.740 +03:00 [INF] Executed action eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host) in 209.4658ms
+2026-05-09 10:14:25.743 +03:00 [INF] Executed endpoint 'eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host)'
+2026-05-09 10:14:25.745 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Category/All - 200 null application/json; charset=utf-8 233.3754ms
+2026-05-09 10:14:25.749 +03:00 [INF] Executed action eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host) in 210.6499ms
+2026-05-09 10:14:25.752 +03:00 [INF] Executed endpoint 'eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host)'
+2026-05-09 10:14:25.753 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Product/All - 200 null application/json; charset=utf-8 288.1107ms
+2026-05-09 10:14:31.555 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 10:14:31.562 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 10:14:31.569 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 10:14:31.723 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 10:14:31.729 +03:00 [INF] Executing OkObjectResult, writing value of type 'eCommerceApp.Application.DTOs.Cart.GetCartDto[]'.
+2026-05-09 10:14:31.733 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 161.6594ms
+2026-05-09 10:14:31.735 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 10:14:31.736 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 181.8127ms
+2026-05-09 10:14:33.982 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Product/All - null null
+2026-05-09 10:14:33.989 +03:00 [INF] Executing endpoint 'eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host)'
+2026-05-09 10:14:33.989 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Category/All - null null
+2026-05-09 10:14:33.990 +03:00 [INF] Route matched with {action = "GetAll", controller = "Product", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller eCommerceApp.Host.Controllers.ProductController (eCommerceApp.Host).
+2026-05-09 10:14:33.998 +03:00 [INF] Executing endpoint 'eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host)'
+2026-05-09 10:14:34.001 +03:00 [INF] Route matched with {action = "GetAll", controller = "Category", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller eCommerceApp.Host.Controllers.CategoryController (eCommerceApp.Host).
+2026-05-09 10:14:34.005 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 10:14:34.013 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[eCommerceApp.Application.DTOs.Product.GetProduct, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 10:14:34.044 +03:00 [INF] Executed action eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host) in 45.2495ms
+2026-05-09 10:14:34.046 +03:00 [INF] Executed endpoint 'eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host)'
+2026-05-09 10:14:34.046 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+2026-05-09 10:14:34.051 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Product/All - 200 null application/json; charset=utf-8 68.9898ms
+2026-05-09 10:14:34.054 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[eCommerceApp.Application.DTOs.Category.GetCategory, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 10:14:34.064 +03:00 [INF] Executed action eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host) in 60.3769ms
+2026-05-09 10:14:34.069 +03:00 [INF] Executed endpoint 'eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host)'
+2026-05-09 10:14:34.070 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Category/All - 200 null application/json; charset=utf-8 80.9304ms
+2026-05-09 10:15:40.057 +03:00 [INF] Request starting HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/add-to-cart - application/json 29
+2026-05-09 10:15:40.072 +03:00 [INF] Request finished HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/add-to-cart - 404 0 null 15.4938ms
+2026-05-09 10:15:40.078 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: PUT http://10.0.2.2:5214/api/Cart/add-to-cart, Response status code: 404
+2026-05-09 10:16:16.566 +03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5214/api/Cart/add - application/json 37
+2026-05-09 10:16:16.571 +03:00 [INF] CORS policy execution successful.
+2026-05-09 10:16:16.573 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (User)
+2026-05-09 10:16:16.581 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-05-09 10:16:16.584 +03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5214/api/Cart/add - 401 0 null 17.9451ms
+2026-05-09 10:16:48.940 +03:00 [INF] Request starting HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/add - application/json 29
+2026-05-09 10:16:48.943 +03:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2026-05-09 10:16:48.948 +03:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2026-05-09 10:16:48.949 +03:00 [INF] Request finished HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/add - 405 0 null 9.5689ms
+2026-05-09 10:21:27.439 +03:00 [INF] Request starting HTTP/1.1 POST http://10.0.2.2:5214/api/Cart/add - application/json 29
+2026-05-09 10:21:27.448 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.AddToCart (eCommerceApp.Host)'
+2026-05-09 10:21:27.455 +03:00 [INF] Route matched with {action = "AddToCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] AddToCart(eCommerceApp.Application.DTOs.Cart.AddToCartDto) on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 10:21:27.544 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__p_0
+2026-05-09 10:21:27.573 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 10:27:08.532 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.AddToCart (eCommerceApp.Host) in 341072.4035ms
+2026-05-09 10:27:08.538 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.AddToCart (eCommerceApp.Host)'
+2026-05-09 10:27:08.734 +03:00 [ERR] An UnKown exception occurred.
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Func`2 predicate, Boolean& found)
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at CartService.AddToCart(String userId, Int32 productId, Int32 quantity) in D:\Dot Net Projects\eCommerceAppSolution\eCommerceApp.Application\Services\Implementation\Cart\CartService.cs:line 42
+   at eCommerceApp.API.Controllers.CartController.AddToCart(AddToCartDto dto) in D:\Dot Net Projects\eCommerceAppSolution\eCommerceApp.Host\Controllers\CartController.cs:line 28
+   at lambda_method491(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at eCommerceApp.Infrastructure.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in D:\Dot Net Projects\eCommerceAppSolution\eCommerceApp.Infrastructure\Middleware\ExceptionHandlingMiddleware.cs:line 15
+2026-05-09 10:27:08.764 +03:00 [INF] Request finished HTTP/1.1 POST http://10.0.2.2:5214/api/Cart/add - 500 null null 341325.3392ms
+2026-05-09 10:27:18.760 +03:00 [INF] Request starting HTTP/1.1 POST http://10.0.2.2:5214/api/Cart/add - application/json 29
+2026-05-09 10:27:18.767 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.AddToCart (eCommerceApp.Host)'
+2026-05-09 10:27:18.769 +03:00 [INF] Route matched with {action = "AddToCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] AddToCart(eCommerceApp.Application.DTOs.Cart.AddToCartDto) on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 10:27:36.396 +03:00 [INF] Executed DbCommand (795ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__p_0
+2026-05-09 10:27:44.569 +03:00 [INF] Executed DbCommand (28ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 10:28:13.766 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.AddToCart (eCommerceApp.Host) in 54989.4597ms
+2026-05-09 10:28:13.771 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.AddToCart (eCommerceApp.Host)'
+2026-05-09 10:28:13.931 +03:00 [ERR] An UnKown exception occurred.
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Func`2 predicate, Boolean& found)
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at CartService.AddToCart(String userId, Int32 productId, Int32 quantity) in D:\Dot Net Projects\eCommerceAppSolution\eCommerceApp.Application\Services\Implementation\Cart\CartService.cs:line 42
+   at eCommerceApp.API.Controllers.CartController.AddToCart(AddToCartDto dto) in D:\Dot Net Projects\eCommerceAppSolution\eCommerceApp.Host\Controllers\CartController.cs:line 28
+   at lambda_method491(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at eCommerceApp.Infrastructure.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in D:\Dot Net Projects\eCommerceAppSolution\eCommerceApp.Infrastructure\Middleware\ExceptionHandlingMiddleware.cs:line 15
+2026-05-09 10:28:13.950 +03:00 [INF] Request finished HTTP/1.1 POST http://10.0.2.2:5214/api/Cart/add - 500 null null 55190.1048ms
+2026-05-09 10:30:43.748 +03:00 [INF] Application is Building ...
+2026-05-09 10:30:44.071 +03:00 [INF] User profile is available. Using 'C:\Users\alsharga\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-09 10:30:44.200 +03:00 [INF] Applicationis running ..
+2026-05-09 10:30:44.314 +03:00 [INF] Now listening on: http://localhost:5214
+2026-05-09 10:30:44.427 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-09 10:30:44.428 +03:00 [INF] Hosting environment: Development
+2026-05-09 10:30:44.429 +03:00 [INF] Content root path: D:\Dot Net Projects\eCommerceAppSolution\eCommerceApp.Host
+2026-05-09 10:31:03.396 +03:00 [INF] Application is Building ...
+2026-05-09 10:31:04.008 +03:00 [INF] User profile is available. Using 'C:\Users\alsharga\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-09 10:31:04.263 +03:00 [INF] Applicationis running ..
+2026-05-09 10:31:04.499 +03:00 [INF] Now listening on: http://localhost:5214
+2026-05-09 10:31:05.002 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-09 10:31:05.011 +03:00 [INF] Hosting environment: Development
+2026-05-09 10:31:05.023 +03:00 [INF] Content root path: D:\Dot Net Projects\eCommerceAppSolution\eCommerceApp.Host
+2026-05-09 10:31:05.669 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/index.html - null null
+2026-05-09 10:31:06.116 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/index.html - 200 null text/html;charset=utf-8 456.6504ms
+2026-05-09 10:31:06.203 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/index.js - null null
+2026-05-09 10:31:06.203 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-09 10:31:06.226 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/index.js - 200 null application/javascript;charset=utf-8 22.9345ms
+2026-05-09 10:31:06.311 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/_vs/browserLink - null null
+2026-05-09 10:31:06.317 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 114.5333ms
+2026-05-09 10:31:06.374 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/_vs/browserLink - 200 null text/javascript; charset=UTF-8 62.9966ms
+2026-05-09 10:31:06.506 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/v1/swagger.json - null null
+2026-05-09 10:31:06.542 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 36.0909ms
+2026-05-09 10:34:37.784 +03:00 [INF] Request starting HTTP/1.1 POST http://10.0.2.2:5214/api/Cart/add - application/json 29
+2026-05-09 10:34:37.958 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-05-09 10:34:37.971 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.AddToCart (eCommerceApp.Host)'
+2026-05-09 10:34:38.025 +03:00 [INF] Route matched with {action = "AddToCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] AddToCart(eCommerceApp.Application.DTOs.Cart.AddToCartDto) on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 10:34:46.001 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'OrderItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-09 10:34:46.003 +03:00 [WRN] No store type was specified for the decimal property 'PriceAtTime' on entity type 'CartItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-09 10:34:47.181 +03:00 [INF] Executed DbCommand (61ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__p_0
+2026-05-09 10:34:55.440 +03:00 [INF] Executed DbCommand (1,057ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 10:35:20.982 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Boolean), @p2='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Carts] ([CreatedAt], [IsCheckedOut], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+2026-05-09 10:35:21.597 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@p3='?' (DbType = Int32), @p4='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [CartItems] ([CartId], [PriceAtTime], [ProductId], [Quantity])
+OUTPUT INSERTED.[Id]
+VALUES (@p3, @p4, @p5, @p6);
+2026-05-09 10:35:26.581 +03:00 [INF] Executing OkObjectResult, writing value of type 'eCommerceApp.Application.DTOs.ServicesResponse'.
+2026-05-09 10:35:26.597 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.AddToCart (eCommerceApp.Host) in 48562.2517ms
+2026-05-09 10:35:26.600 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.AddToCart (eCommerceApp.Host)'
+2026-05-09 10:35:26.613 +03:00 [INF] Request finished HTTP/1.1 POST http://10.0.2.2:5214/api/Cart/add - 200 null application/json; charset=utf-8 48829.2411ms
+2026-05-09 10:35:38.276 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 10:35:38.292 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 10:35:38.301 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 10:35:38.447 +03:00 [INF] Executed DbCommand (39ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 10:35:38.490 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 10:35:38.500 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 10:35:38.514 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 208.8299ms
+2026-05-09 10:35:38.516 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 10:35:38.517 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 241.576ms
+2026-05-09 10:41:02.626 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Product/All - null null
+2026-05-09 10:41:02.633 +03:00 [INF] Executing endpoint 'eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host)'
+2026-05-09 10:41:02.639 +03:00 [INF] Route matched with {action = "GetAll", controller = "Product", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller eCommerceApp.Host.Controllers.ProductController (eCommerceApp.Host).
+2026-05-09 10:41:02.655 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Category/All - null null
+2026-05-09 10:41:02.660 +03:00 [INF] Executing endpoint 'eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host)'
+2026-05-09 10:41:02.665 +03:00 [INF] Route matched with {action = "GetAll", controller = "Category", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller eCommerceApp.Host.Controllers.CategoryController (eCommerceApp.Host).
+2026-05-09 10:41:02.680 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 10:41:02.686 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+2026-05-09 10:41:02.707 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[eCommerceApp.Application.DTOs.Product.GetProduct, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 10:41:02.707 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[eCommerceApp.Application.DTOs.Category.GetCategory, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 10:41:02.717 +03:00 [INF] Executed action eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host) in 48.3221ms
+2026-05-09 10:41:02.719 +03:00 [INF] Executed endpoint 'eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host)'
+2026-05-09 10:41:02.721 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Category/All - 200 null application/json; charset=utf-8 65.2137ms
+2026-05-09 10:41:02.732 +03:00 [INF] Executed action eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host) in 88.2735ms
+2026-05-09 10:41:02.734 +03:00 [INF] Executed endpoint 'eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host)'
+2026-05-09 10:41:02.735 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Product/All - 200 null application/json; charset=utf-8 108.8143ms
+2026-05-09 10:41:13.156 +03:00 [INF] Request starting HTTP/1.1 POST http://10.0.2.2:5214/api/Cart/add - application/json 29
+2026-05-09 10:41:13.160 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.AddToCart (eCommerceApp.Host)'
+2026-05-09 10:41:13.161 +03:00 [INF] Route matched with {action = "AddToCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] AddToCart(eCommerceApp.Application.DTOs.Cart.AddToCartDto) on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 10:41:17.940 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__p_0
+2026-05-09 10:41:17.952 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 10:41:17.963 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [CartItems] ([CartId], [PriceAtTime], [ProductId], [Quantity])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2026-05-09 10:41:19.116 +03:00 [INF] Executing OkObjectResult, writing value of type 'eCommerceApp.Application.DTOs.ServicesResponse'.
+2026-05-09 10:41:19.118 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.AddToCart (eCommerceApp.Host) in 5954.2135ms
+2026-05-09 10:41:19.121 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.AddToCart (eCommerceApp.Host)'
+2026-05-09 10:41:19.122 +03:00 [INF] Request finished HTTP/1.1 POST http://10.0.2.2:5214/api/Cart/add - 200 null application/json; charset=utf-8 5965.4445ms
+2026-05-09 10:41:30.009 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 10:41:30.013 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 10:41:30.014 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 10:41:30.021 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 10:41:30.028 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 10:41:42.388 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 10:41:42.391 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 12373.4074ms
+2026-05-09 10:41:42.393 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 10:41:42.395 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 12386.4691ms
+2026-05-09 10:43:14.450 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 10:43:14.453 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 10:43:14.455 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 10:43:14.470 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 10:43:14.479 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 10:43:14.483 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 10:43:14.486 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 27.2951ms
+2026-05-09 10:43:14.487 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 10:43:14.489 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 38.985ms
+2026-05-09 11:01:35.815 +03:00 [INF] Application is Building ...
+2026-05-09 11:01:36.411 +03:00 [INF] User profile is available. Using 'C:\Users\alsharga\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-09 11:01:37.000 +03:00 [INF] Applicationis running ..
+2026-05-09 11:01:37.425 +03:00 [INF] Now listening on: http://localhost:5214
+2026-05-09 11:01:37.877 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-09 11:01:37.945 +03:00 [INF] Hosting environment: Development
+2026-05-09 11:01:37.981 +03:00 [INF] Content root path: D:\Dot Net Projects\eCommerceAppSolution\eCommerceApp.Host
+2026-05-09 11:01:38.770 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/index.html - null null
+2026-05-09 11:01:39.880 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/index.html - 200 null text/html;charset=utf-8 1123.8365ms
+2026-05-09 11:01:39.957 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-09 11:01:39.964 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/index.js - null null
+2026-05-09 11:01:40.014 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/_vs/browserLink - null null
+2026-05-09 11:01:40.112 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/index.js - 200 null application/javascript;charset=utf-8 148.2158ms
+2026-05-09 11:01:40.100 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 144.7301ms
+2026-05-09 11:01:40.243 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/_vs/browserLink - 200 null text/javascript; charset=UTF-8 228.7305ms
+2026-05-09 11:01:40.420 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/v1/swagger.json - null null
+2026-05-09 11:01:40.497 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 77.091ms
+2026-05-09 11:01:49.228 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 11:01:49.350 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-05-09 11:01:49.363 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 11:01:49.395 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 11:01:50.910 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'OrderItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-09 11:01:50.912 +03:00 [WRN] No store type was specified for the decimal property 'PriceAtTime' on entity type 'CartItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-09 11:01:52.207 +03:00 [INF] Executed DbCommand (67ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 11:01:52.416 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 11:01:52.430 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 11:01:52.456 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 3054.4222ms
+2026-05-09 11:01:52.460 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 11:01:52.479 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 3250.3216ms
+2026-05-09 11:02:46.037 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 11:02:46.047 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 11:02:46.060 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 11:02:46.154 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 11:02:46.164 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 11:02:46.169 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 11:02:46.171 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 107.1794ms
+2026-05-09 11:02:46.172 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 11:02:46.174 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 137.9396ms
+2026-05-09 11:06:23.035 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Product/All - null null
+2026-05-09 11:06:23.041 +03:00 [INF] Executing endpoint 'eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host)'
+2026-05-09 11:06:23.047 +03:00 [INF] Route matched with {action = "GetAll", controller = "Product", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller eCommerceApp.Host.Controllers.ProductController (eCommerceApp.Host).
+2026-05-09 11:06:23.065 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Category/All - null null
+2026-05-09 11:06:23.072 +03:00 [INF] Executing endpoint 'eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host)'
+2026-05-09 11:06:23.078 +03:00 [INF] Route matched with {action = "GetAll", controller = "Category", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller eCommerceApp.Host.Controllers.CategoryController (eCommerceApp.Host).
+2026-05-09 11:06:23.155 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 11:06:23.198 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+2026-05-09 11:06:23.213 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[eCommerceApp.Application.DTOs.Product.GetProduct, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 11:06:23.213 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[eCommerceApp.Application.DTOs.Category.GetCategory, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 11:06:23.222 +03:00 [INF] Executed action eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host) in 140.7276ms
+2026-05-09 11:06:23.224 +03:00 [INF] Executed action eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host) in 174.9543ms
+2026-05-09 11:06:23.225 +03:00 [INF] Executed endpoint 'eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host)'
+2026-05-09 11:06:23.227 +03:00 [INF] Executed endpoint 'eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host)'
+2026-05-09 11:06:23.228 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Category/All - 200 null application/json; charset=utf-8 166.0567ms
+2026-05-09 11:06:23.229 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Product/All - 200 null application/json; charset=utf-8 194.7582ms
+2026-05-09 11:06:30.434 +03:00 [INF] Request starting HTTP/1.1 POST http://10.0.2.2:5214/api/Cart/add - application/json 29
+2026-05-09 11:06:30.439 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.AddToCart (eCommerceApp.Host)'
+2026-05-09 11:06:30.448 +03:00 [INF] Route matched with {action = "AddToCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] AddToCart(eCommerceApp.Application.DTOs.Cart.AddToCartDto) on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 11:06:30.550 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__p_0
+2026-05-09 11:06:30.578 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 11:06:30.774 +03:00 [INF] Executed DbCommand (20ms) [Parameters=[@p4='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [CartItems] SET [CartId] = @p0, [PriceAtTime] = @p1, [ProductId] = @p2, [Quantity] = @p3
+OUTPUT 1
+WHERE [Id] = @p4;
+2026-05-09 11:06:30.791 +03:00 [INF] Executing OkObjectResult, writing value of type 'eCommerceApp.Application.DTOs.ServicesResponse'.
+2026-05-09 11:06:30.796 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.AddToCart (eCommerceApp.Host) in 343.5435ms
+2026-05-09 11:06:30.798 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.AddToCart (eCommerceApp.Host)'
+2026-05-09 11:06:30.799 +03:00 [INF] Request finished HTTP/1.1 POST http://10.0.2.2:5214/api/Cart/add - 200 null application/json; charset=utf-8 364.5711ms
+2026-05-09 11:06:35.985 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 11:06:35.988 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 11:06:35.990 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 11:06:35.996 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 11:06:36.003 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 11:06:36.009 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 11:06:36.011 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 17.8924ms
+2026-05-09 11:06:36.015 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 11:06:36.017 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 31.8738ms
+2026-05-09 11:58:45.762 +03:00 [INF] Application is Building ...
+2026-05-09 11:58:46.464 +03:00 [INF] User profile is available. Using 'C:\Users\alsharga\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-09 11:58:46.683 +03:00 [INF] Applicationis running ..
+2026-05-09 11:58:47.159 +03:00 [INF] Now listening on: http://localhost:5214
+2026-05-09 11:58:47.514 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-09 11:58:47.521 +03:00 [INF] Hosting environment: Development
+2026-05-09 11:58:47.522 +03:00 [INF] Content root path: D:\Dot Net Projects\eCommerceAppSolution\eCommerceApp.Host
+2026-05-09 11:58:48.252 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/index.html - null null
+2026-05-09 11:58:48.835 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/index.html - 200 null text/html;charset=utf-8 602.6014ms
+2026-05-09 11:58:48.918 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-09 11:58:48.922 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/index.js - null null
+2026-05-09 11:58:48.980 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 74.6956ms
+2026-05-09 11:58:48.983 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/index.js - 200 null application/javascript;charset=utf-8 61.1329ms
+2026-05-09 11:58:49.138 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/_vs/browserLink - null null
+2026-05-09 11:58:49.189 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/_vs/browserLink - 200 null text/javascript; charset=UTF-8 54.1869ms
+2026-05-09 11:58:49.339 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/v1/swagger.json - null null
+2026-05-09 11:58:49.368 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 28.5769ms
+2026-05-09 12:01:40.466 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 12:01:40.615 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-05-09 12:01:40.630 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:01:40.670 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:01:42.473 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'OrderItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-09 12:01:42.476 +03:00 [WRN] No store type was specified for the decimal property 'PriceAtTime' on entity type 'CartItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-09 12:01:43.960 +03:00 [INF] Executed DbCommand (73ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 12:01:44.170 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:01:44.186 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:01:44.214 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 3535.7923ms
+2026-05-09 12:01:44.218 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:01:44.231 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 3764.5168ms
+2026-05-09 12:01:52.271 +03:00 [INF] Request starting HTTP/1.1 DELETE http://10.0.2.2:5214/api/Cart/remove/1 - null null
+2026-05-09 12:01:52.285 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.RemoveCartItem (eCommerceApp.Host)'
+2026-05-09 12:01:52.303 +03:00 [INF] Route matched with {action = "RemoveCartItem", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] RemoveCartItem(Int32) on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:01:52.419 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CartId], [c].[PriceAtTime], [c].[ProductId], [c].[Quantity]
+FROM [CartItems] AS [c]
+WHERE [c].[Id] = @__p_0
+2026-05-09 12:01:52.566 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [CartItems]
+OUTPUT 1
+WHERE [Id] = @p0;
+2026-05-09 12:01:52.587 +03:00 [INF] Executing OkObjectResult, writing value of type 'eCommerceApp.Application.DTOs.ServicesResponse'.
+2026-05-09 12:01:52.591 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.RemoveCartItem (eCommerceApp.Host) in 284.7671ms
+2026-05-09 12:01:52.593 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.RemoveCartItem (eCommerceApp.Host)'
+2026-05-09 12:01:52.596 +03:00 [INF] Request finished HTTP/1.1 DELETE http://10.0.2.2:5214/api/Cart/remove/1 - 200 null application/json; charset=utf-8 324.7646ms
+2026-05-09 12:01:52.689 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 12:01:52.699 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:01:52.700 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:01:52.825 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 12:01:52.833 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:01:52.837 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:01:52.840 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 135.8705ms
+2026-05-09 12:01:52.841 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:01:52.844 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 154.8316ms
+2026-05-09 12:02:08.660 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 12:02:08.675 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:02:08.679 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:02:08.692 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 12:02:08.700 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:02:08.703 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:02:08.705 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 23.6743ms
+2026-05-09 12:02:08.714 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:02:08.717 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 57.2245ms
+2026-05-09 12:04:19.430 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 12:04:19.436 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:04:19.437 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:04:19.451 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 12:04:19.458 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:04:19.465 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:04:19.466 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 26.1626ms
+2026-05-09 12:04:19.468 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:04:19.470 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 40.1046ms
+2026-05-09 12:04:28.313 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Product/All - null null
+2026-05-09 12:04:28.316 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Category/All - null null
+2026-05-09 12:04:28.318 +03:00 [INF] Executing endpoint 'eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host)'
+2026-05-09 12:04:28.321 +03:00 [INF] Executing endpoint 'eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host)'
+2026-05-09 12:04:28.325 +03:00 [INF] Route matched with {action = "GetAll", controller = "Product", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller eCommerceApp.Host.Controllers.ProductController (eCommerceApp.Host).
+2026-05-09 12:04:28.326 +03:00 [INF] Route matched with {action = "GetAll", controller = "Category", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller eCommerceApp.Host.Controllers.CategoryController (eCommerceApp.Host).
+2026-05-09 12:04:28.336 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:04:28.349 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+2026-05-09 12:04:28.361 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[eCommerceApp.Application.DTOs.Category.GetCategory, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:04:28.361 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[eCommerceApp.Application.DTOs.Product.GetProduct, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:04:28.377 +03:00 [INF] Executed action eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host) in 45.8205ms
+2026-05-09 12:04:28.381 +03:00 [INF] Executed endpoint 'eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host)'
+2026-05-09 12:04:28.383 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Category/All - 200 null application/json; charset=utf-8 66.961ms
+2026-05-09 12:04:28.383 +03:00 [INF] Executed action eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host) in 54.2027ms
+2026-05-09 12:04:28.402 +03:00 [INF] Executed endpoint 'eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host)'
+2026-05-09 12:04:28.404 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Product/All - 200 null application/json; charset=utf-8 90.5463ms
+2026-05-09 12:04:32.576 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Product/GetProductByCategoryId?categoryId=3 - null null
+2026-05-09 12:04:32.581 +03:00 [INF] Executing endpoint 'eCommerceApp.Host.Controllers.ProductController.GetProductsByCategoryId (eCommerceApp.Host)'
+2026-05-09 12:04:32.586 +03:00 [INF] Route matched with {action = "GetProductsByCategoryId", controller = "Product", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProductsByCategoryId(Int32) on controller eCommerceApp.Host.Controllers.ProductController (eCommerceApp.Host).
+2026-05-09 12:04:32.649 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__categoryId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity], [c].[Id], [c].[Name]
+FROM [Products] AS [p]
+INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+WHERE [p].[CategoryId] = @__categoryId_0
+2026-05-09 12:04:32.657 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[eCommerceApp.Application.DTOs.Product.GetProduct, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:04:32.661 +03:00 [INF] Executed action eCommerceApp.Host.Controllers.ProductController.GetProductsByCategoryId (eCommerceApp.Host) in 72.8104ms
+2026-05-09 12:04:32.663 +03:00 [INF] Executed endpoint 'eCommerceApp.Host.Controllers.ProductController.GetProductsByCategoryId (eCommerceApp.Host)'
+2026-05-09 12:04:32.665 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Product/GetProductByCategoryId?categoryId=3 - 200 null application/json; charset=utf-8 88.9969ms
+2026-05-09 12:04:35.223 +03:00 [INF] Request starting HTTP/1.1 POST http://10.0.2.2:5214/api/Cart/add - application/json 29
+2026-05-09 12:04:35.227 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.AddToCart (eCommerceApp.Host)'
+2026-05-09 12:04:35.233 +03:00 [INF] Route matched with {action = "AddToCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] AddToCart(eCommerceApp.Application.DTOs.Cart.AddToCartDto) on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:04:35.274 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__p_0
+2026-05-09 12:04:35.318 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 12:04:35.420 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [CartItems] ([CartId], [PriceAtTime], [ProductId], [Quantity])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2026-05-09 12:04:35.441 +03:00 [INF] Executing OkObjectResult, writing value of type 'eCommerceApp.Application.DTOs.ServicesResponse'.
+2026-05-09 12:04:35.443 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.AddToCart (eCommerceApp.Host) in 207.2298ms
+2026-05-09 12:04:35.445 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.AddToCart (eCommerceApp.Host)'
+2026-05-09 12:04:35.447 +03:00 [INF] Request finished HTTP/1.1 POST http://10.0.2.2:5214/api/Cart/add - 200 null application/json; charset=utf-8 223.9207ms
+2026-05-09 12:04:38.580 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 12:04:38.583 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:04:38.585 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:04:38.590 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 12:04:38.596 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:04:38.600 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:04:38.603 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 14.5928ms
+2026-05-09 12:04:38.604 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:04:38.608 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 27.888ms
+2026-05-09 12:19:43.905 +03:00 [INF] Request starting HTTP/1.1 DELETE http://10.0.2.2:5214/api/Cart/remove/3 - null null
+2026-05-09 12:19:43.921 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '5/9/2026 9:14:24 AM', Current time (UTC): '5/9/2026 9:19:43 AM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-05-09 12:19:43.973 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '5/9/2026 9:14:24 AM', Current time (UTC): '5/9/2026 9:19:43 AM'.
+2026-05-09 12:19:43.976 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (User)
+2026-05-09 12:19:43.984 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-05-09 12:19:43.985 +03:00 [INF] Request finished HTTP/1.1 DELETE http://10.0.2.2:5214/api/Cart/remove/3 - 401 0 null 80.13ms
+2026-05-09 12:20:08.603 +03:00 [INF] Request starting HTTP/1.1 POST http://10.0.2.2:5214/api/Authentication/login - application/json 49
+2026-05-09 12:20:08.611 +03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '5/9/2026 9:14:24 AM', Current time (UTC): '5/9/2026 9:20:08 AM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-05-09 12:20:08.622 +03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '5/9/2026 9:14:24 AM', Current time (UTC): '5/9/2026 9:20:08 AM'.
+2026-05-09 12:20:08.625 +03:00 [INF] Executing endpoint 'eCommerceApp.Host.Controllers.AuthenticationController.LoginUser (eCommerceApp.Host)'
+2026-05-09 12:20:08.632 +03:00 [INF] Route matched with {action = "LoginUser", controller = "Authentication", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginUser(eCommerceApp.Application.DTOs.LoginUser) on controller eCommerceApp.Host.Controllers.AuthenticationController (eCommerceApp.Host).
+2026-05-09 12:20:08.784 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-05-09 12:20:08.844 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-05-09 12:20:08.880 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2026-05-09 12:20:09.027 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-05-09 12:20:09.040 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-05-09 12:20:09.045 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-05-09 12:20:09.050 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2026-05-09 12:20:09.083 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__RefreshToken_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[Token], [r].[UserId]
+FROM [RefreshTokens] AS [r]
+WHERE [r].[Token] = @__RefreshToken_0
+2026-05-09 12:20:09.126 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1);
+2026-05-09 12:20:09.138 +03:00 [INF] Executing OkObjectResult, writing value of type 'eCommerceApp.Application.DTOs.LoginResponse'.
+2026-05-09 12:20:09.152 +03:00 [INF] Executed action eCommerceApp.Host.Controllers.AuthenticationController.LoginUser (eCommerceApp.Host) in 517.1643ms
+2026-05-09 12:20:09.154 +03:00 [INF] Executed endpoint 'eCommerceApp.Host.Controllers.AuthenticationController.LoginUser (eCommerceApp.Host)'
+2026-05-09 12:20:09.156 +03:00 [INF] Request finished HTTP/1.1 POST http://10.0.2.2:5214/api/Authentication/login - 200 null application/json; charset=utf-8 553.4587ms
+2026-05-09 12:20:09.697 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Product/All - null null
+2026-05-09 12:20:09.705 +03:00 [INF] Executing endpoint 'eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host)'
+2026-05-09 12:20:09.706 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Category/All - null null
+2026-05-09 12:20:09.710 +03:00 [INF] Route matched with {action = "GetAll", controller = "Product", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller eCommerceApp.Host.Controllers.ProductController (eCommerceApp.Host).
+2026-05-09 12:20:09.714 +03:00 [INF] Executing endpoint 'eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host)'
+2026-05-09 12:20:09.718 +03:00 [INF] Route matched with {action = "GetAll", controller = "Category", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller eCommerceApp.Host.Controllers.CategoryController (eCommerceApp.Host).
+2026-05-09 12:20:09.722 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:20:09.730 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[eCommerceApp.Application.DTOs.Product.GetProduct, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:20:09.734 +03:00 [INF] Executed action eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host) in 18.4916ms
+2026-05-09 12:20:09.734 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+2026-05-09 12:20:09.735 +03:00 [INF] Executed endpoint 'eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host)'
+2026-05-09 12:20:09.739 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[eCommerceApp.Application.DTOs.Category.GetCategory, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:20:09.742 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Product/All - 200 null application/json; charset=utf-8 44.4975ms
+2026-05-09 12:20:09.744 +03:00 [INF] Executed action eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host) in 23.519ms
+2026-05-09 12:20:09.751 +03:00 [INF] Executed endpoint 'eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host)'
+2026-05-09 12:20:09.753 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Category/All - 200 null application/json; charset=utf-8 47.1585ms
+2026-05-09 12:20:13.042 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 12:20:13.045 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:20:13.047 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:20:13.055 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 12:20:13.060 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:20:13.063 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:20:13.065 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 15.1812ms
+2026-05-09 12:20:13.066 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:20:13.068 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 26.4922ms
+2026-05-09 12:20:17.811 +03:00 [INF] Request starting HTTP/1.1 DELETE http://10.0.2.2:5214/api/Cart/remove/3 - null null
+2026-05-09 12:20:17.817 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.RemoveCartItem (eCommerceApp.Host)'
+2026-05-09 12:20:17.821 +03:00 [INF] Route matched with {action = "RemoveCartItem", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] RemoveCartItem(Int32) on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:20:17.832 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CartId], [c].[PriceAtTime], [c].[ProductId], [c].[Quantity]
+FROM [CartItems] AS [c]
+WHERE [c].[Id] = @__p_0
+2026-05-09 12:20:17.842 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [CartItems]
+OUTPUT 1
+WHERE [Id] = @p0;
+2026-05-09 12:20:17.846 +03:00 [INF] Executing OkObjectResult, writing value of type 'eCommerceApp.Application.DTOs.ServicesResponse'.
+2026-05-09 12:20:17.848 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.RemoveCartItem (eCommerceApp.Host) in 22.3623ms
+2026-05-09 12:20:17.849 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.RemoveCartItem (eCommerceApp.Host)'
+2026-05-09 12:20:17.851 +03:00 [INF] Request finished HTTP/1.1 DELETE http://10.0.2.2:5214/api/Cart/remove/3 - 200 null application/json; charset=utf-8 40.1402ms
+2026-05-09 12:20:17.921 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 12:20:17.926 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:20:17.927 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:20:17.933 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 12:20:17.939 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:20:17.942 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:20:17.944 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 14.5335ms
+2026-05-09 12:20:17.946 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:20:17.949 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 28.3589ms
+2026-05-09 12:20:22.870 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 12:20:22.874 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:20:22.876 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:20:22.883 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 12:20:22.890 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:20:22.894 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:20:22.896 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 17.0834ms
+2026-05-09 12:20:22.899 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:20:22.901 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 31.34ms
+2026-05-09 12:20:30.707 +03:00 [INF] Request starting HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey - application/json 16
+2026-05-09 12:20:30.711 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host)'
+2026-05-09 12:20:30.717 +03:00 [INF] Route matched with {action = "IncrementCartItemQuantity", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] IncrementCartItemQuantity(Int32) on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:20:30.724 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CartId], [c].[PriceAtTime], [c].[ProductId], [c].[Quantity]
+FROM [CartItems] AS [c]
+WHERE [c].[Id] = @__p_0
+2026-05-09 12:20:30.730 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'eCommerceApp.Application.DTOs.ServicesResponse'.
+2026-05-09 12:20:30.731 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host) in 11.1808ms
+2026-05-09 12:20:30.733 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host)'
+2026-05-09 12:20:30.735 +03:00 [INF] Request finished HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey - 400 null application/json; charset=utf-8 28.356ms
+2026-05-09 12:21:54.431 +03:00 [INF] Application is Building ...
+2026-05-09 12:21:55.443 +03:00 [INF] User profile is available. Using 'C:\Users\alsharga\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-09 12:21:55.986 +03:00 [INF] Applicationis running ..
+2026-05-09 12:21:56.437 +03:00 [INF] Now listening on: http://localhost:5214
+2026-05-09 12:21:56.633 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-09 12:21:56.635 +03:00 [INF] Hosting environment: Development
+2026-05-09 12:21:56.637 +03:00 [INF] Content root path: D:\Dot Net Projects\eCommerceAppSolution\eCommerceApp.Host
+2026-05-09 12:21:57.284 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/index.html - null null
+2026-05-09 12:21:57.623 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/index.html - 200 null text/html;charset=utf-8 375.6941ms
+2026-05-09 12:21:57.675 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/index.js - null null
+2026-05-09 12:21:57.675 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-09 12:21:57.684 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/index.js - 200 null application/javascript;charset=utf-8 9.9017ms
+2026-05-09 12:21:57.693 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 19.3233ms
+2026-05-09 12:21:57.704 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/_vs/browserLink - null null
+2026-05-09 12:21:57.752 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/_vs/browserLink - 200 null text/javascript; charset=UTF-8 48.7206ms
+2026-05-09 12:21:57.894 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/v1/swagger.json - null null
+2026-05-09 12:21:57.930 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 36.4531ms
+2026-05-09 12:22:02.505 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 12:22:02.781 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-05-09 12:22:02.796 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:22:02.834 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:22:04.843 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'OrderItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-09 12:22:04.846 +03:00 [WRN] No store type was specified for the decimal property 'PriceAtTime' on entity type 'CartItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-09 12:22:06.514 +03:00 [INF] Executed DbCommand (93ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 12:22:06.756 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:22:06.779 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:22:06.819 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 3971.9029ms
+2026-05-09 12:22:06.821 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:22:06.839 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 4334.9406ms
+2026-05-09 12:22:11.524 +03:00 [INF] Request starting HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey - application/json 16
+2026-05-09 12:22:11.535 +03:00 [INF] Request finished HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey - 404 0 null 10.307ms
+2026-05-09 12:22:11.540 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: PUT http://10.0.2.2:5214/api/Cart/increment-quentitey, Response status code: 404
+2026-05-09 12:22:33.548 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 12:22:33.555 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:22:33.589 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:22:33.649 +03:00 [INF] Executed DbCommand (36ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 12:22:33.667 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:22:33.696 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:22:33.699 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 103.5534ms
+2026-05-09 12:22:33.702 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:22:33.705 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 157.5731ms
+2026-05-09 12:22:38.578 +03:00 [INF] Request starting HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey - application/json 16
+2026-05-09 12:22:38.583 +03:00 [INF] Request finished HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey - 404 0 null 5.05ms
+2026-05-09 12:22:38.588 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: PUT http://10.0.2.2:5214/api/Cart/increment-quentitey, Response status code: 404
+2026-05-09 12:23:36.888 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Product/All - null null
+2026-05-09 12:23:36.893 +03:00 [INF] Executing endpoint 'eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host)'
+2026-05-09 12:23:36.899 +03:00 [INF] Route matched with {action = "GetAll", controller = "Product", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller eCommerceApp.Host.Controllers.ProductController (eCommerceApp.Host).
+2026-05-09 12:23:36.917 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Category/All - null null
+2026-05-09 12:23:36.922 +03:00 [INF] Executing endpoint 'eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host)'
+2026-05-09 12:23:36.928 +03:00 [INF] Route matched with {action = "GetAll", controller = "Category", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller eCommerceApp.Host.Controllers.CategoryController (eCommerceApp.Host).
+2026-05-09 12:23:37.031 +03:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:23:37.077 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+2026-05-09 12:23:37.094 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[eCommerceApp.Application.DTOs.Product.GetProduct, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:23:37.094 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[eCommerceApp.Application.DTOs.Category.GetCategory, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:23:37.106 +03:00 [INF] Executed action eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host) in 174.1193ms
+2026-05-09 12:23:37.108 +03:00 [INF] Executed endpoint 'eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host)'
+2026-05-09 12:23:37.108 +03:00 [INF] Executed action eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host) in 206.2221ms
+2026-05-09 12:23:37.109 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Category/All - 200 null application/json; charset=utf-8 197.3083ms
+2026-05-09 12:23:37.111 +03:00 [INF] Executed endpoint 'eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host)'
+2026-05-09 12:23:37.115 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Product/All - 200 null application/json; charset=utf-8 227.4617ms
+2026-05-09 12:23:40.198 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 12:23:40.202 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:23:40.204 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:23:40.235 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 12:23:40.242 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:23:40.246 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:23:40.251 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 44.3906ms
+2026-05-09 12:23:40.261 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:23:40.264 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 66.7564ms
+2026-05-09 12:23:42.217 +03:00 [INF] Request starting HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey - application/json 16
+2026-05-09 12:23:42.221 +03:00 [INF] Request finished HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey - 404 0 null 4.0326ms
+2026-05-09 12:23:42.224 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: PUT http://10.0.2.2:5214/api/Cart/increment-quentitey, Response status code: 404
+2026-05-09 12:25:20.825 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 12:25:20.836 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:25:20.839 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:25:20.858 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 12:25:20.865 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:25:20.872 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:25:20.874 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 33.1847ms
+2026-05-09 12:25:20.876 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:25:20.879 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 54.1938ms
+2026-05-09 12:25:24.482 +03:00 [INF] Request starting HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey/2 - application/json 2
+2026-05-09 12:25:24.489 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host)'
+2026-05-09 12:25:24.502 +03:00 [INF] Route matched with {action = "IncrementCartItemQuantity", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] IncrementCartItemQuantity(Int32) on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:25:32.899 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CartId], [c].[PriceAtTime], [c].[ProductId], [c].[Quantity]
+FROM [CartItems] AS [c]
+WHERE [c].[Id] = @__p_0
+2026-05-09 12:25:35.678 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'eCommerceApp.Application.DTOs.ServicesResponse'.
+2026-05-09 12:25:35.733 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host) in 11226.8691ms
+2026-05-09 12:25:35.737 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host)'
+2026-05-09 12:25:35.739 +03:00 [INF] Request finished HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey/2 - 400 null application/json; charset=utf-8 11257.257ms
+2026-05-09 12:25:49.795 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 12:26:08.337 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:26:08.338 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:26:14.103 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 12:26:14.110 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:26:14.113 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:26:14.115 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 5773.9326ms
+2026-05-09 12:26:14.117 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:26:14.119 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 24323.5469ms
+2026-05-09 12:26:17.492 +03:00 [INF] Request starting HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey/2 - application/json 2
+2026-05-09 12:26:17.497 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host)'
+2026-05-09 12:26:17.499 +03:00 [INF] Route matched with {action = "IncrementCartItemQuantity", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] IncrementCartItemQuantity(Int32) on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:26:28.249 +03:00 [INF] Executed DbCommand (21ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CartId], [c].[PriceAtTime], [c].[ProductId], [c].[Quantity]
+FROM [CartItems] AS [c]
+WHERE [c].[Id] = @__p_0
+2026-05-09 12:26:55.170 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'eCommerceApp.Application.DTOs.ServicesResponse'.
+2026-05-09 12:26:55.184 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host) in 37681.5183ms
+2026-05-09 12:26:55.186 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host)'
+2026-05-09 12:26:55.188 +03:00 [INF] Request finished HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey/2 - 400 null application/json; charset=utf-8 37695.9082ms
+2026-05-09 12:29:43.651 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Product/All - null null
+2026-05-09 12:29:43.655 +03:00 [INF] Executing endpoint 'eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host)'
+2026-05-09 12:29:43.656 +03:00 [INF] Route matched with {action = "GetAll", controller = "Product", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller eCommerceApp.Host.Controllers.ProductController (eCommerceApp.Host).
+2026-05-09 12:29:43.663 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:29:43.667 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[eCommerceApp.Application.DTOs.Product.GetProduct, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:29:43.670 +03:00 [INF] Executed action eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host) in 11.253ms
+2026-05-09 12:29:43.672 +03:00 [INF] Executed endpoint 'eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host)'
+2026-05-09 12:29:43.673 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Product/All - 200 null application/json; charset=utf-8 22.2613ms
+2026-05-09 12:29:43.680 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Category/All - null null
+2026-05-09 12:29:43.684 +03:00 [INF] Executing endpoint 'eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host)'
+2026-05-09 12:29:43.685 +03:00 [INF] Route matched with {action = "GetAll", controller = "Category", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller eCommerceApp.Host.Controllers.CategoryController (eCommerceApp.Host).
+2026-05-09 12:29:43.690 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+2026-05-09 12:29:43.694 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[eCommerceApp.Application.DTOs.Category.GetCategory, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:29:43.695 +03:00 [INF] Executed action eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host) in 8.36ms
+2026-05-09 12:29:43.697 +03:00 [INF] Executed endpoint 'eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host)'
+2026-05-09 12:29:43.698 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Category/All - 200 null application/json; charset=utf-8 17.858ms
+2026-05-09 12:29:56.760 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 12:29:56.764 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:29:56.766 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:29:56.777 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 12:29:56.785 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:29:56.790 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:29:56.793 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 24.7286ms
+2026-05-09 12:29:56.795 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:29:56.796 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 36.6399ms
+2026-05-09 12:32:15.452 +03:00 [INF] Request starting HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey/2 - application/json 2
+2026-05-09 12:32:15.455 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host)'
+2026-05-09 12:32:15.456 +03:00 [INF] Route matched with {action = "IncrementCartItemQuantity", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] IncrementCartItemQuantity(Int32) on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:32:24.284 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CartId], [c].[PriceAtTime], [c].[ProductId], [c].[Quantity]
+FROM [CartItems] AS [c]
+WHERE [c].[Id] = @__p_0
+2026-05-09 12:32:24.289 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'eCommerceApp.Application.DTOs.ServicesResponse'.
+2026-05-09 12:32:24.291 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host) in 8832.7996ms
+2026-05-09 12:32:24.293 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host)'
+2026-05-09 12:32:24.294 +03:00 [INF] Request finished HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey/2 - 400 null application/json; charset=utf-8 8842.1798ms
+2026-05-09 12:33:55.158 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 12:33:55.169 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:33:55.170 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:33:55.182 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 12:33:55.188 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:33:55.191 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:33:55.194 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 20.8219ms
+2026-05-09 12:33:55.197 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:33:55.199 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 40.8878ms
+2026-05-09 12:34:00.731 +03:00 [INF] Request starting HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey/2 - application/json 2
+2026-05-09 12:34:00.736 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host)'
+2026-05-09 12:34:00.737 +03:00 [INF] Route matched with {action = "IncrementCartItemQuantity", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] IncrementCartItemQuantity(Int32) on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:34:28.975 +03:00 [INF] Request starting HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey/2 - application/json 2
+2026-05-09 12:34:28.979 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CartId], [c].[PriceAtTime], [c].[ProductId], [c].[Quantity]
+FROM [CartItems] AS [c]
+WHERE [c].[Id] = @__p_0
+2026-05-09 12:34:28.980 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host)'
+2026-05-09 12:34:28.984 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'eCommerceApp.Application.DTOs.ServicesResponse'.
+2026-05-09 12:34:28.985 +03:00 [INF] Route matched with {action = "IncrementCartItemQuantity", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] IncrementCartItemQuantity(Int32) on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:34:28.987 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host) in 28247.2588ms
+2026-05-09 12:34:33.711 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CartId], [c].[PriceAtTime], [c].[ProductId], [c].[Quantity]
+FROM [CartItems] AS [c]
+WHERE [c].[Id] = @__p_0
+2026-05-09 12:34:33.711 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host)'
+2026-05-09 12:34:33.716 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'eCommerceApp.Application.DTOs.ServicesResponse'.
+2026-05-09 12:34:33.719 +03:00 [INF] Request finished HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey/2 - 400 null application/json; charset=utf-8 32987.7138ms
+2026-05-09 12:34:33.720 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host) in 4729.7885ms
+2026-05-09 12:34:33.727 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host)'
+2026-05-09 12:34:33.728 +03:00 [INF] Request finished HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey/2 - 400 null application/json; charset=utf-8 4753.7319ms
+2026-05-09 12:34:50.456 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 12:34:50.460 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:34:50.461 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:34:50.469 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 12:34:50.476 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:34:50.480 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:34:50.482 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 17.7016ms
+2026-05-09 12:34:50.483 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:34:50.485 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 28.3394ms
+2026-05-09 12:34:54.034 +03:00 [INF] Request starting HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey/2 - application/json 2
+2026-05-09 12:34:54.039 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host)'
+2026-05-09 12:34:54.044 +03:00 [INF] Route matched with {action = "IncrementCartItemQuantity", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] IncrementCartItemQuantity(Int32) on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:34:54.051 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CartId], [c].[PriceAtTime], [c].[ProductId], [c].[Quantity]
+FROM [CartItems] AS [c]
+WHERE [c].[Id] = @__p_0
+2026-05-09 12:34:54.056 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'eCommerceApp.Application.DTOs.ServicesResponse'.
+2026-05-09 12:34:54.059 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host) in 11.4792ms
+2026-05-09 12:34:54.062 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host)'
+2026-05-09 12:34:54.065 +03:00 [INF] Request finished HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey/2 - 400 null application/json; charset=utf-8 30.4025ms
+2026-05-09 12:35:34.644 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 12:35:34.647 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:35:34.649 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:35:34.674 +03:00 [INF] Executed DbCommand (21ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 12:35:34.681 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:35:34.686 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:35:34.688 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 36.8629ms
+2026-05-09 12:35:34.692 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:35:34.695 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 51.37ms
+2026-05-09 12:35:36.831 +03:00 [INF] Request starting HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey/2 - null 0
+2026-05-09 12:35:36.849 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host)'
+2026-05-09 12:35:36.851 +03:00 [INF] Route matched with {action = "IncrementCartItemQuantity", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] IncrementCartItemQuantity(Int32) on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:35:36.886 +03:00 [INF] Executed DbCommand (24ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CartId], [c].[PriceAtTime], [c].[ProductId], [c].[Quantity]
+FROM [CartItems] AS [c]
+WHERE [c].[Id] = @__p_0
+2026-05-09 12:35:36.913 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'eCommerceApp.Application.DTOs.ServicesResponse'.
+2026-05-09 12:35:36.918 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host) in 63.7935ms
+2026-05-09 12:35:36.920 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host)'
+2026-05-09 12:35:36.925 +03:00 [INF] Request finished HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey/2 - 400 null application/json; charset=utf-8 93.8381ms
+2026-05-09 12:37:27.852 +03:00 [INF] Application is Building ...
+2026-05-09 12:37:28.097 +03:00 [INF] User profile is available. Using 'C:\Users\alsharga\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-09 12:37:28.214 +03:00 [INF] Applicationis running ..
+2026-05-09 12:37:28.301 +03:00 [INF] Now listening on: http://localhost:5214
+2026-05-09 12:37:28.506 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-09 12:37:28.508 +03:00 [INF] Hosting environment: Development
+2026-05-09 12:37:28.509 +03:00 [INF] Content root path: D:\Dot Net Projects\eCommerceAppSolution\eCommerceApp.Host
+2026-05-09 12:37:33.452 +03:00 [INF] Application is Building ...
+2026-05-09 12:37:33.973 +03:00 [INF] User profile is available. Using 'C:\Users\alsharga\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-09 12:37:34.169 +03:00 [INF] Applicationis running ..
+2026-05-09 12:37:34.454 +03:00 [INF] Now listening on: http://localhost:5214
+2026-05-09 12:37:34.541 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-09 12:37:34.544 +03:00 [INF] Hosting environment: Development
+2026-05-09 12:37:34.545 +03:00 [INF] Content root path: D:\Dot Net Projects\eCommerceAppSolution\eCommerceApp.Host
+2026-05-09 12:37:35.611 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/index.html - null null
+2026-05-09 12:37:36.397 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/index.html - 200 null text/html;charset=utf-8 816.4023ms
+2026-05-09 12:37:36.503 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/index.js - null null
+2026-05-09 12:37:36.527 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-09 12:37:36.527 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/_vs/browserLink - null null
+2026-05-09 12:37:36.567 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/index.js - 200 null application/javascript;charset=utf-8 66.4331ms
+2026-05-09 12:37:36.570 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 57.3602ms
+2026-05-09 12:37:36.648 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/_vs/browserLink - 200 null text/javascript; charset=UTF-8 120.8874ms
+2026-05-09 12:37:36.820 +03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5214/swagger/v1/swagger.json - null null
+2026-05-09 12:37:36.890 +03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5214/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 70.0724ms
+2026-05-09 12:37:51.104 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 12:37:51.233 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-05-09 12:37:51.245 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:37:51.282 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:37:53.078 +03:00 [WRN] No store type was specified for the decimal property 'Price' on entity type 'OrderItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-09 12:37:53.082 +03:00 [WRN] No store type was specified for the decimal property 'PriceAtTime' on entity type 'CartItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-05-09 12:37:54.674 +03:00 [INF] Executed DbCommand (80ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 12:37:54.920 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:37:54.935 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:37:54.965 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 3675.7675ms
+2026-05-09 12:37:54.967 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:37:54.983 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 3878.5128ms
+2026-05-09 12:38:00.629 +03:00 [INF] Request starting HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey/2 - null 0
+2026-05-09 12:38:00.637 +03:00 [INF] Request finished HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey/2 - 404 0 null 7.7735ms
+2026-05-09 12:38:00.641 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: PUT http://10.0.2.2:5214/api/Cart/increment-quentitey/2, Response status code: 404
+2026-05-09 12:40:27.702 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Product/All - null null
+2026-05-09 12:40:27.707 +03:00 [INF] Executing endpoint 'eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host)'
+2026-05-09 12:40:27.714 +03:00 [INF] Route matched with {action = "GetAll", controller = "Product", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller eCommerceApp.Host.Controllers.ProductController (eCommerceApp.Host).
+2026-05-09 12:40:27.803 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Category/All - null null
+2026-05-09 12:40:27.869 +03:00 [INF] Executing endpoint 'eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host)'
+2026-05-09 12:40:27.870 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:40:27.874 +03:00 [INF] Route matched with {action = "GetAll", controller = "Category", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller eCommerceApp.Host.Controllers.CategoryController (eCommerceApp.Host).
+2026-05-09 12:40:27.894 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[eCommerceApp.Application.DTOs.Product.GetProduct, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:40:27.907 +03:00 [INF] Executed action eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host) in 190.1261ms
+2026-05-09 12:40:27.908 +03:00 [INF] Executed endpoint 'eCommerceApp.Host.Controllers.ProductController.GetAll (eCommerceApp.Host)'
+2026-05-09 12:40:27.911 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Product/All - 200 null application/json; charset=utf-8 208.1631ms
+2026-05-09 12:40:27.977 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Name]
+FROM [Categories] AS [c]
+2026-05-09 12:40:27.985 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[eCommerceApp.Application.DTOs.Category.GetCategory, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:40:27.989 +03:00 [INF] Executed action eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host) in 109.9725ms
+2026-05-09 12:40:27.990 +03:00 [INF] Executed endpoint 'eCommerceApp.Host.Controllers.CategoryController.GetAll (eCommerceApp.Host)'
+2026-05-09 12:40:27.992 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Category/All - 200 null application/json; charset=utf-8 188.3753ms
+2026-05-09 12:40:30.202 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 12:40:30.206 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:40:30.210 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:40:30.228 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 12:40:30.266 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:40:30.274 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:40:30.279 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 66.173ms
+2026-05-09 12:40:30.281 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:40:30.287 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 85.1314ms
+2026-05-09 12:40:34.051 +03:00 [INF] Request starting HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey?cartItemId=2 - null 0
+2026-05-09 12:40:34.054 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host)'
+2026-05-09 12:40:34.067 +03:00 [INF] Route matched with {action = "IncrementCartItemQuantity", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] IncrementCartItemQuantity(Int32) on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:40:34.173 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CartId], [c].[PriceAtTime], [c].[ProductId], [c].[Quantity]
+FROM [CartItems] AS [c]
+WHERE [c].[Id] = @__p_0
+2026-05-09 12:40:34.381 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@p4='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [CartItems] SET [CartId] = @p0, [PriceAtTime] = @p1, [ProductId] = @p2, [Quantity] = @p3
+OUTPUT 1
+WHERE [Id] = @p4;
+2026-05-09 12:40:34.398 +03:00 [INF] Executing OkObjectResult, writing value of type 'eCommerceApp.Application.DTOs.ServicesResponse'.
+2026-05-09 12:40:34.402 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host) in 332.6552ms
+2026-05-09 12:40:34.404 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host)'
+2026-05-09 12:40:34.406 +03:00 [INF] Request finished HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey?cartItemId=2 - 200 null application/json; charset=utf-8 354.5078ms
+2026-05-09 12:40:34.492 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 12:40:34.503 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:40:34.504 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:40:34.520 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 12:40:34.552 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:40:34.556 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:40:34.564 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 53.308ms
+2026-05-09 12:40:34.567 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:40:34.569 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 77.0496ms
+2026-05-09 12:40:41.863 +03:00 [INF] Request starting HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey?cartItemId=2 - null 0
+2026-05-09 12:40:41.868 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host)'
+2026-05-09 12:40:41.870 +03:00 [INF] Route matched with {action = "IncrementCartItemQuantity", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] IncrementCartItemQuantity(Int32) on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:40:41.883 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CartId], [c].[PriceAtTime], [c].[ProductId], [c].[Quantity]
+FROM [CartItems] AS [c]
+WHERE [c].[Id] = @__p_0
+2026-05-09 12:40:41.907 +03:00 [INF] Executed DbCommand (17ms) [Parameters=[@p4='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [CartItems] SET [CartId] = @p0, [PriceAtTime] = @p1, [ProductId] = @p2, [Quantity] = @p3
+OUTPUT 1
+WHERE [Id] = @p4;
+2026-05-09 12:40:41.916 +03:00 [INF] Executing OkObjectResult, writing value of type 'eCommerceApp.Application.DTOs.ServicesResponse'.
+2026-05-09 12:40:41.919 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host) in 45.8853ms
+2026-05-09 12:40:41.925 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.IncrementCartItemQuantity (eCommerceApp.Host)'
+2026-05-09 12:40:41.934 +03:00 [INF] Request finished HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/increment-quentitey?cartItemId=2 - 200 null application/json; charset=utf-8 70.3745ms
+2026-05-09 12:40:42.023 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 12:40:42.026 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:40:42.028 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:40:42.038 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 12:40:42.047 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:40:42.051 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:40:42.053 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 22.6529ms
+2026-05-09 12:40:42.056 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:40:42.058 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 35.4299ms
+2026-05-09 12:41:04.833 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 12:41:04.841 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:41:04.856 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:41:04.879 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 12:41:04.907 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:41:04.914 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:41:04.919 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 57.6653ms
+2026-05-09 12:41:04.922 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:41:04.924 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 90.412ms
+2026-05-09 12:41:12.357 +03:00 [INF] Request starting HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/decrement-quentitey?cartItemId=2 - null 0
+2026-05-09 12:41:12.360 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.DecrementCartItemQuantity (eCommerceApp.Host)'
+2026-05-09 12:41:12.365 +03:00 [INF] Route matched with {action = "DecrementCartItemQuantity", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] DecrementCartItemQuantity(Int32) on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:41:12.373 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CartId], [c].[PriceAtTime], [c].[ProductId], [c].[Quantity]
+FROM [CartItems] AS [c]
+WHERE [c].[Id] = @__p_0
+2026-05-09 12:41:12.389 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@p4='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [CartItems] SET [CartId] = @p0, [PriceAtTime] = @p1, [ProductId] = @p2, [Quantity] = @p3
+OUTPUT 1
+WHERE [Id] = @p4;
+2026-05-09 12:41:12.395 +03:00 [INF] Executing OkObjectResult, writing value of type 'eCommerceApp.Application.DTOs.ServicesResponse'.
+2026-05-09 12:41:12.397 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.DecrementCartItemQuantity (eCommerceApp.Host) in 30.5912ms
+2026-05-09 12:41:12.399 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.DecrementCartItemQuantity (eCommerceApp.Host)'
+2026-05-09 12:41:12.401 +03:00 [INF] Request finished HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/decrement-quentitey?cartItemId=2 - 200 null application/json; charset=utf-8 43.8274ms
+2026-05-09 12:41:12.522 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 12:41:12.534 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:41:12.538 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:41:12.555 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 12:41:12.583 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:41:12.591 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:41:12.603 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 61.0376ms
+2026-05-09 12:41:12.638 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:41:12.672 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 149.7038ms
+2026-05-09 12:41:21.981 +03:00 [INF] Request starting HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/decrement-quentitey?cartItemId=2 - null 0
+2026-05-09 12:41:21.986 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.DecrementCartItemQuantity (eCommerceApp.Host)'
+2026-05-09 12:41:21.987 +03:00 [INF] Route matched with {action = "DecrementCartItemQuantity", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] DecrementCartItemQuantity(Int32) on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:41:22.001 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[CartId], [c].[PriceAtTime], [c].[ProductId], [c].[Quantity]
+FROM [CartItems] AS [c]
+WHERE [c].[Id] = @__p_0
+2026-05-09 12:41:22.036 +03:00 [INF] Executed DbCommand (22ms) [Parameters=[@p4='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [CartItems] SET [CartId] = @p0, [PriceAtTime] = @p1, [ProductId] = @p2, [Quantity] = @p3
+OUTPUT 1
+WHERE [Id] = @p4;
+2026-05-09 12:41:22.044 +03:00 [INF] Executing OkObjectResult, writing value of type 'eCommerceApp.Application.DTOs.ServicesResponse'.
+2026-05-09 12:41:22.051 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.DecrementCartItemQuantity (eCommerceApp.Host) in 60.2763ms
+2026-05-09 12:41:22.053 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.DecrementCartItemQuantity (eCommerceApp.Host)'
+2026-05-09 12:41:22.055 +03:00 [INF] Request finished HTTP/1.1 PUT http://10.0.2.2:5214/api/Cart/decrement-quentitey?cartItemId=2 - 200 null application/json; charset=utf-8 74.1313ms
+2026-05-09 12:41:22.138 +03:00 [INF] Request starting HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - null null
+2026-05-09 12:41:22.143 +03:00 [INF] Executing endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:41:22.145 +03:00 [INF] Route matched with {action = "GetMyCart", controller = "Cart", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] GetMyCart() on controller eCommerceApp.API.Controllers.CartController (eCommerceApp.Host).
+2026-05-09 12:41:22.161 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c1].[Id], [c1].[CreatedAt], [c1].[IsCheckedOut], [c1].[UserId], [c0].[Id], [c0].[CartId], [c0].[PriceAtTime], [c0].[ProductId], [c0].[Quantity]
+FROM (
+    SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[IsCheckedOut], [c].[UserId]
+    FROM [Carts] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[IsCheckedOut] = CAST(0 AS bit)
+) AS [c1]
+LEFT JOIN [CartItems] AS [c0] ON [c1].[Id] = [c0].[CartId]
+ORDER BY [c1].[Id]
+2026-05-09 12:41:22.177 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[CategoryId], [p].[CreatedAt], [p].[Description], [p].[ImageUrl], [p].[Name], [p].[Price], [p].[Quantity]
+FROM [Products] AS [p]
+2026-05-09 12:41:22.181 +03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[eCommerceApp.Domain.Entities.CartEntities.CartItem, eCommerceApp.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[eCommerceApp.Application.DTOs.Cart.GetCartDto, eCommerceApp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 12:41:22.184 +03:00 [INF] Executed action eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host) in 32.0646ms
+2026-05-09 12:41:22.186 +03:00 [INF] Executed endpoint 'eCommerceApp.API.Controllers.CartController.GetMyCart (eCommerceApp.Host)'
+2026-05-09 12:41:22.187 +03:00 [INF] Request finished HTTP/1.1 GET http://10.0.2.2:5214/api/Cart/my-cart - 200 null application/json; charset=utf-8 49.2889ms

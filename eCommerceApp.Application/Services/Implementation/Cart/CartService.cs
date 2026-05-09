@@ -77,33 +77,18 @@ class CartService(
 
 			return new GetCartDto
 			{
-				ProductId = i.ProductId,
+				CartItemId = i.Id,
+                ProductId = i.ProductId,
 				ProductName = p?.Name ?? "Unknown Product",
 				Quantity = i.Quantity,
 				Price = i.PriceAtTime,
-				Total = i.Quantity * i.PriceAtTime
+				Total = i.Quantity * i.PriceAtTime,
+				ImageUrl = p?.ImageUrl
 			};
 		});
 	}
 
-	public async Task<ServicesResponse> RemoveFromCart(string userId, int productId)
-	{
-		var cart = await cartInterface.GetActiveCart(userId);
-
-		if (cart == null)
-			return new ServicesResponse(false, "Cart not found");
-
-		var item = cart.Items.FirstOrDefault(i => i.ProductId == productId);
-
-		if (item == null)
-			return new ServicesResponse(false, "Item not found");
-
-		cart.Items.Remove(item);
-
-		await cartInterface.SaveChanges();
-
-		return new ServicesResponse(true, "Removed");
-	}
+	
 
 	public async Task<ServicesResponse> Checkout(string userId, int paymentMethodId)
 	{
@@ -119,9 +104,9 @@ class CartService(
 		var total = cart.Items.Sum(i => i.Quantity * i.PriceAtTime);
 
         var productIds = cart.Items.Select(i => i.ProductId).ToList();
-         var products = await ProductInterface.GetByIdsAsync(productIds);
+        var products = await ProductInterface.GetByIdsAsync(productIds);
 
-var paymentResponse = await paymentService.Pay(total, cart.Items, products);
+       var paymentResponse = await paymentService.Pay(total, cart.Items, products);
 		if (!paymentResponse.IsSuccess)
 			return paymentResponse;
 
@@ -160,4 +145,29 @@ var paymentResponse = await paymentService.Pay(total, cart.Items, products);
 		var achieves = await cartInterface.GetAllCheckoutHistory();
 		return mapper.Map<IEnumerable<GetAchieve>>(achieves);
 	}
+
+    public async Task<ServicesResponse> RemoveCartItem(int itemId)
+    {
+       int result = await cartInterface.RemoveCartItem(itemId);
+		return result > 0
+			? new ServicesResponse(true, "Item removed")
+			: new ServicesResponse(false, "Error removing item");
+
+    }
+
+    public async Task<ServicesResponse> DecrementCartItemQuantity(int itemId)
+    {
+        int result = await cartInterface.DecrementCartItemQuantity(itemId);
+		return result > 0
+			? new ServicesResponse(true, "Quantity decremented")
+			: new ServicesResponse(false, "Error decrementing quantity");
+    }
+
+    public async Task<ServicesResponse> IncrementCartItemQuantity(int itemId)
+    {
+        int result = await cartInterface.IncrementCartItemQuantity(itemId);
+        return result > 0
+            ? new ServicesResponse(true, "Quantity incremented")
+            : new ServicesResponse(false, "Error incrementing quantity");
+    }
 }

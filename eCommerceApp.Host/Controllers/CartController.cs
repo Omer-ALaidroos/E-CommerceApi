@@ -38,19 +38,38 @@ namespace eCommerceApp.API.Controllers
 
             var cart = await cartService.GetMyCart(userId);
 
-            return cart.Any() ? Ok(cart) : NoContent();
+            return  Ok(cart) ;
         }
 
-        [HttpDelete("remove/{productId:int}")]
+        [HttpDelete("remove/{cartItem:int}")]
         [Authorize(Roles = "User")]
-        public async Task<ActionResult> RemoveFromCart(int productId)
+        public async Task<ActionResult> RemoveCartItem(int cartITem)
         {
             var userId = GetUserId();
 
-            var result = await cartService.RemoveFromCart(userId, productId);
+            var result = await cartService.RemoveCartItem( cartITem);
 
             return result.IsSuccess ? Ok(result) : BadRequest(result);
         }
+
+        [HttpPut("decrement-quentitey")]
+        [Authorize(Roles ="User")]
+        public async Task<ActionResult> DecrementCartItemQuantity([FromQuery] int cartItemId)
+        {
+            var userId = GetUserId();
+            var result = await cartService.DecrementCartItemQuantity(cartItemId);
+            return result.IsSuccess ? Ok(result) : BadRequest(result);
+        }
+
+        [HttpPut("increment-quentitey")]
+        [Authorize(Roles = "User")]
+        public async Task<ActionResult> IncrementCartItemQuantity([FromQuery] int cartItemId)
+        {
+            var userId = GetUserId();
+            var result = await cartService.IncrementCartItemQuantity(cartItemId);
+            return result.IsSuccess ? Ok(result) : BadRequest(result);
+        }
+
 
         [HttpPost("checkout")]
         [Authorize(Roles = "User")]
