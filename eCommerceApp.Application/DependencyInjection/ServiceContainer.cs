@@ -3,7 +3,7 @@ using eCommerceApp.Application.Services.Implementation;
 using eCommerceApp.Application.Services.Implementation.Cart;
 using eCommerceApp.Application.Services.Interfaces;
 using eCommerceApp.Application.Services.Interfaces.Authentication;
-using eCommerceApp.Application.Services.Interfaces.Cart;
+using eCommerceApp.Application.Services.Interfaces.CartInterface;
 using eCommerceApp.Application.Validations.Authentication;
 using eCommerceApp.Domain.Interfaces.Orders;
 using FluentValidation;

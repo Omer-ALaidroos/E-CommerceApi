@@ -1,4 +1,5 @@
 ﻿using eCommerceApp.Domain.Entities;
+using eCommerceApp.Domain.Entities.Orders;
 
 namespace ECommerce.Core.Entities
 {

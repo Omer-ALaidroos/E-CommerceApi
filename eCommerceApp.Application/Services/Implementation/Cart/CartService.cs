@@ -1,7 +1,8 @@
 using AutoMapper;
 using eCommerceApp.Application.DTOs;
 using eCommerceApp.Application.DTOs.Cart;
-using eCommerceApp.Application.Services.Interfaces.Cart;
+
+using eCommerceApp.Application.Services.Interfaces.CartInterface;
 using eCommerceApp.Domain.Entities.CartEntities;
 using eCommerceApp.Domain.Interfaces;
 using eCommerceApp.Domain.Interfaces.Authentication;
@@ -89,10 +90,14 @@ class CartService(
 	}
 
 	
+	public async Task<Cart?> GetActiveCart(string userId)
+	{
+		return await cartInterface.GetActiveCart(userId);
+	}
 
 	public async Task<ServicesResponse> Checkout(string userId, int paymentMethodId)
 	{
-		var cart = await cartInterface.GetActiveCart(userId);
+		var cart = await GetActiveCart(userId);
 
 		if (cart == null || !cart.Items.Any())
 			return new ServicesResponse(false, "Cart is empty");
@@ -170,4 +175,26 @@ class CartService(
             ? new ServicesResponse(true, "Quantity incremented")
             : new ServicesResponse(false, "Error incrementing quantity");
     }
+
+  /*  public async Task<IEnumerable<ProcessCart>> GetCartItemsBuUserID(string userID)
+    {
+        var cartItems = await cartInterface.GetCartItems(userID);
+        return cartItems.Select(ci => new ProcessCart
+        {
+            ProductId = ci.ProductId,
+            Quantity = ci.Quantity
+        });
+    }*/
+
+    public async Task ClearCartAsync(string userId)
+    {
+        var cart = await cartInterface.GetActiveCart(userId);
+        if (cart != null)
+        {
+            cart.IsCheckedOut = true;
+            await cartInterface.SaveChanges();
+        }
+    }
+
+    
 }

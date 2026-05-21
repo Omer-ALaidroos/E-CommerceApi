@@ -1,15 +1,14 @@
-﻿namespace eCommerceApp.Domain.Interfaces
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace eCommerceApp.Domain.Interfaces
 {
-    public interface IGeneric<IEntity> where IEntity : class
+    public interface IGeneric<T> where T : class
     {
-        public Task<IEnumerable<IEntity>> GetAllAsync();
-
-        public Task<IEntity> GetByIdAsync(int id);
-        public Task<int> AddAsync(IEntity entity);
-        public Task<int> UpdateAsync(IEntity entity);
-        public Task<int> DeleteAsync(int id);
-
-
+        Task<IEnumerable<T>> GetAllAsync();
+        Task<int> AddAsync(T entity);
+        Task<int> UpdateAsync(T entity);
+        Task<int> DeleteAsync(int id);
+        Task<T> GetByIdAsync(int id);
     }
-    
 }

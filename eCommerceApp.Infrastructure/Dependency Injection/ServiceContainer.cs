@@ -1,8 +1,9 @@
 ﻿using ECommerce.Core.Entities;
-using eCommerceApp.Application.Services.Interfaces.Cart;
+using eCommerceApp.Application.Services.Interfaces.CartInterface;
 using eCommerceApp.Application.Services.Interfaces.Logger;
 using eCommerceApp.Domain.Entities;
 using eCommerceApp.Domain.Entities.Identity;
+using eCommerceApp.Domain.Entities.Orders;
 using eCommerceApp.Domain.Interfaces;
 using eCommerceApp.Domain.Interfaces.Authentication;
 using eCommerceApp.Domain.Interfaces.CartInterface;
@@ -11,6 +12,7 @@ using eCommerceApp.Infrastructure.Middleware;
 using eCommerceApp.Infrastructure.Repository;
 using eCommerceApp.Infrastructure.Repository.Authentication;
 using eCommerceApp.Infrastructure.Repository.CartRepo;
+using eCommerceApp.Infrastructure.Repository.Orders;
 using eCommerceApp.Infrastructure.Sevices;
 using EntityFramework.Exceptions.SqlServer;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -35,7 +37,7 @@ namespace eCommerceApp.Infrastructure.Dependency_Injection
                 SqlOption =>
                 {
                     SqlOption.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName);
-                    SqlOption.EnableRetryOnFailure();
+                    
 
 
                 }).UseExceptionProcessor(),
@@ -110,6 +112,7 @@ namespace eCommerceApp.Infrastructure.Dependency_Injection
             services.AddScoped<ICategory, CategoryRepository>();
             services.AddScoped<IProduct, ProductRepository>();
             services.AddScoped<ICart, CartRepository>();
+            services.AddScoped<IOrder,OrderRepository>();
            
             return services;
 

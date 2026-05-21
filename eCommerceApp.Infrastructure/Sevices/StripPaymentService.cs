@@ -1,6 +1,6 @@
 ﻿using eCommerceApp.Application.DTOs;
 using eCommerceApp.Application.DTOs.Cart;
-using eCommerceApp.Application.Services.Interfaces.Cart;
+using eCommerceApp.Application.Services.Interfaces.CartInterface;
 using eCommerceApp.Application.Services.Interfaces.Logger;
 using eCommerceApp.Domain.Entities;
 using eCommerceApp.Domain.Entities.CartEntities;

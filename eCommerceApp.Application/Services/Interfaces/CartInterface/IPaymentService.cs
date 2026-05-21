@@ -2,7 +2,7 @@
 using eCommerceApp.Domain.Entities;
 using eCommerceApp.Domain.Entities.CartEntities;
 
-namespace eCommerceApp.Application.Services.Interfaces.Cart
+namespace eCommerceApp.Application.Services.Interfaces.CartInterface
 {
     public interface IPaymentService
     {

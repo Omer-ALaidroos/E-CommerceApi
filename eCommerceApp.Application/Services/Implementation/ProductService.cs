@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿﻿using AutoMapper;
 using eCommerceApp.Application.DTOs;
 using eCommerceApp.Application.DTOs.Product;
 using eCommerceApp.Application.Services.Interfaces;
@@ -24,7 +24,8 @@ namespace eCommerceApp.Application.Services.Implementation
 
             mappedProduct.ImageUrl = imagePath;
 
-            int result = await ProductInterface.AddAsync(mappedProduct);
+            await ProductInterface.AddAsync(mappedProduct);
+            int result = await ProductInterface.SaveChangesAsync();
 
             if (result > 0)
             {
@@ -40,11 +41,9 @@ namespace eCommerceApp.Application.Services.Implementation
 
         public async Task<ServicesResponse> DeleteAsync(int id)
         {
-            int result = await ProductInterface.DeleteAsync(id);
+            await ProductInterface.DeleteAsync(id);
+            int result = await ProductInterface.SaveChangesAsync();
 
-           
-
-            
             return result > 0 ?
                 new ServicesResponse(true, "Product delete successfully."):
                 new ServicesResponse(false, "Failed to delete product."); ;
@@ -81,7 +80,8 @@ namespace eCommerceApp.Application.Services.Implementation
         public async Task<ServicesResponse> UpdateAsync(UpdateProduct product)
         {
             var mappedProduct = mapper.Map<Product>(product);
-            int result = await ProductInterface.UpdateAsync(mappedProduct);
+            await ProductInterface.UpdateAsync(mappedProduct);
+            int result = await ProductInterface.SaveChangesAsync();
             if (result > 0)
             {
                 return new ServicesResponse(true, "Product updated successfully.");
@@ -90,6 +90,37 @@ namespace eCommerceApp.Application.Services.Implementation
             {
                 return new ServicesResponse(false, "Failed to update product.");
             }
+        }
+
+        public async Task<bool> DecreaseProductQuantityAsync(int productId, int quantity)
+        {
+            var product = await ProductInterface.GetByIdAsync(productId);
+            if (product == null)
+            {
+                return false; // Product not found
+            }
+
+            if (product.Quantity < quantity)
+            {
+                return false; // Insufficient stock
+            }
+
+            product.Quantity -= quantity;
+            // UpdateAsync no longer saves changes, so we need to save here
+            await ProductInterface.UpdateAsync(product);
+            int result = await ProductInterface.SaveChangesAsync();
+            return result > 0;
+        }
+
+        public async Task<bool> IncreaseProductQuantityAsync(int productId, int quantity)
+        {
+            var product = await ProductInterface.GetByIdAsync(productId);
+            if (product == null) return false; // Product not found
+            product.Quantity += quantity;
+            // UpdateAsync no longer saves changes, so we need to save here
+            await ProductInterface.UpdateAsync(product);
+            int result = await ProductInterface.SaveChangesAsync();
+            return result > 0;
         }
     }
 }

@@ -3,6 +3,7 @@ using eCommerceApp.Domain.Entities;
 
 using eCommerceApp.Domain.Entities.CartEntities;
 using eCommerceApp.Domain.Entities.Identity;
+using eCommerceApp.Domain.Entities.Orders;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -102,7 +103,7 @@ namespace eCommerceApp.Infrastructure.Data
 
                 // Many-to-One: Many Orders can have one ShippingAddress.
                 // Deleting a ShippingAddress is not allowed if it's linked to an order (Restrict).
-                order.HasOne<Address>()
+               /* order.HasOne<Address>()
                      .WithMany()
                      .HasForeignKey(o => o.ShippingAddressId)
                      .OnDelete(DeleteBehavior.Restrict);
@@ -111,7 +112,7 @@ namespace eCommerceApp.Infrastructure.Data
                 order.HasOne<PaymentMethod>()
                      .WithMany()
                      .HasForeignKey(o => o.PaymentMethodId)
-                     .OnDelete(DeleteBehavior.Restrict);
+                     .OnDelete(DeleteBehavior.Restrict);*/
             });
 
             builder.Entity<Cart>()

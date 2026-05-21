@@ -9,6 +9,7 @@ using eCommerceApp.Application.DTOs.Product;
 using eCommerceApp.Domain.Entities;
 using eCommerceApp.Domain.Entities.CartEntities;
 using eCommerceApp.Domain.Entities.Identity;
+using eCommerceApp.Domain.Entities.Orders;
 
 namespace eCommerceApp.Application.Mapping
 {

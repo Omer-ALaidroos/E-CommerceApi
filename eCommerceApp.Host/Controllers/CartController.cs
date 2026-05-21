@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using eCommerceApp.Application.Services.Interfaces.Cart;
 using eCommerceApp.Application.DTOs.Cart;
+using eCommerceApp.Application.Services.Interfaces.CartInterface;
 
 namespace eCommerceApp.API.Controllers
 {

@@ -1,9 +1,8 @@
-﻿using ECommerce.Core.DTOs.Order;
-using eCommerceApp.Application.DTOs.Address;
-using eCommerceApp.Application.Services.Implementation;
+﻿using eCommerceApp.Application.DTOs.Cart;
 using eCommerceApp.Domain.Interfaces.Orders;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace eCommerceApp.Host.Controllers
 {
@@ -11,6 +10,11 @@ namespace eCommerceApp.Host.Controllers
     [ApiController]
     public class OrderController(IOrderService orderService) : ControllerBase
     {
+        private string GetUserId()
+        {
+            return User.FindFirst("uid")?.Value
+                   ?? User.FindFirst(ClaimTypes.NameIdentifier)?.Value!;
+        }
         [HttpGet("All")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAll()
@@ -21,28 +25,36 @@ namespace eCommerceApp.Host.Controllers
         }
 
 
-        [HttpGet("Single/{id}")]
+       /* [HttpGet("Single/{id}")]
         [Authorize(Roles = "User")]
         public async Task<IActionResult> GetSingle(int id)
         {
             var Order = await orderService.GetByIdAsync(id);
 
             return Order != null ? Ok(Order) : NotFound();
-        }
+        }*/
 
-        [HttpPost("Add")]
+        [HttpPost("Create")]
         [Authorize(Roles = "User")]
-       /* public async Task<IActionResult> Add([FromBody] CreateOrder Order)
+        public async Task<IActionResult> Create([FromBody] Checkout checkout)
         {
-
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-
-           // var response = await orderService.AddAsync(Order);
+            checkout.UserId = GetUserId();
+            var response = await orderService.CreateOrder(checkout);
             return response.IsSuccess ? Ok(response) : BadRequest(response);
         }
-       */
-       
+        /* public async Task<IActionResult> Add([FromBody] CreateOrder Order)
+         {
+
+             if (!ModelState.IsValid)
+                 return BadRequest(ModelState);
+
+            // var response = await orderService.AddAsync(Order);
+             return response.IsSuccess ? Ok(response) : BadRequest(response);
+         }
+        */
+
 
         [HttpDelete("Delete/{id}")]
         [Authorize(Roles = "User")]

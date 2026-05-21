@@ -1,5 +1,6 @@
 ﻿using eCommerceApp.Application.DTOs.Cart;
-using eCommerceApp.Application.Services.Interfaces.Cart;
+
+using eCommerceApp.Application.Services.Interfaces.CartInterface;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eCommerceApp.Host.Controllers

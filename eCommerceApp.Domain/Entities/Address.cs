@@ -10,6 +10,7 @@ public class Address
     public required string Country { get; set; }
     public required string UserId { get; set; } // Foreign key to User
     public required AppUser User { get; set; }
+
     
 }
 

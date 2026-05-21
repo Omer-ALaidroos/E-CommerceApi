@@ -3,152 +3,96 @@
   "WorkspaceRootPath": "D:\\Dot Net Projects\\eCommerceAppSolution\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7853E3C3-4F85-487C-9141-E2FE06A94940}|eCommerceApp.Infrastructure\\eCommerceApp.Infrastructure.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.infrastructure\\sevices\\strippaymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7853E3C3-4F85-487C-9141-E2FE06A94940}|eCommerceApp.Infrastructure\\eCommerceApp.Infrastructure.csproj|solutionrelative:ecommerceapp.infrastructure\\sevices\\strippaymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\services\\implementation\\cart\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\services\\implementation\\cart\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7853E3C3-4F85-487C-9141-E2FE06A94940}|eCommerceApp.Infrastructure\\eCommerceApp.Infrastructure.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.infrastructure\\repository\\cartrepo\\cartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7853E3C3-4F85-487C-9141-E2FE06A94940}|eCommerceApp.Infrastructure\\eCommerceApp.Infrastructure.csproj|solutionrelative:ecommerceapp.infrastructure\\repository\\cartrepo\\cartrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{03741449-C572-4448-BEBB-33F021C8202E}|eCommerceApp.Domain\\eCommerceApp.Domain.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.domain\\interfaces\\cartinterface\\icart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{03741449-C572-4448-BEBB-33F021C8202E}|eCommerceApp.Domain\\eCommerceApp.Domain.csproj|solutionrelative:ecommerceapp.domain\\interfaces\\cartinterface\\icart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{36F2423E-A090-4D5C-9105-D2F84BC95672}|eCommerceApp.Host\\eCommerceApp.Host.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.host\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{36F2423E-A090-4D5C-9105-D2F84BC95672}|eCommerceApp.Host\\eCommerceApp.Host.csproj|solutionrelative:ecommerceapp.host\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\services\\interfaces\\cart\\icartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\services\\interfaces\\cart\\icartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\dtos\\cart\\getcartdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\dtos\\cart\\getcartdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{03741449-C572-4448-BEBB-33F021C8202E}|eCommerceApp.Domain\\eCommerceApp.Domain.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.domain\\entities\\cartentities\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{03741449-C572-4448-BEBB-33F021C8202E}|eCommerceApp.Domain\\eCommerceApp.Domain.csproj|solutionrelative:ecommerceapp.domain\\entities\\cartentities\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{03741449-C572-4448-BEBB-33F021C8202E}|eCommerceApp.Domain\\eCommerceApp.Domain.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.domain\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{03741449-C572-4448-BEBB-33F021C8202E}|eCommerceApp.Domain\\eCommerceApp.Domain.csproj|solutionrelative:ecommerceapp.domain\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{03741449-C572-4448-BEBB-33F021C8202E}|eCommerceApp.Domain\\eCommerceApp.Domain.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.domain\\entities\\cartentities\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{03741449-C572-4448-BEBB-33F021C8202E}|eCommerceApp.Domain\\eCommerceApp.Domain.csproj|solutionrelative:ecommerceapp.domain\\entities\\cartentities\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\dtos\\cart\\addtocartdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\dtos\\cart\\addtocartdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7853E3C3-4F85-487C-9141-E2FE06A94940}|eCommerceApp.Infrastructure\\eCommerceApp.Infrastructure.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.infrastructure\\migrations\\20260508195003_modifythecartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7853E3C3-4F85-487C-9141-E2FE06A94940}|eCommerceApp.Infrastructure\\eCommerceApp.Infrastructure.csproj|solutionrelative:ecommerceapp.infrastructure\\migrations\\20260508195003_modifythecartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\dtos\\identity\\createuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\dtos\\identity\\createuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\dtos\\identity\\basemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\dtos\\identity\\basemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\dtos\\identity\\loginuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\dtos\\identity\\loginuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\ecommerceapp.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\ecommerceapp.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{36F2423E-A090-4D5C-9105-D2F84BC95672}|eCommerceApp.Host\\eCommerceApp.Host.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.host\\ecommerceapp.host.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{36F2423E-A090-4D5C-9105-D2F84BC95672}|eCommerceApp.Host\\eCommerceApp.Host.csproj|solutionrelative:ecommerceapp.host\\ecommerceapp.host.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{7853E3C3-4F85-487C-9141-E2FE06A94940}|eCommerceApp.Infrastructure\\eCommerceApp.Infrastructure.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.infrastructure\\dependency injection\\servicecontainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7853E3C3-4F85-487C-9141-E2FE06A94940}|eCommerceApp.Infrastructure\\eCommerceApp.Infrastructure.csproj|solutionrelative:ecommerceapp.infrastructure\\dependency injection\\servicecontainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{36F2423E-A090-4D5C-9105-D2F84BC95672}|eCommerceApp.Host\\eCommerceApp.Host.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.host\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{36F2423E-A090-4D5C-9105-D2F84BC95672}|eCommerceApp.Host\\eCommerceApp.Host.csproj|solutionrelative:ecommerceapp.host\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\mapping\\mappingconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\mapping\\mappingconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\services\\implementation\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\services\\implementation\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{03741449-C572-4448-BEBB-33F021C8202E}|eCommerceApp.Domain\\eCommerceApp.Domain.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.domain\\entities\\cartentities\\achieve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{03741449-C572-4448-BEBB-33F021C8202E}|eCommerceApp.Domain\\eCommerceApp.Domain.csproj|solutionrelative:ecommerceapp.domain\\entities\\cartentities\\achieve.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7853E3C3-4F85-487C-9141-E2FE06A94940}|eCommerceApp.Infrastructure\\eCommerceApp.Infrastructure.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.infrastructure\\repository\\orders\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7853E3C3-4F85-487C-9141-E2FE06A94940}|eCommerceApp.Infrastructure\\eCommerceApp.Infrastructure.csproj|solutionrelative:ecommerceapp.infrastructure\\repository\\orders\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03741449-C572-4448-BEBB-33F021C8202E}|eCommerceApp.Domain\\eCommerceApp.Domain.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.domain\\interfaces\\iorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03741449-C572-4448-BEBB-33F021C8202E}|eCommerceApp.Domain\\eCommerceApp.Domain.csproj|solutionrelative:ecommerceapp.domain\\interfaces\\iorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7853E3C3-4F85-487C-9141-E2FE06A94940}|eCommerceApp.Infrastructure\\eCommerceApp.Infrastructure.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.infrastructure\\repository\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7853E3C3-4F85-487C-9141-E2FE06A94940}|eCommerceApp.Infrastructure\\eCommerceApp.Infrastructure.csproj|solutionrelative:ecommerceapp.infrastructure\\repository\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7853E3C3-4F85-487C-9141-E2FE06A94940}|eCommerceApp.Infrastructure\\eCommerceApp.Infrastructure.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.infrastructure\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7853E3C3-4F85-487C-9141-E2FE06A94940}|eCommerceApp.Infrastructure\\eCommerceApp.Infrastructure.csproj|solutionrelative:ecommerceapp.infrastructure\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7853E3C3-4F85-487C-9141-E2FE06A94940}|eCommerceApp.Infrastructure\\eCommerceApp.Infrastructure.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.infrastructure\\repository\\cartrepo\\paymentmethodrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7853E3C3-4F85-487C-9141-E2FE06A94940}|eCommerceApp.Infrastructure\\eCommerceApp.Infrastructure.csproj|solutionrelative:ecommerceapp.infrastructure\\repository\\cartrepo\\paymentmethodrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{03741449-C572-4448-BEBB-33F021C8202E}|eCommerceApp.Domain\\eCommerceApp.Domain.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.domain\\entities\\orders\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03741449-C572-4448-BEBB-33F021C8202E}|eCommerceApp.Domain\\eCommerceApp.Domain.csproj|solutionrelative:ecommerceapp.domain\\entities\\orders\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{03741449-C572-4448-BEBB-33F021C8202E}|eCommerceApp.Domain\\eCommerceApp.Domain.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.domain\\interfaces\\cartinterface\\ipaymentmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{03741449-C572-4448-BEBB-33F021C8202E}|eCommerceApp.Domain\\eCommerceApp.Domain.csproj|solutionrelative:ecommerceapp.domain\\interfaces\\cartinterface\\ipaymentmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{03741449-C572-4448-BEBB-33F021C8202E}|eCommerceApp.Domain\\eCommerceApp.Domain.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.domain\\entities\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03741449-C572-4448-BEBB-33F021C8202E}|eCommerceApp.Domain\\eCommerceApp.Domain.csproj|solutionrelative:ecommerceapp.domain\\entities\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{03741449-C572-4448-BEBB-33F021C8202E}|eCommerceApp.Domain\\eCommerceApp.Domain.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.domain\\entities\\cartentities\\paymentmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{03741449-C572-4448-BEBB-33F021C8202E}|eCommerceApp.Domain\\eCommerceApp.Domain.csproj|solutionrelative:ecommerceapp.domain\\entities\\cartentities\\paymentmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7853E3C3-4F85-487C-9141-E2FE06A94940}|eCommerceApp.Infrastructure\\eCommerceApp.Infrastructure.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.infrastructure\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7853E3C3-4F85-487C-9141-E2FE06A94940}|eCommerceApp.Infrastructure\\eCommerceApp.Infrastructure.csproj|solutionrelative:ecommerceapp.infrastructure\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Infrastructure\\Migrations\\20260502201809_AddCartSystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:eCommerceApp.Infrastructure\\Migrations\\20260502201809_AddCartSystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\dtos\\order\\getorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\dtos\\order\\getorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\services\\implementation\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\services\\implementation\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\dtos\\order\\createorderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\dtos\\order\\createorderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7853E3C3-4F85-487C-9141-E2FE06A94940}|eCommerceApp.Infrastructure\\eCommerceApp.Infrastructure.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.infrastructure\\migrations\\20260508195003_modifythecartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7853E3C3-4F85-487C-9141-E2FE06A94940}|eCommerceApp.Infrastructure\\eCommerceApp.Infrastructure.csproj|solutionrelative:ecommerceapp.infrastructure\\migrations\\20260508195003_modifythecartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\dtos\\cart\\checkout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\dtos\\cart\\checkout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{36F2423E-A090-4D5C-9105-D2F84BC95672}|eCommerceApp.Host\\eCommerceApp.Host.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.host\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{36F2423E-A090-4D5C-9105-D2F84BC95672}|eCommerceApp.Host\\eCommerceApp.Host.csproj|solutionrelative:ecommerceapp.host\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{36F2423E-A090-4D5C-9105-D2F84BC95672}|eCommerceApp.Host\\eCommerceApp.Host.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.host\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36F2423E-A090-4D5C-9105-D2F84BC95672}|eCommerceApp.Host\\eCommerceApp.Host.csproj|solutionrelative:ecommerceapp.host\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\services\\interfaces\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\services\\interfaces\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{36F2423E-A090-4D5C-9105-D2F84BC95672}|eCommerceApp.Host\\eCommerceApp.Host.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.host\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36F2423E-A090-4D5C-9105-D2F84BC95672}|eCommerceApp.Host\\eCommerceApp.Host.csproj|solutionrelative:ecommerceapp.host\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\services\\implementation\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\services\\implementation\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{36F2423E-A090-4D5C-9105-D2F84BC95672}|eCommerceApp.Host\\eCommerceApp.Host.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.host\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{36F2423E-A090-4D5C-9105-D2F84BC95672}|eCommerceApp.Host\\eCommerceApp.Host.csproj|solutionrelative:ecommerceapp.host\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\dtos\\product\\getproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\dtos\\product\\getproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7853E3C3-4F85-487C-9141-E2FE06A94940}|eCommerceApp.Infrastructure\\eCommerceApp.Infrastructure.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.infrastructure\\sevices\\strippaymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7853E3C3-4F85-487C-9141-E2FE06A94940}|eCommerceApp.Infrastructure\\eCommerceApp.Infrastructure.csproj|solutionrelative:ecommerceapp.infrastructure\\sevices\\strippaymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\dtos\\product\\createproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\dtos\\product\\createproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\services\\implementation\\cart\\paymentmethodservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\services\\implementation\\cart\\paymentmethodservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\dtos\\product\\updateproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\dtos\\product\\updateproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\dtos\\product\\productbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\dtos\\product\\productbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\services\\implementation\\cart\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\services\\implementation\\cart\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\dependencyinjection\\servicecontainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\dependencyinjection\\servicecontainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\services\\imageuploader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\services\\imageuploader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\services\\interfaces\\cartinterface\\icartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\services\\interfaces\\cartinterface\\icartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\services\\interfaces\\cartinterface\\ipaymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\services\\interfaces\\cartinterface\\ipaymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\services\\interfaces\\cartinterface\\ipaymentmethodservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\services\\interfaces\\cartinterface\\ipaymentmethodservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -158,178 +102,80 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 12,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "GetCartDto.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DTOs\\Cart\\GetCartDto.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Application\\DTOs\\Cart\\GetCartDto.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DTOs\\Cart\\GetCartDto.cs",
-              "RelativeToolTip": "eCommerceApp.Application\\DTOs\\Cart\\GetCartDto.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAYAAAAvAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "IOrder.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Domain\\Interfaces\\IOrder.cs",
+              "RelativeDocumentMoniker": "eCommerceApp.Domain\\Interfaces\\IOrder.cs",
+              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Domain\\Interfaces\\IOrder.cs",
+              "RelativeToolTip": "eCommerceApp.Domain\\Interfaces\\IOrder.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAxwA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-04T19:08:32.448Z"
+              "WhenOpened": "2026-05-21T08:32:42.782Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ICartService.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Interfaces\\Cart\\ICartService.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Application\\Services\\Interfaces\\Cart\\ICartService.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Interfaces\\Cart\\ICartService.cs",
-              "RelativeToolTip": "eCommerceApp.Application\\Services\\Interfaces\\Cart\\ICartService.cs",
-              "ViewState": "AgIAAAcAAACgMjMzMzMrwAoAAABFAAAAAAAAAA==",
+              "Title": "CategoryRepository.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Infrastructure\\Repository\\CategoryRepository.cs",
+              "RelativeDocumentMoniker": "eCommerceApp.Infrastructure\\Repository\\CategoryRepository.cs",
+              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Infrastructure\\Repository\\CategoryRepository.cs",
+              "RelativeToolTip": "eCommerceApp.Infrastructure\\Repository\\CategoryRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-04T19:09:28.385Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "StripPaymentService.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Infrastructure\\Sevices\\StripPaymentService.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Infrastructure\\Sevices\\StripPaymentService.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Infrastructure\\Sevices\\StripPaymentService.cs",
-              "RelativeToolTip": "eCommerceApp.Infrastructure\\Sevices\\StripPaymentService.cs",
-              "ViewState": "AgIAAB8AAAAAlJmZmZkdwBsAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-04T19:19:25.048Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "AddToCartDto.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DTOs\\Cart\\AddToCartDto.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Application\\DTOs\\Cart\\AddToCartDto.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DTOs\\Cart\\AddToCartDto.cs",
-              "RelativeToolTip": "eCommerceApp.Application\\DTOs\\Cart\\AddToCartDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-04T20:04:28.764Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ICart.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Domain\\Interfaces\\CartInterface\\ICart.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Domain\\Interfaces\\CartInterface\\ICart.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Domain\\Interfaces\\CartInterface\\ICart.cs",
-              "RelativeToolTip": "eCommerceApp.Domain\\Interfaces\\CartInterface\\ICart.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAIA4wAkAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-04T14:42:00.255Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CartController.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Host\\Controllers\\CartController.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Host\\Controllers\\CartController.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Host\\Controllers\\CartController.cs",
-              "RelativeToolTip": "eCommerceApp.Host\\Controllers\\CartController.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAwwEYAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-04T19:55:35.131Z"
+              "WhenOpened": "2026-05-21T08:31:36.769Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CartService.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Implementation\\Cart\\CartService.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Application\\Services\\Implementation\\Cart\\CartService.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Implementation\\Cart\\CartService.cs",
-              "RelativeToolTip": "eCommerceApp.Application\\Services\\Implementation\\Cart\\CartService.cs",
-              "ViewState": "AgIAAGgAAAAAAAAAAAAcwGwAAAAzAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Host\\Program.cs",
+              "RelativeDocumentMoniker": "eCommerceApp.Host\\Program.cs",
+              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Host\\Program.cs",
+              "RelativeToolTip": "eCommerceApp.Host\\Program.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAAkAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-02T18:55:42.42Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CartRepository.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Infrastructure\\Repository\\CartRepo\\CartRepository.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Infrastructure\\Repository\\CartRepo\\CartRepository.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Infrastructure\\Repository\\CartRepo\\CartRepository.cs",
-              "RelativeToolTip": "eCommerceApp.Infrastructure\\Repository\\CartRepo\\CartRepository.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAD4vxUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-04T14:47:22.413Z",
+              "WhenOpened": "2026-05-20T18:00:47.611Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "Product.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Domain\\Entities\\Product.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Domain\\Entities\\Product.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Domain\\Entities\\Product.cs",
-              "RelativeToolTip": "eCommerceApp.Domain\\Entities\\Product.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAFAAAAAAAAAA==",
+              "Title": "Address.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Domain\\Entities\\Address.cs",
+              "RelativeDocumentMoniker": "eCommerceApp.Domain\\Entities\\Address.cs",
+              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Domain\\Entities\\Address.cs",
+              "RelativeToolTip": "eCommerceApp.Domain\\Entities\\Address.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-02T07:02:50.222Z"
+              "WhenOpened": "2026-05-20T14:51:44.706Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "GetOrder.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DTOs\\Order\\GetOrder.cs",
+              "RelativeDocumentMoniker": "eCommerceApp.Application\\DTOs\\Order\\GetOrder.cs",
+              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DTOs\\Order\\GetOrder.cs",
+              "RelativeToolTip": "eCommerceApp.Application\\DTOs\\Order\\GetOrder.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAIA2wA8AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T14:17:19.537Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "Cart.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Domain\\Entities\\CartEntities\\Cart.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Domain\\Entities\\CartEntities\\Cart.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Domain\\Entities\\CartEntities\\Cart.cs",
-              "RelativeToolTip": "eCommerceApp.Domain\\Entities\\CartEntities\\Cart.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAoAAAA1AAAAAAAAAA==",
+              "Title": "AppDbContextModelSnapshot.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Infrastructure\\Migrations\\AppDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "eCommerceApp.Infrastructure\\Migrations\\AppDbContextModelSnapshot.cs",
+              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Infrastructure\\Migrations\\AppDbContextModelSnapshot.cs",
+              "RelativeToolTip": "eCommerceApp.Infrastructure\\Migrations\\AppDbContextModelSnapshot.cs",
+              "ViewState": "AgIAALACAAAAAAAAAAAQwIQCAABmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-02T20:11:00.153Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "CartItem.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Domain\\Entities\\CartEntities\\CartItem.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Domain\\Entities\\CartEntities\\CartItem.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Domain\\Entities\\CartEntities\\CartItem.cs",
-              "RelativeToolTip": "eCommerceApp.Domain\\Entities\\CartEntities\\CartItem.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAkAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-02T20:11:38.947Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "LoginUser.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DTOs\\Identity\\LoginUser.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Application\\DTOs\\Identity\\LoginUser.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DTOs\\Identity\\LoginUser.cs",
-              "RelativeToolTip": "eCommerceApp.Application\\DTOs\\Identity\\LoginUser.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-04T20:00:28.952Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "BaseModel.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DTOs\\Identity\\BaseModel.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Application\\DTOs\\Identity\\BaseModel.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DTOs\\Identity\\BaseModel.cs",
-              "RelativeToolTip": "eCommerceApp.Application\\DTOs\\Identity\\BaseModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-04T20:00:25.462Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "CreateUser.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DTOs\\Identity\\CreateUser.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Application\\DTOs\\Identity\\CreateUser.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DTOs\\Identity\\CreateUser.cs",
-              "RelativeToolTip": "eCommerceApp.Application\\DTOs\\Identity\\CreateUser.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-04T20:00:27.569Z"
+              "WhenOpened": "2026-05-20T14:16:07.716Z"
             },
             {
               "$type": "Document",
@@ -339,272 +185,203 @@
               "RelativeDocumentMoniker": "eCommerceApp.Infrastructure\\Migrations\\20260508195003_modifytheCartItem.cs",
               "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Infrastructure\\Migrations\\20260508195003_modifytheCartItem.cs",
               "RelativeToolTip": "eCommerceApp.Infrastructure\\Migrations\\20260508195003_modifytheCartItem.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAiwB8AAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T19:50:03.921Z"
+              "WhenOpened": "2026-05-20T14:15:59.777Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "eCommerceApp.Application.csproj",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\eCommerceApp.Application.csproj",
-              "RelativeDocumentMoniker": "eCommerceApp.Application\\eCommerceApp.Application.csproj",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\eCommerceApp.Application.csproj",
-              "RelativeToolTip": "eCommerceApp.Application\\eCommerceApp.Application.csproj",
-              "ViewState": "AgIAAAMAAAAAAAAAAAD4vxMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-05-07T14:41:21.587Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "MappingConfig.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Mapping\\MappingConfig.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Application\\Mapping\\MappingConfig.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Mapping\\MappingConfig.cs",
-              "RelativeToolTip": "eCommerceApp.Application\\Mapping\\MappingConfig.cs",
-              "ViewState": "AgIAAAwAAACALTMzMzMVwBsAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-04T14:46:53.928Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "PaymentMethodRepository.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Infrastructure\\Repository\\CartRepo\\PaymentMethodRepository.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Infrastructure\\Repository\\CartRepo\\PaymentMethodRepository.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Infrastructure\\Repository\\CartRepo\\PaymentMethodRepository.cs",
-              "RelativeToolTip": "eCommerceApp.Infrastructure\\Repository\\CartRepo\\PaymentMethodRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-04T14:46:12.811Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "IPaymentMethod.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Domain\\Interfaces\\CartInterface\\IPaymentMethod.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Domain\\Interfaces\\CartInterface\\IPaymentMethod.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Domain\\Interfaces\\CartInterface\\IPaymentMethod.cs",
-              "RelativeToolTip": "eCommerceApp.Domain\\Interfaces\\CartInterface\\IPaymentMethod.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-04T14:43:28.437Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "PaymentMethod.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Domain\\Entities\\CartEntities\\PaymentMethod.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Domain\\Entities\\CartEntities\\PaymentMethod.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Domain\\Entities\\CartEntities\\PaymentMethod.cs",
-              "RelativeToolTip": "eCommerceApp.Domain\\Entities\\CartEntities\\PaymentMethod.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-04T14:43:06.111Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Achieve.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Domain\\Entities\\CartEntities\\Achieve.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Domain\\Entities\\CartEntities\\Achieve.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Domain\\Entities\\CartEntities\\Achieve.cs",
-              "RelativeToolTip": "eCommerceApp.Domain\\Entities\\CartEntities\\Achieve.cs",
-              "ViewState": "AgIAAAQAAADAZWZmZmY0wAsAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-04T14:42:35.712Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "20260502201809_AddCartSystem.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Infrastructure\\Migrations\\20260502201809_AddCartSystem.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Infrastructure\\Migrations\\20260502201809_AddCartSystem.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Infrastructure\\Migrations\\20260502201809_AddCartSystem.cs",
-              "RelativeToolTip": "eCommerceApp.Infrastructure\\Migrations\\20260502201809_AddCartSystem.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-02T20:18:10.041Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "CreateOrderDto.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DTOs\\Order\\CreateOrderDto.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Application\\DTOs\\Order\\CreateOrderDto.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DTOs\\Order\\CreateOrderDto.cs",
-              "RelativeToolTip": "eCommerceApp.Application\\DTOs\\Order\\CreateOrderDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-02T20:17:16.384Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "OrderService.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Implementation\\OrderService.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Application\\Services\\Implementation\\OrderService.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Implementation\\OrderService.cs",
-              "RelativeToolTip": "eCommerceApp.Application\\Services\\Implementation\\OrderService.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAcwBIAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-02T20:16:59.687Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 6,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Infrastructure\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "eCommerceApp.Infrastructure\\Data\\AppDbContext.cs",
               "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Infrastructure\\Data\\AppDbContext.cs",
               "RelativeToolTip": "eCommerceApp.Infrastructure\\Data\\AppDbContext.cs",
-              "ViewState": "AgIAABsAAABAmJmZmZkjwAgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAiwCYAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-02T20:12:44.843Z"
+              "WhenOpened": "2026-05-20T14:15:28.684Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "Checkout.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DTOs\\Cart\\Checkout.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Application\\DTOs\\Cart\\Checkout.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DTOs\\Cart\\Checkout.cs",
-              "RelativeToolTip": "eCommerceApp.Application\\DTOs\\Cart\\Checkout.cs",
-              "ViewState": "AgIAAAUAAABQZmZmZiYuwBAAAAAsAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "Order.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Domain\\Entities\\Orders\\Order.cs",
+              "RelativeDocumentMoniker": "eCommerceApp.Domain\\Entities\\Orders\\Order.cs",
+              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Domain\\Entities\\Orders\\Order.cs",
+              "RelativeToolTip": "eCommerceApp.Domain\\Entities\\Orders\\Order.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAowBUAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-02T19:30:28.317Z"
+              "WhenOpened": "2026-05-20T14:08:37.667Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "PaymentController.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Host\\Controllers\\PaymentController.cs",
+              "RelativeDocumentMoniker": "eCommerceApp.Host\\Controllers\\PaymentController.cs",
+              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Host\\Controllers\\PaymentController.cs",
+              "RelativeToolTip": "eCommerceApp.Host\\Controllers\\PaymentController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T13:52:54.442Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Host\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "eCommerceApp.Host\\Controllers\\CartController.cs",
+              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Host\\Controllers\\CartController.cs",
+              "RelativeToolTip": "eCommerceApp.Host\\Controllers\\CartController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T13:52:36.375Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Host\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "eCommerceApp.Host\\Controllers\\OrderController.cs",
+              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Host\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "eCommerceApp.Host\\Controllers\\OrderController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T13:43:33.449Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ServiceContainer.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Infrastructure\\Dependency Injection\\ServiceContainer.cs",
+              "RelativeDocumentMoniker": "eCommerceApp.Infrastructure\\Dependency Injection\\ServiceContainer.cs",
+              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Infrastructure\\Dependency Injection\\ServiceContainer.cs",
+              "RelativeToolTip": "eCommerceApp.Infrastructure\\Dependency Injection\\ServiceContainer.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAewCcAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-17T10:40:58.682Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "StripPaymentService.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Infrastructure\\Sevices\\StripPaymentService.cs",
+              "RelativeDocumentMoniker": "eCommerceApp.Infrastructure\\Sevices\\StripPaymentService.cs",
+              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Infrastructure\\Sevices\\StripPaymentService.cs",
+              "RelativeToolTip": "eCommerceApp.Infrastructure\\Sevices\\StripPaymentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-16T16:00:47.915Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 17,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Host\\Program.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Host\\Program.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Host\\Program.cs",
-              "RelativeToolTip": "eCommerceApp.Host\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAmAAAAAAAAAA==",
+              "Title": "PaymentMethodService.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Implementation\\Cart\\PaymentMethodService.cs",
+              "RelativeDocumentMoniker": "eCommerceApp.Application\\Services\\Implementation\\Cart\\PaymentMethodService.cs",
+              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Implementation\\Cart\\PaymentMethodService.cs",
+              "RelativeToolTip": "eCommerceApp.Application\\Services\\Implementation\\Cart\\PaymentMethodService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-02T10:54:06.459Z"
+              "WhenOpened": "2026-05-16T16:00:07.301Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Host\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Host\\Controllers\\ProductController.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Host\\Controllers\\ProductController.cs",
-              "RelativeToolTip": "eCommerceApp.Host\\Controllers\\ProductController.cs",
-              "ViewState": "AgIAAEIAAABAzMzMzIwowE0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-02T07:52:19.751Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 19,
               "Title": "ServiceContainer.cs",
               "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DependencyInjection\\ServiceContainer.cs",
               "RelativeDocumentMoniker": "eCommerceApp.Application\\DependencyInjection\\ServiceContainer.cs",
               "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DependencyInjection\\ServiceContainer.cs",
               "RelativeToolTip": "eCommerceApp.Application\\DependencyInjection\\ServiceContainer.cs",
-              "ViewState": "AgIAABAAAAAgmZmZmZk+wCAAAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwB8AAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-02T07:50:44.118Z"
+              "WhenOpened": "2026-05-16T15:59:06.626Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "IProductService.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Interfaces\\IProductService.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Application\\Services\\Interfaces\\IProductService.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Interfaces\\IProductService.cs",
-              "RelativeToolTip": "eCommerceApp.Application\\Services\\Interfaces\\IProductService.cs",
-              "ViewState": "AgIAAAIAAADAZWZmZmYkwAsAAAA/AAAAAAAAAA==",
+              "DocumentIndex": 12,
+              "Title": "Checkout.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DTOs\\Cart\\Checkout.cs",
+              "RelativeDocumentMoniker": "eCommerceApp.Application\\DTOs\\Cart\\Checkout.cs",
+              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DTOs\\Cart\\Checkout.cs",
+              "RelativeToolTip": "eCommerceApp.Application\\DTOs\\Cart\\Checkout.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwAoAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-02T07:45:27.345Z"
+              "WhenOpened": "2026-05-16T15:57:15.312Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "ImageUploader.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\ImageUploader.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Application\\Services\\ImageUploader.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\ImageUploader.cs",
-              "RelativeToolTip": "eCommerceApp.Application\\Services\\ImageUploader.cs",
-              "ViewState": "AgIAABgAAAAA5/////8PwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 21,
+              "Title": "IPaymentService.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Interfaces\\CartInterface\\IPaymentService.cs",
+              "RelativeDocumentMoniker": "eCommerceApp.Application\\Services\\Interfaces\\CartInterface\\IPaymentService.cs",
+              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Interfaces\\CartInterface\\IPaymentService.cs",
+              "RelativeToolTip": "eCommerceApp.Application\\Services\\Interfaces\\CartInterface\\IPaymentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-02T07:43:45.487Z"
+              "WhenOpened": "2026-05-16T15:55:54.576Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "eCommerceApp.Host.csproj",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Host\\eCommerceApp.Host.csproj",
-              "RelativeDocumentMoniker": "eCommerceApp.Host\\eCommerceApp.Host.csproj",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Host\\eCommerceApp.Host.csproj",
-              "RelativeToolTip": "eCommerceApp.Host\\eCommerceApp.Host.csproj",
-              "ViewState": "AgIAAAQAAACgMjMzMzMrwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-05-02T07:38:59.991Z"
+              "DocumentIndex": 22,
+              "Title": "IPaymentMethodService.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Interfaces\\CartInterface\\IPaymentMethodService.cs",
+              "RelativeDocumentMoniker": "eCommerceApp.Application\\Services\\Interfaces\\CartInterface\\IPaymentMethodService.cs",
+              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Interfaces\\CartInterface\\IPaymentMethodService.cs",
+              "RelativeToolTip": "eCommerceApp.Application\\Services\\Interfaces\\CartInterface\\IPaymentMethodService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-16T15:55:43.714Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "ProductService.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Implementation\\ProductService.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Application\\Services\\Implementation\\ProductService.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Implementation\\ProductService.cs",
-              "RelativeToolTip": "eCommerceApp.Application\\Services\\Implementation\\ProductService.cs",
-              "ViewState": "AgIAAEEAAAAAcMzMzMzovwwAAABMAAAAAAAAAA==",
+              "DocumentIndex": 20,
+              "Title": "ICartService.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Interfaces\\CartInterface\\ICartService.cs",
+              "RelativeDocumentMoniker": "eCommerceApp.Application\\Services\\Interfaces\\CartInterface\\ICartService.cs",
+              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Interfaces\\CartInterface\\ICartService.cs",
+              "RelativeToolTip": "eCommerceApp.Application\\Services\\Interfaces\\CartInterface\\ICartService.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAA7wBMAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-02T07:34:09.029Z"
+              "WhenOpened": "2026-05-16T15:54:16.729Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "CreateProduct.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DTOs\\Product\\CreateProduct.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Application\\DTOs\\Product\\CreateProduct.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DTOs\\Product\\CreateProduct.cs",
-              "RelativeToolTip": "eCommerceApp.Application\\DTOs\\Product\\CreateProduct.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAzAAAAAAAAAA==",
+              "DocumentIndex": 18,
+              "Title": "CartService.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Implementation\\Cart\\CartService.cs",
+              "RelativeDocumentMoniker": "eCommerceApp.Application\\Services\\Implementation\\Cart\\CartService.cs",
+              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Implementation\\Cart\\CartService.cs",
+              "RelativeToolTip": "eCommerceApp.Application\\Services\\Implementation\\Cart\\CartService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-02T07:04:21.487Z"
+              "WhenOpened": "2026-05-16T15:53:26.045Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "UpdateProduct.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DTOs\\Product\\UpdateProduct.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Application\\DTOs\\Product\\UpdateProduct.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DTOs\\Product\\UpdateProduct.cs",
-              "RelativeToolTip": "eCommerceApp.Application\\DTOs\\Product\\UpdateProduct.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "OrderService.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Implementation\\OrderService.cs",
+              "RelativeDocumentMoniker": "eCommerceApp.Application\\Services\\Implementation\\OrderService.cs",
+              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Implementation\\OrderService.cs",
+              "RelativeToolTip": "eCommerceApp.Application\\Services\\Implementation\\OrderService.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAkwDAAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-02T07:04:16.835Z"
+              "WhenOpened": "2026-05-16T15:52:08.674Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "Productbase.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DTOs\\Product\\Productbase.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Application\\DTOs\\Product\\Productbase.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DTOs\\Product\\Productbase.cs",
-              "RelativeToolTip": "eCommerceApp.Application\\DTOs\\Product\\Productbase.cs",
-              "ViewState": "AgIAAAYAAAAA////////vw0AAAAHAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "OrderRepository.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Infrastructure\\Repository\\Orders\\OrderRepository.cs",
+              "RelativeDocumentMoniker": "eCommerceApp.Infrastructure\\Repository\\Orders\\OrderRepository.cs",
+              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Infrastructure\\Repository\\Orders\\OrderRepository.cs",
+              "RelativeToolTip": "eCommerceApp.Infrastructure\\Repository\\Orders\\OrderRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-02T07:03:52.144Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "GetProduct.cs",
-              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DTOs\\Product\\GetProduct.cs",
-              "RelativeDocumentMoniker": "eCommerceApp.Application\\DTOs\\Product\\GetProduct.cs",
-              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DTOs\\Product\\GetProduct.cs",
-              "RelativeToolTip": "eCommerceApp.Application\\DTOs\\Product\\GetProduct.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-02T07:03:30.802Z"
+              "WhenOpened": "2026-05-16T15:51:45.548Z"
             }
           ]
         }

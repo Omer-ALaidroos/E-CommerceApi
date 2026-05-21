@@ -6,10 +6,13 @@ namespace eCommerceApp.Domain.Interfaces
     {
         Task<IEnumerable<Product>> GetProductsByCategory(int categoryId);
         public Task<IEnumerable<Product>> GetAllAsync();
-        Task<List<Product>> GetByIdsAsync(IEnumerable<int> ids);
+        Task<IEnumerable<Product>> GetByIdsAsync(IEnumerable<int> ids);
         public Task<Product> GetByIdAsync(int id);
-        public Task<int> AddAsync(Product entity);
-        public Task<int> UpdateAsync(Product entity);
-        public Task<int> DeleteAsync(int id);
+        public Task AddAsync(Product entity); // Changed return type to Task
+        public Task UpdateAsync(Product entity); // Changed return type to Task
+        public Task DeleteAsync(int id); // Changed return type to Task
+        Task DecreaseProductQuantityAsync(int productId, int quantity);
+        Task IncreaseProductQuantityAsync(int productId, int quantity);
+        Task<int> SaveChangesAsync();
     }
 }

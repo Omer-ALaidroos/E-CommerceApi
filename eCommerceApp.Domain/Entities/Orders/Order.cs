@@ -1,6 +1,9 @@
-﻿using eCommerceApp.Domain.Entities.Identity;
+﻿using ECommerce.Core.Entities;
+using eCommerceApp.Domain.Entities.CartEntities;
+using eCommerceApp.Domain.Entities.Identity;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ECommerce.Core.Entities
+namespace eCommerceApp.Domain.Entities.Orders
 {
     public class Order
     {
@@ -12,10 +15,15 @@ namespace ECommerce.Core.Entities
         public required int ShippingAddressId { get; set; }
 
         public required int PaymentMethodId { get; set; }
+
+      
+        public Address? ShippingAddress { get; set; }
+
         
-        // Navigation Properties
-        public required AppUser? User { get; set; }
-       
-        public required ICollection<OrderItem> OrderItems { get; set; }
+        public PaymentMethod? PaymentMethod { get; set; }
+
+        public AppUser? User { get; set; }
+
+        public ICollection<OrderItem>? OrderItems { get; set; }
     }
 }

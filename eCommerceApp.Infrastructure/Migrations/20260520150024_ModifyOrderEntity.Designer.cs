@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eCommerceApp.Infrastructure.Data;
 
@@ -11,9 +12,11 @@ using eCommerceApp.Infrastructure.Data;
 namespace eCommerceApp.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260520150024_ModifyOrderEntity")]
+    partial class ModifyOrderEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -466,14 +469,12 @@ namespace eCommerceApp.Infrastructure.Migrations
                     b.Property<int>("PaymentMethodId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PaymentMethodId1")
-                        .HasColumnType("int");
+                   
 
                     b.Property<int>("ShippingAddressId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ShippingAddressId1")
-                        .HasColumnType("int");
+                
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -490,11 +491,11 @@ namespace eCommerceApp.Infrastructure.Migrations
 
                     b.HasIndex("PaymentMethodId");
 
-                    b.HasIndex("PaymentMethodId1");
+             
 
                     b.HasIndex("ShippingAddressId");
 
-                    b.HasIndex("ShippingAddressId1");
+                
 
                     b.HasIndex("UserId");
 
@@ -647,7 +648,7 @@ namespace eCommerceApp.Infrastructure.Migrations
 
                     b.HasOne("eCommerceApp.Domain.Entities.CartEntities.PaymentMethod", "PaymentMethod")
                         .WithMany()
-                        .HasForeignKey("PaymentMethodId1");
+                        .HasForeignKey("PaymentMethodId");
 
                     b.HasOne("Address", null)
                         .WithMany()
@@ -657,7 +658,7 @@ namespace eCommerceApp.Infrastructure.Migrations
 
                     b.HasOne("Address", "ShippingAddress")
                         .WithMany()
-                        .HasForeignKey("ShippingAddressId1");
+                        .HasForeignKey("ShippingAddressId");
 
                     b.HasOne("eCommerceApp.Domain.Entities.Identity.AppUser", "User")
                         .WithMany()
