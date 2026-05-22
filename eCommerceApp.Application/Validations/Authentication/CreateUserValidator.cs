@@ -24,7 +24,8 @@ namespace eCommerceApp.Application.Validations.Authentication
 
             RuleFor(x => x.PhoneNumber)
                 .NotEmpty().WithMessage("Phone number is required.")
-                .Matches(@"^\+?[0-9]{10,15}$").WithMessage("Invalid phone number format.");
+                .Matches(@"^(77|73|78|71)\d{7}$")
+                .WithMessage("Phone number must be exactly 9 digits and start with 77, 73, 78, or 71.");
         }
     }
 }
