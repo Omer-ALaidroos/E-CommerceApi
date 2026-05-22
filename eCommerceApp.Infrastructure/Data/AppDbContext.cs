@@ -1,4 +1,5 @@
-﻿using ECommerce.Core.Entities;
+﻿﻿using ECommerce.Core.Entities;
+using eCommerceApp.Application.Services.Interfaces;
 using eCommerceApp.Domain.Entities;
 
 using eCommerceApp.Domain.Entities.CartEntities;
@@ -12,7 +13,7 @@ namespace eCommerceApp.Infrastructure.Data
 {
    
 
-    public class AppDbContext : IdentityDbContext<AppUser>
+    public class AppDbContext :  IdentityDbContext<AppUser>, IApplicationDbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -120,6 +121,12 @@ namespace eCommerceApp.Infrastructure.Data
             builder.Entity<CartItem>()
                    .HasIndex(ci => new { ci.CartId, ci.ProductId })
                    .IsUnique();
+
+            // Configure AppUser PhoneNumber
+            builder.Entity<AppUser>(entity =>
+            {
+                entity.Property(u => u.PhoneNumber).IsRequired().HasMaxLength(15);
+            });
         }
     }
 

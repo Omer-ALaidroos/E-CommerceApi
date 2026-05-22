@@ -1,5 +1,7 @@
 ﻿using eCommerceApp.Application.DTOs.Cart;
+using eCommerceApp.Application.Services.Implementation.OrderServices.query;
 using eCommerceApp.Domain.Interfaces.Orders;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -8,8 +10,10 @@ namespace eCommerceApp.Host.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OrderController(IOrderService orderService) : ControllerBase
+    public class OrderController(IOrderService orderService,IMediator _mediator) : ControllerBase
     {
+        
+
         private string GetUserId()
         {
             return User.FindFirst("uid")?.Value
@@ -54,8 +58,48 @@ namespace eCommerceApp.Host.Controllers
              return response.IsSuccess ? Ok(response) : BadRequest(response);
          }
         */
+        [HttpGet("UserOrders")]
+        [Authorize(Roles ="User")]
+        public async Task<IActionResult> GetUserOrders()
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
+            var result = await _mediator.Send(
+                new GetUserOrdersQuery(userId!));
 
+            return Ok(result);
+        }
+        [HttpGet("OrderSummaries")]
+        [Authorize(Roles = "User")]
+        public async Task<IActionResult> GetOrderSummaries()
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized();
+
+            var result = await _mediator.Send(
+                new GetUserOrderSummariesQuery(userId));
+
+            return Ok(result);
+        }
+        [HttpGet("GetById/{orderId}")]
+        [Authorize(Roles = "User")]
+        public async Task<IActionResult> GetById(int orderId)
+        {
+            var userId = GetUserId();
+
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized();
+
+            var result = await _mediator.Send(
+                new GetUserOrderByIdQuery(orderId, userId));
+
+            if (result is null)
+                return NotFound();
+
+            return Ok(result);
+        }
         [HttpDelete("Delete/{id}")]
         [Authorize(Roles = "User")]
         public async Task<IActionResult> Delete(int id)

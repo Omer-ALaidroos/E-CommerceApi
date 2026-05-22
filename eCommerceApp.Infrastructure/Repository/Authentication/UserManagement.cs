@@ -51,7 +51,8 @@ namespace eCommerceApp.Infrastructure.Repository.Authentication
                 new Claim("FullName", user.FullName!),
                 new Claim(ClaimTypes.NameIdentifier, user!.Id),
                 new Claim(ClaimTypes.Email, user.Email!),
-                new Claim(ClaimTypes.Role, roleName!)
+                new Claim(ClaimTypes.Role, roleName!),
+                new Claim(ClaimTypes.MobilePhone, user.PhoneNumber ?? "")
             ];
                
             return claims;

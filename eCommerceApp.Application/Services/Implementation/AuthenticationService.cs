@@ -31,7 +31,7 @@ namespace eCommerceApp.Application.Services.Implementation
 
             var result = await userManagement.CreateUser(mapperUser);
             if (!result)
-                return new ServicesResponse(Message: "email address is already in use or unKown Error occured.");
+                return new ServicesResponse(Message: "Email address is already in use or an unknown error occurred.");
 
             //look at this
             var users = await userManagement.GetAllUsers();
@@ -51,7 +51,7 @@ namespace eCommerceApp.Application.Services.Implementation
                 
             }
                 
-           return new ServicesResponse(IsSuccess: true, Message: "Accoount Created");
+           return new ServicesResponse(IsSuccess: true, Message: "Account Created");
         }
 
         public async Task<LoginResponse> LoginUser(LoginUser user)
@@ -64,7 +64,7 @@ namespace eCommerceApp.Application.Services.Implementation
             mappedModel.PasswordHash = user.Password;
             var loginResult = await userManagement.LoginUser(mappedModel);
             if (!loginResult)
-                return new LoginResponse(Message: "Email not founde or invalid credentials.");
+                return new LoginResponse(Message: "Email not found or invalid credentials.");
 
             var _user = await userManagement.GetUserByEmail(user.Email!);
             var cliams = await userManagement.GetUserClaims(_user!.Email!);
@@ -82,7 +82,7 @@ namespace eCommerceApp.Application.Services.Implementation
             if (SaveTokenResult <= 0)
                 return new LoginResponse(Message: "internal Error occured While Authentication.");
 
-            return new LoginResponse(Success: true, Token: jwtToken, Refreshtoken: refreshToken, UserId:mappedModel.Id);
+            return new LoginResponse(Success: true, Token: jwtToken, Refreshtoken: refreshToken, UserId: _user.Id);
 
         }
 

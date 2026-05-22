@@ -1,4 +1,5 @@
 ﻿using ECommerce.Core.Entities;
+using eCommerceApp.Application.Services.Interfaces;
 using eCommerceApp.Application.Services.Interfaces.CartInterface;
 using eCommerceApp.Application.Services.Interfaces.Logger;
 using eCommerceApp.Domain.Entities;
@@ -43,7 +44,8 @@ namespace eCommerceApp.Infrastructure.Dependency_Injection
                 }).UseExceptionProcessor(),
                  ServiceLifetime.Scoped
                 );
-
+            services.AddScoped<IApplicationDbContext>(
+            provider => provider.GetRequiredService<AppDbContext>());
 
             services.AddScoped<IGeneric<Product>, GenericRepository<Product>>();
             services.AddScoped<IGeneric<Category>, GenericRepository<Category>>();

@@ -3,12 +3,12 @@ using ECommerce.Core.DTOs.Order;
 using eCommerceApp.Application.DTOs;
 using eCommerceApp.Application.DTOs.Cart;
 using eCommerceApp.Application.Services.Interfaces.CartInterface;
-using eCommerceApp.Domain.Entities.Orders;
 using eCommerceApp.Domain.Interfaces;
 using eCommerceApp.Domain.Interfaces.Orders;
 using ECommerce.Core.Entities;
+using eCommerceApp.Domain.Entities.Orders;
 
-namespace eCommerceApp.Application.Services.Implementation
+namespace eCommerceApp.Application.Services.Implementation.OrderServices
 {
     public class OrderService(
         IOrder orderInterface,
