@@ -71,5 +71,42 @@ namespace eCommerceApp.Infrastructure.Repository.Authentication
 
             return (await userManager.CheckPasswordAsync(_user, user.PasswordHash!));
         }
+
+       public Task<int> EditFullName(string fullName, string userId)
+        {
+            var user = context.Users.FirstOrDefault(u => u.Id == userId);
+            if (user != null)
+            {
+                user.FullName = fullName;
+            }
+            return context.SaveChangesAsync();
+        }
+
+        public Task<int>     EditPhoneNumber(string phoneNumber, string userId)
+        {
+            var user = context.Users.FirstOrDefault(u => u.Id == userId);
+            if (user != null)
+            {
+                user.PhoneNumber = phoneNumber;
+            }
+            return context.SaveChangesAsync()   ;
+        }
+
+        public Task<int> ChangePassword(string newPassword, string userId)
+        {
+           
+                string? hashedPassword = null;
+                if (!string.IsNullOrEmpty(newPassword))
+                {
+                    hashedPassword = userManager.PasswordHasher.HashPassword(null!, newPassword);
+                }
+            var user = context.Users.FirstOrDefault(u => u.Id == userId);
+            if (user != null)
+            {
+                user.PasswordHash = hashedPassword;
+                return context.SaveChangesAsync();
+            }
+            return Task.FromResult(0);
+        }
     }
 }

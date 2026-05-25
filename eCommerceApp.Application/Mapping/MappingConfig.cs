@@ -5,6 +5,7 @@ using eCommerceApp.Application.DTOs;
 using eCommerceApp.Application.DTOs.Address;
 using eCommerceApp.Application.DTOs.Cart;
 using eCommerceApp.Application.DTOs.Category;
+using eCommerceApp.Application.DTOs.Identity;
 using eCommerceApp.Application.DTOs.Product;
 using eCommerceApp.Domain.Entities;
 using eCommerceApp.Domain.Entities.CartEntities;
@@ -36,6 +37,8 @@ namespace eCommerceApp.Application.Mapping
 
             CreateMap<Order, GetOrder>();
             CreateMap<CreateOrder,Order>();
+
+            CreateMap<AppUser, GetUser>();
         }
 
        

@@ -5,6 +5,7 @@ using eCommerceApp.Application.Services.Interfaces.Logger;
 using eCommerceApp.Application.Validations.Authentication;
 using eCommerceApp.Domain.Entities.Identity;
 using eCommerceApp.Domain.Interfaces.Authentication;
+using Microsoft.AspNetCore.Identity;
 using FluentValidation;
 
 namespace eCommerceApp.Application.Services.Implementation
@@ -17,9 +18,30 @@ namespace eCommerceApp.Application.Services.Implementation
       IMapper mapper,
       IValidator<CreateUser> createUserValidator,
       IValidator<LoginUser> loginUserValidator,
-      IValidationsService validationsService)
+      IValidator<ChangePassword> changePasswordValidator,
+      IValidationsService validationsService,
+      UserManager<AppUser> userManager)
          : IAuthenticationService
     {
+        public async Task<ServicesResponse> ChangePassword(ChangePassword changePassword, string userId)
+        {
+            var validationResult = await validationsService.ValidateAsync(changePassword, changePasswordValidator);
+            if (!validationResult.IsSuccess) return validationResult;
+
+            var user = await userManager.FindByIdAsync(userId);
+            if (user == null)
+                return new ServicesResponse(Message: "User not found.");
+
+            var result = await userManager.ChangePasswordAsync(user, changePassword.CurrentPassword, changePassword.NewPassword);
+            if (!result.Succeeded)
+            {
+                var error = string.Join("; ", result.Errors.Select(e => e.Description));
+                return new ServicesResponse(Message: error);
+            }
+
+            return new ServicesResponse(IsSuccess: true, Message: "Password changed successfully.");
+        }
+
         public async Task<ServicesResponse> CreateUser(CreateUser user)
         {
             var validationResult = await validationsService.ValidateAsync(user, createUserValidator);
@@ -33,10 +55,9 @@ namespace eCommerceApp.Application.Services.Implementation
             if (!result)
                 return new ServicesResponse(Message: "Email address is already in use or an unknown error occurred.");
 
-            //look at this
-            var users = await userManagement.GetAllUsers();
+            
 
-            var assignRoleResult = await roleManagement.AddUserToRole(mapperUser, users!.Count() == 1 ? "Admin" : "User");
+            var assignRoleResult = await roleManagement.AddUserToRole(mapperUser,  "User");
             if (!assignRoleResult)
             {
                 int removeResult = await userManagement.RemoveUserByEmail(mapperUser.Email!);

@@ -34,10 +34,15 @@ namespace eCommerceApp.Application.DependencyInjection
             services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddScoped<ICartService, CartService>();
             services.AddScoped<IPaymentMethodService, PaymentMethodService>();
+            services.AddScoped<IUserService, UserService>();
             services.AddScoped<ImageUploader, ImageUploader>();
+
+
+
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<GetUserOrdersQueryHandler>());
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<GetUserOrderByIdQueryHandler>());
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<GetUserOrderSummariesQueryHandler>());
+        
 
             return services;
         }
