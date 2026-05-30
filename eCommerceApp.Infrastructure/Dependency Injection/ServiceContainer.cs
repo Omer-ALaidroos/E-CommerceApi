@@ -1,4 +1,4 @@
-﻿using ECommerce.Core.Entities;
+﻿﻿using ECommerce.Core.Entities;
 using eCommerceApp.Application.Services.Interfaces;
 using eCommerceApp.Application.Services.Interfaces.CartInterface;
 using eCommerceApp.Application.Services.Interfaces.Logger;
@@ -109,6 +109,7 @@ namespace eCommerceApp.Infrastructure.Dependency_Injection
             services.AddScoped<IUserManagement, UserManagement>();
             services.AddScoped<IRoleManagement, RoleManagement>();
             services.AddScoped<ITokenManagements, TokenManagement>();
+            services.AddScoped<IPasswordResetOtpRepository, PasswordResetOtpRepository>();
             services.AddScoped<IPaymentMethod,PaymentMethodRepository>();
             services.AddScoped<IPaymentService, StripPaymentService>();
             services.AddScoped<ICategory, CategoryRepository>();

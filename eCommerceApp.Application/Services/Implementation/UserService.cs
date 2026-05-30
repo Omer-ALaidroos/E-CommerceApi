@@ -27,7 +27,7 @@ namespace eCommerceApp.Application.Services.Implementation
 
         public async Task<ServicesResponse> EditPhoneNumber(string phoneNumber, string userId)
         {
-            // You can add validation for phone number format here if needed ,must start with 77,71,73,78 and must be 9 digits
+          
             if (string.IsNullOrEmpty(phoneNumber) || !Regex.IsMatch(phoneNumber, @"^(77|71|73|78)\d{7}$"))
             {
                 return new ServicesResponse(false, "Phone number must start with 77, 71, 73, or 78 and be 9 digits long.");

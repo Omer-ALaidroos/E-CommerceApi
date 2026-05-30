@@ -2,11 +2,13 @@ using AutoMapper;
 using eCommerceApp.Application.DTOs;
 using eCommerceApp.Application.Services.Interfaces.Authentication;
 using eCommerceApp.Application.Services.Interfaces.Logger;
+using eCommerceApp.Application.Services.Interfaces;
 using eCommerceApp.Application.Validations.Authentication;
 using eCommerceApp.Domain.Entities.Identity;
 using eCommerceApp.Domain.Interfaces.Authentication;
 using Microsoft.AspNetCore.Identity;
 using FluentValidation;
+using eCommerceApp.Application.DTOs.Identity; // For getting frontend URL
 
 namespace eCommerceApp.Application.Services.Implementation
 {
@@ -19,8 +21,13 @@ namespace eCommerceApp.Application.Services.Implementation
       IValidator<CreateUser> createUserValidator,
       IValidator<LoginUser> loginUserValidator,
       IValidator<ChangePassword> changePasswordValidator,
+      IValidator<ForgotPasswordDto> forgotPasswordValidator, // New validator
+      IValidator<ResetPasswordDto> resetPasswordValidator,   // New validator
       IValidationsService validationsService,
-      UserManager<AppUser> userManager)
+      IEmailService emailService, // New Email Service
+      UserManager<AppUser> userManager,
+      IPasswordResetOtpRepository otpRepository
+     )
          : IAuthenticationService
     {
         public async Task<ServicesResponse> ChangePassword(ChangePassword changePassword, string userId)
@@ -85,7 +92,7 @@ namespace eCommerceApp.Application.Services.Implementation
             mappedModel.PasswordHash = user.Password;
             var loginResult = await userManagement.LoginUser(mappedModel);
             if (!loginResult)
-                return new LoginResponse(Message: "Email not found or invalid credentials.");
+                return new LoginResponse(Message: "Email not found or invalid Password.");
 
             var _user = await userManagement.GetUserByEmail(user.Email!);
             var cliams = await userManagement.GetUserClaims(_user!.Email!);
@@ -121,6 +128,100 @@ namespace eCommerceApp.Application.Services.Implementation
             string newRefreshToken = tokenManagements.GetRefreshToken();
             await tokenManagements.UpdateRefreshToken(userId, newRefreshToken);
             return new LoginResponse(Success: true, Token: jwtToken, Refreshtoken: newRefreshToken);
+        }
+
+        public async Task<ServicesResponse> ForgotPassword(ForgotPasswordDto model)
+        {
+            // Validate the email
+            var validationResult = await validationsService.ValidateAsync(model, forgotPasswordValidator);
+            if (!validationResult.IsSuccess) return validationResult;
+
+            var user = await userManager.FindByEmailAsync(model.Email);
+
+            if (user == null)
+            {
+                logger.LogInformation($"Forgot password requested for non-existent email: {model.Email}");
+                return new ServicesResponse(true, "If an account exists with that email, a verification code has been sent.");
+            }
+
+           
+            await otpRepository.InvalidateOldOtpsAsync(user.Id);
+
+          
+            var code = Random.Shared.Next(100000, 999999).ToString();
+            var newOtp = new PasswordResetOtp
+            {
+                UserId = user.Id,
+                Code = code,
+                ExpireAt = DateTime.UtcNow.AddMinutes(10),
+                IsUsed = false,
+                AttemptsCount = 0
+            };
+
+            await otpRepository.AddAsync(newOtp);
+
+            var subject = "Your Password Reset Code";
+            var body = $"Your verification code is: <strong>{code}</strong>. It expires in 10 minutes.";
+
+            await emailService.SendEmailAsync(user.Email!, subject, body);
+
+            return new ServicesResponse(true, "If an account exists with that email, a verification code has been sent.");
+        }
+
+        public async Task<ServicesResponse> VerifyResetCode(VerifyResetCodeDto model)
+        {
+            var user = await userManager.FindByEmailAsync(model.Email);
+            if (user == null) return new ServicesResponse(false, "Invalid code or email.");
+
+            var otp = await otpRepository.GetLatestActiveOtpAsync(user.Id);
+
+            if (otp == null || otp.ExpireAt < DateTime.UtcNow)
+                return new ServicesResponse(false, "Code has expired or is invalid.");
+
+            if (otp.AttemptsCount >= 5)
+            {
+                otp.IsUsed = true;
+                await otpRepository.UpdateAsync(otp);
+                return new ServicesResponse(false, "Too many failed attempts. Please request a new code.");
+            }
+
+            if (otp.Code != model.Code)
+            {
+                otp.AttemptsCount++;
+                await otpRepository.UpdateAsync(otp);
+                return new ServicesResponse(false, "Invalid verification code.");
+            }
+
+            return new ServicesResponse(true, "Code verified successfully.");
+        }
+
+        public async Task<ServicesResponse> ResetPassword(ResetPasswordDto model)
+        {
+            var validationResult = await validationsService.ValidateAsync(model, resetPasswordValidator);
+            if (!validationResult.IsSuccess) return validationResult;
+
+            var user = await userManager.FindByEmailAsync(model.Email);
+            if (user == null) return new ServicesResponse(false, "Invalid request.");
+
+            var otp = await otpRepository.GetActiveOtpAsync(user.Id, model.Code);
+
+            if (otp == null || otp.ExpireAt < DateTime.UtcNow)
+                return new ServicesResponse(false, "Invalid or expired code.");
+
+          
+            var token = await userManager.GeneratePasswordResetTokenAsync(user);
+            var result = await userManager.ResetPasswordAsync(user, token, model.NewPassword);
+
+            if (!result.Succeeded)
+            {
+                var error = string.Join("; ", result.Errors.Select(e => e.Description));
+                return new ServicesResponse(false, error);
+            }
+
+            otp.IsUsed = true;
+            await otpRepository.UpdateAsync(otp);
+
+            return new ServicesResponse(true, "Password has been reset successfully.");
         }
     }
 }

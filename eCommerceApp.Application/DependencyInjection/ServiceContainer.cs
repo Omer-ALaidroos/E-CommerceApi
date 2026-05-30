@@ -8,9 +8,12 @@ using eCommerceApp.Application.Services.Interfaces.Authentication;
 using eCommerceApp.Application.Services.Interfaces.CartInterface;
 using eCommerceApp.Application.Validations.Authentication;
 using eCommerceApp.Domain.Interfaces.Orders;
+using eCommerceApp.Infrastructure.Settings;
+using eCommerceApp.Infrastructure.Sevices;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using MediatR;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace eCommerceApp.Application.DependencyInjection
@@ -19,9 +22,10 @@ namespace eCommerceApp.Application.DependencyInjection
     {
        
         public static IServiceCollection AddApplicationServices
-            (this IServiceCollection services)
+            (this IServiceCollection services, IConfiguration configuration)
         {
-            // register AutoMapper profiles from this assembly
+            // ... existing registrations ...
+
             services.AddAutoMapper(typeof(MappingConfig).Assembly);
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICategoryService, CategoryService>();
@@ -37,12 +41,14 @@ namespace eCommerceApp.Application.DependencyInjection
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ImageUploader, ImageUploader>();
 
+            services.AddScoped<IEmailService, EmailService>();
 
+            services.Configure<EmailSettings>(configuration.GetSection("EmailSettings"));
+        
 
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<GetUserOrdersQueryHandler>());
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<GetUserOrderByIdQueryHandler>());
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<GetUserOrderSummariesQueryHandler>());
-        
 
             return services;
         }

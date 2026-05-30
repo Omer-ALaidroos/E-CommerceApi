@@ -47,7 +47,7 @@ namespace eCommerceApp.Host.Controllers
             return Ok(response.Message);
         }
 
-        [HttpGet("GetUserBy")]
+        [HttpGet("GetUserById")]
         [Authorize(Roles = "Admin,User")]
         public async Task<IActionResult> GetUserById()
         {
@@ -61,7 +61,7 @@ namespace eCommerceApp.Host.Controllers
         }
 
         [HttpGet("GetUserByEmail")]
-        [Authorize(Roles = "Admin,User")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetUserByEmail()
         {
             var email = GetUserEmail();

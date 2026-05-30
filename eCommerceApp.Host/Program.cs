@@ -1,9 +1,12 @@
 using eCommerceApp.Application.DependencyInjection;
 using eCommerceApp.Application.Mapping;
 using eCommerceApp.Infrastructure.Dependency_Injection;
+using eCommerceApp.Infrastructure.Settings;
+using eCommerceApp.Application.Services.Interfaces;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using System.Text.Json.Serialization;
+using eCommerceApp.Application.Services.Implementation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,10 +18,11 @@ Log.Logger = new LoggerConfiguration()
 builder.Services.AddAutoMapper(typeof(MappingConfig).Assembly);
 
 
+
 builder.Host.UseSerilog();
 Log.Logger.Information("Application is Building ...");
 builder.Services.AddInfrastructureServices(builder.Configuration);
-builder.Services.AddApplicationServices();
+builder.Services.AddApplicationServices(builder.Configuration);
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;

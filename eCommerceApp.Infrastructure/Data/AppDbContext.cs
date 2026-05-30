@@ -1,4 +1,4 @@
-﻿﻿using ECommerce.Core.Entities;
+﻿﻿﻿﻿using ECommerce.Core.Entities;
 using eCommerceApp.Application.Services.Interfaces;
 using eCommerceApp.Domain.Entities;
 
@@ -26,6 +26,7 @@ namespace eCommerceApp.Infrastructure.Data
         public DbSet<Achieve> CheckoutAchieves { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Address> Addresses { get; set; }
+        public DbSet<PasswordResetOtp> PasswordResetOtps { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
 
         public DbSet<Cart> Carts { get; set; }
