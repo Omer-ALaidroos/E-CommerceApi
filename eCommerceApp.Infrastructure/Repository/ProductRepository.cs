@@ -33,13 +33,21 @@ namespace eCommerceApp.Infrastructure.Repository
         {
             return await context.Set<Product>().AsNoTracking().ToListAsync();
         }
-        
+       
+        public async Task<IEnumerable<Product>> GetAvailableProductsAsync()
+        {
+            return await context.Set<Product>()
+                .Where(p => p.Quantity > 0)
+                .AsNoTracking()
+                .ToListAsync();
+        }
+
         public async Task<Product> GetByIdAsync(int id)
         {
-            var resukt = await context.Set<Product>().FindAsync(id) ??
+            var result = await context.Set<Product>().FindAsync(id) ??
                 throw new ItemNotFoundException($"Item with ID {id} not found.");
 
-            return resukt;
+            return result;
         }
         
         public async Task<IEnumerable<Product>> GetProductsByCategory(int categoryId)
@@ -51,6 +59,16 @@ namespace eCommerceApp.Infrastructure.Repository
                   .ToListAsync();
 
             return Products.Count() > 0 ? Products : [];
+        }
+
+        public async Task<IEnumerable<Product>> GetAvailableProductsByCategoryAsync(int categoryId)
+        {
+            var products = await context.Products
+                .Include(p => p.category)
+                .Where(p => p.CategoryId == categoryId && p.Quantity > 0)
+                .AsNoTracking()
+                .ToListAsync();
+            return products.Count() > 0 ? products : [];
         }
 
         public Task UpdateAsync(Product entity)

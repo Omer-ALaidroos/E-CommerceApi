@@ -77,21 +77,43 @@ namespace eCommerceApp.Application.Services.Implementation
             return mapper.Map<IEnumerable<GetProduct>>(products);
         }
 
-        public async Task<ServicesResponse> UpdateAsync(UpdateProduct product)
+        public async Task<ServicesResponse> UpdateAsync(UpdateProduct product, IFormFile image)
         {
-            var mappedProduct = mapper.Map<Product>(product);
-            await ProductInterface.UpdateAsync(mappedProduct);
-            int result = await ProductInterface.SaveChangesAsync();
-            if (result > 0)
-            {
-                return new ServicesResponse(true, "Product updated successfully.");
-            }
-            else
-            {
-                return new ServicesResponse(false, "Failed to update product.");
-            }
-        }
+            var existingProduct = await ProductInterface.GetByIdAsync(product.Id);
 
+            if (existingProduct == null)
+            {
+                return new ServicesResponse(false, "Product not found");
+            }
+
+            mapper.Map(product, existingProduct);
+
+            if (image != null)
+            {
+                if (!string.IsNullOrEmpty(existingProduct.ImageUrl))
+                {
+                    await imageUploader.DeleteImage(existingProduct.ImageUrl);
+                }
+
+                var imagePath = await imageUploader.UploadImage(image);
+
+                if (imagePath == null)
+                {
+                    return new ServicesResponse(
+                        false,
+                        "Image not saved, please upload jpg, jpeg or png"
+                    );
+                }
+
+                existingProduct.ImageUrl = imagePath;
+            }
+
+            int result = await ProductInterface.SaveChangesAsync();
+
+            return result > 0
+                ? new ServicesResponse(true, "Product updated successfully.")
+                : new ServicesResponse(false, "Failed to update product.");
+        }
         public async Task<bool> DecreaseProductQuantityAsync(int productId, int quantity)
         {
             var product = await ProductInterface.GetByIdAsync(productId);
@@ -121,6 +143,23 @@ namespace eCommerceApp.Application.Services.Implementation
             await ProductInterface.UpdateAsync(product);
             int result = await ProductInterface.SaveChangesAsync();
             return result > 0;
+        }
+
+        public async Task<IEnumerable<GetProduct>> GetAvailableProductsAsync()
+        {
+            var products = await ProductInterface.GetAvailableProductsAsync();
+
+            if (!products.Any()) return [];
+
+            return mapper.Map<IEnumerable<GetProduct>>(products);
+        }
+
+        public async Task<IEnumerable<GetProduct>> GetAvaliableProductsByCategoryId(int categoryID)
+        {
+            var products = await ProductInterface.GetAvailableProductsByCategoryAsync(categoryID);
+            if (!products.Any()) return [];
+
+            return mapper.Map<IEnumerable<GetProduct>>(products);
         }
     }
 }

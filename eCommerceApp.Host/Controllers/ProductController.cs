@@ -12,12 +12,29 @@ namespace eCommerceApp.Host.Controllers
     {
 
         [HttpGet("All")]
-        [Authorize(Roles = "User,Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAll()
         {
             var Products = await productServise.GetAllAsync();
 
            return  Products.Any() ? Ok(Products) : NotFound();
+        }
+        [HttpGet("Available")]
+        [Authorize(Roles = "User,Admin")]
+        public async Task<IActionResult> GetAvailableProducts()
+        {
+            var Products = await productServise.GetAvailableProductsAsync();
+
+            return Products.Any() ? Ok(Products) : NotFound();
+        }
+
+        [HttpGet("GetAvaliableByCategoryId")]
+        [Authorize(Roles = "User,Admin")]
+        public async Task<IActionResult> GetAvaliableProductsByCategoryId(int categoryId)
+        {
+            var Products = await productServise.GetAvaliableProductsByCategoryId(categoryId);
+
+            return Products.Any() ? Ok(Products) : NotFound();
         }
 
 
@@ -31,7 +48,7 @@ namespace eCommerceApp.Host.Controllers
         }
 
         [HttpPost("Add")]
-        [Authorize(Roles = "Admin,User")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Add([FromForm] CreateProduct product,IFormFile image)
 
         {
@@ -48,13 +65,18 @@ namespace eCommerceApp.Host.Controllers
 
         [HttpPut("Update")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Update([FromBody] UpdateProduct product)
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> Update([FromForm] UpdateProduct product)
         {
-
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            var response = await productServise.UpdateAsync(product);
-            return response.IsSuccess ? Ok(response) : BadRequest(response);
+
+
+            var response = await productServise.UpdateAsync(product, product.Image);
+
+            return response.IsSuccess
+                ? Ok(response)
+                : BadRequest(response);
         }
 
         [HttpDelete("Delete/{id}")]

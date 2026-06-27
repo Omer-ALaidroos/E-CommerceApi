@@ -6,7 +6,7 @@ using eCommerceApp.Domain.Interfaces;
 
 namespace eCommerceApp.Application.Services.Implementation
 {
-    public class AddressService(IGeneric<Address> AddressInterface, IMapper mapper) : IAddressService
+    public class AddressService(IAddress AddressInterface, IMapper mapper) : IAddressService
     {
         public async Task<ServicesResponse> AddAsync(CreateAddress address)
         {
@@ -51,6 +51,25 @@ namespace eCommerceApp.Application.Services.Implementation
             var Address = await AddressInterface.GetByIdAsync(id);
 
             if (Address == null) return null;
+
+            return mapper.Map<GetAddress>(Address);
+        }
+
+        public async Task<GetAddress> GetUserAddressAsync(string userId)
+        {
+            var Address = await AddressInterface.GetUserAddressAsync(userId);
+
+            if (Address == null)
+            {
+                // Provide default values for all required properties
+                return new GetAddress
+                {
+                    Id = 0,
+                    Street = string.Empty,
+                    City = string.Empty,
+                    Country = string.Empty
+                };
+            }
 
             return mapper.Map<GetAddress>(Address);
         }

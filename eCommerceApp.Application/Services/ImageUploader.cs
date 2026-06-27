@@ -40,5 +40,18 @@ public class ImageUploader
         {
             return null; // Return null if saving fails
         }
+
+        
     }
+
+    public  async Task DeleteImage(string imagePath)
+    {
+        var fullPath = Path.Combine("wwwroot", imagePath);
+        if (File.Exists(fullPath))
+        {
+            File.Delete(fullPath);
+        }
+    }
+
+
 }

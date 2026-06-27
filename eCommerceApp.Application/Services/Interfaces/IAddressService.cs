@@ -11,5 +11,7 @@ namespace eCommerceApp.Application.Services.Interfaces
         Task<ServicesResponse> AddAsync(CreateAddress address);
         Task<ServicesResponse> UpdateAsync(UpdateAddress address);
         Task<ServicesResponse> DeleteAsync(int id);
+
+        Task<GetAddress> GetUserAddressAsync(string userId);
     }
 }

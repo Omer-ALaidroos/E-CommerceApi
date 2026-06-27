@@ -13,6 +13,8 @@ namespace eCommerceApp.Domain.Interfaces
         public Task DeleteAsync(int id); // Changed return type to Task
         Task DecreaseProductQuantityAsync(int productId, int quantity);
         Task IncreaseProductQuantityAsync(int productId, int quantity);
+        Task<IEnumerable<Product>> GetAvailableProductsAsync();
+        Task<IEnumerable<Product>> GetAvailableProductsByCategoryAsync(int categoryId);
         Task<int> SaveChangesAsync();
     }
 }

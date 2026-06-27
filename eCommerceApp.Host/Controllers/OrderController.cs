@@ -69,6 +69,16 @@ namespace eCommerceApp.Host.Controllers
 
             return Ok(result);
         }
+
+        [HttpGet("PendingOrders")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> GetPendingOrders()
+        {
+            var result = await _mediator.Send(
+              new GetPendingOrdersQuery());
+
+            return Ok(result);
+        }
         [HttpGet("OrderSummaries")]
         [Authorize(Roles = "User")]
         public async Task<IActionResult> GetOrderSummaries()

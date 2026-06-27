@@ -30,12 +30,29 @@ namespace eCommerceApp.Host.Controllers
             return result.Success ? Ok(result) : BadRequest(result);
         }
 
-        [HttpGet("refreshtoken")]
-        public async Task<IActionResult> ReviveToken([FromBody]string refreshToken)
+        /*[HttpGet("refreshtoken")]
+        public async Task<IActionResult> ReviveToken(string refreshToken)
         {
             var result = await authenticationService.ReviveToken(refreshToken);
             return result.Success ? Ok(result) : BadRequest(result);
+        }*/
+        [HttpGet("refreshtoken")]
+        public async Task<IActionResult> ReviveToken([FromQuery] string refreshToken)
+        {
+            // 1. We use [HttpGet] with [FromQuery] to match the Flutter code: 
+            // Dio().get(..., queryParameters: {"refreshToken": refreshToken})
+
+            var result = await authenticationService.ReviveToken(refreshToken);
+
+            if (result.Success)
+            {
+              
+                return Ok(result);
+            }
+
+            return Unauthorized(new { message = result.Message });
         }
+    
 
             [HttpPost("ChangePassword")]
             [Authorize(Roles = "User")]
@@ -53,11 +70,11 @@ namespace eCommerceApp.Host.Controllers
         public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto model)
         {
             var result = await authenticationService.ForgotPassword(model);
-            return Ok(result); // Always 200 for security
+            return Ok(result);
         }
 
-        [HttpPost("verify-reset-code")]
-        public async Task<IActionResult> VerifyResetCode([FromBody] VerifyResetCodeDto model)
+        [HttpPost("VerifyOTPCode")]
+        public async Task<IActionResult> VerifyOTPCode([FromBody] VerifyResetCodeDto model)
         {
             var result = await authenticationService.VerifyResetCode(model);
             return result.IsSuccess ? Ok(result) : BadRequest(result);

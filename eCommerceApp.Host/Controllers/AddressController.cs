@@ -3,6 +3,7 @@ using eCommerceApp.Application.DTOs.Product;
 using eCommerceApp.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace eCommerceApp.Host.Controllers
 {
@@ -10,6 +11,11 @@ namespace eCommerceApp.Host.Controllers
     [ApiController]
     public class AddressController(IAddressService addressService) : ControllerBase
     {
+        private string GetUserId()
+        {
+            return User.FindFirst("uid")?.Value
+                   ?? User.FindFirst(ClaimTypes.NameIdentifier)?.Value!;
+        }
         [HttpGet("All")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAll()
@@ -29,6 +35,16 @@ namespace eCommerceApp.Host.Controllers
             return Address != null ? Ok(Address) : NotFound();
         }
 
+        [HttpGet("GetUserAddress")]
+        [Authorize(Roles = "User")]
+        public async Task<IActionResult> GetUserAddress()
+        {
+            string userId = GetUserId();
+            var Address = await addressService.GetUserAddressAsync(userId);
+
+            return Address != null ? Ok(Address) : NotFound();
+        }
+
         [HttpPost("Add")]
         [Authorize(Roles = "User")]
         public async Task<IActionResult> Add([FromBody] CreateAddress Address)
@@ -36,6 +52,8 @@ namespace eCommerceApp.Host.Controllers
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+
+            Address.UserId = GetUserId();
 
             var response = await addressService.AddAsync(Address);
             return response.IsSuccess ? Ok(response) : BadRequest(response);
@@ -52,7 +70,7 @@ namespace eCommerceApp.Host.Controllers
             return response.IsSuccess ? Ok(response) : BadRequest(response);
         }
 
-        [HttpDelete("Delete/{id}")]
+        [HttpDelete("Delete/{idAddress}")]
         [Authorize(Roles = "User")]
         public async Task<IActionResult> Delete(int idAddress)
         {
