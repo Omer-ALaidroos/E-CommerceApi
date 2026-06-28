@@ -11,10 +11,10 @@ namespace eCommerceApp.Domain.Interfaces.Orders
         Task<IEnumerable<GetOrder>> GetAllAsync();
         Task<ServicesResponse> CreateOrder(Checkout checkout);
       //Task<IEnumerable<Product?> GetByUserIdAsync(string userId)
-       
-        Task<ServicesResponse> UpdateOrderStatusAsync(UpdateOrderStatusDto orderstatus);
-        Task<ServicesResponse> CancelORderAsync(int id);
-        Task<ServicesResponse> DeleteORderAsync(int id);
+
+        Task<ServicesResponse> UpdateOrderStatusAsync(int orderId);
+        Task<ServicesResponse> CancelOrderAsync(int id);
+        Task<ServicesResponse> DeleteOrderAsync(int id);
 
     }
 }

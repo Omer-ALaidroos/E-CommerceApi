@@ -3,8 +3,6 @@ using MediatR;
 
 namespace eCommerceApp.Application.Services.Implementation.OrderServices.query
 {
-    public record GetPendingOrdersQuery : IRequest<List<OrderDto?>>
-    {
-    }
+    public record GetOrdersSummariesByStatusQuery(string status) : IRequest<List<OrderSummaryDto?>>;
     
 }

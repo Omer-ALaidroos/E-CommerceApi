@@ -25,19 +25,21 @@ namespace eCommerceApp.Infrastructure.Repository
 
             if (entity is null)
                 return; // Or throw an exception if deletion of non-existent item is an error
-
-            context.Set<Product>().Remove(entity);
+            entity.IsDeleted = true;
+          
         }
 
         public async Task<IEnumerable<Product>> GetAllAsync()
         {
-            return await context.Set<Product>().AsNoTracking().ToListAsync();
+            return await context.Set<Product>()
+                .Where(p => p.Quantity > 0 && p.IsDeleted == false)
+                .AsNoTracking().ToListAsync();
         }
        
         public async Task<IEnumerable<Product>> GetAvailableProductsAsync()
         {
             return await context.Set<Product>()
-                .Where(p => p.Quantity > 0)
+                .Where(p => p.Quantity > 0 && p.Quantity > 0 && p.IsDeleted == false)
                 .AsNoTracking()
                 .ToListAsync();
         }
@@ -54,7 +56,7 @@ namespace eCommerceApp.Infrastructure.Repository
         {
             var Products = await context.Products
                    .Include(p => p.category)
-                  .Where(p => p.CategoryId == categoryId)
+                  .Where(p => p.CategoryId == categoryId && p.Quantity > 0 && p.IsDeleted == false)
                   .AsNoTracking()
                   .ToListAsync();
 
@@ -65,7 +67,7 @@ namespace eCommerceApp.Infrastructure.Repository
         {
             var products = await context.Products
                 .Include(p => p.category)
-                .Where(p => p.CategoryId == categoryId && p.Quantity > 0)
+                .Where(p => p.CategoryId == categoryId && p.Quantity > 0 && p.IsDeleted == false)
                 .AsNoTracking()
                 .ToListAsync();
             return products.Count() > 0 ? products : [];

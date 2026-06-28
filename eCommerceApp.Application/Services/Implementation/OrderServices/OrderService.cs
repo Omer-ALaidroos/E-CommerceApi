@@ -216,6 +216,40 @@ namespace eCommerceApp.Application.Services.Implementation.OrderServices
                 throw;
             }
         }
+        public async Task<ServicesResponse> UpdateOrderStatusAsync(int id)
+        {
+            var order = await orderInterface.GetByIdAsync(id);
+
+            if (order == null)
+            {
+                return new ServicesResponse(
+                    false,
+                    "Order not found."
+                );
+            }
+
+            order.Status = order.Status switch
+            {
+                OrderStatus.Pending => OrderStatus.Processing,
+                OrderStatus.Processing => OrderStatus.Shipped,
+                OrderStatus.Shipped => OrderStatus.Delivered,
+                _ => order.Status
+            };
+
+            await orderInterface.UpdateAsync(order);
+
+            int result = await orderInterface.SaveChangesAsync();
+
+            return result > 0
+                ? new ServicesResponse(
+                    true,
+                    "Order status updated successfully."
+                )
+                : new ServicesResponse(
+                    false,
+                    "Failed to update order status."
+                );
+        }
 
         public async Task<ServicesResponse> DeleteOrderAsync(int id)
         {

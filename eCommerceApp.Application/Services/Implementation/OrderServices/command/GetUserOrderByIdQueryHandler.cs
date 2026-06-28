@@ -27,8 +27,8 @@ namespace eCommerceApp.Application.Services.Implementation.OrderServices.command
             var order = await _context.Orders
                 .AsNoTracking()
                 .Where(o =>
-                    o.Id == request.OrderId &&
-                    o.UserId == request.UserId)
+                    o.Id == request.OrderId 
+                   )
                 .Select(o => new OrderDto
                 {
                     Id = o.Id,

@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Services\Implementation\OrderServices\query\GetOrdersSummariesByStatusQuery.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\eCommerceApp.Domain\eCommerceApp.Domain.csproj" />
   </ItemGroup>
 

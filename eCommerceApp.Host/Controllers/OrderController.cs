@@ -70,14 +70,25 @@ namespace eCommerceApp.Host.Controllers
             return Ok(result);
         }
 
-        [HttpGet("PendingOrders")]
+        [HttpGet("OrdersByStatus/{Status}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> GetPendingOrders()
+        public async Task<IActionResult> GetOrdersByStatus(string Status)
         {
             var result = await _mediator.Send(
-              new GetPendingOrdersQuery());
+              new GetOrdersSummariesByStatusQuery(Status));
 
             return Ok(result);
+        }
+
+        [HttpPut("UpdateStatus/{orderId}")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> UpdateOrderStatus(int orderId)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var response = await orderService.UpdateOrderStatusAsync(orderId);
+            return response.IsSuccess ? Ok(response) : BadRequest(response);
         }
         [HttpGet("OrderSummaries")]
         [Authorize(Roles = "User")]
@@ -94,16 +105,13 @@ namespace eCommerceApp.Host.Controllers
             return Ok(result);
         }
         [HttpGet("GetById/{orderId}")]
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> GetById(int orderId)
         {
-            var userId = GetUserId();
-
-            if (string.IsNullOrEmpty(userId))
-                return Unauthorized();
+          
 
             var result = await _mediator.Send(
-                new GetUserOrderByIdQuery(orderId, userId));
+                new GetUserOrderByIdQuery(orderId));
 
             if (result is null)
                 return NotFound();
@@ -114,7 +122,15 @@ namespace eCommerceApp.Host.Controllers
         [Authorize(Roles = "User")]
         public async Task<IActionResult> Delete(int id)
         {
-            var response = await orderService.DeleteORderAsync(id);
+            var response = await orderService.DeleteOrderAsync(id);
+            return response.IsSuccess ? Ok(response) : BadRequest(response);
+        }
+
+        [HttpPut("Cancel/{id}")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Cancel(int id)
+        {
+            var response = await orderService.CancelOrderAsync(id);
             return response.IsSuccess ? Ok(response) : BadRequest(response);
         }
     }

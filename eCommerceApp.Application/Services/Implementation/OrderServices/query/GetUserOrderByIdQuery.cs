@@ -6,7 +6,7 @@ namespace eCommerceApp.Application.Services.Implementation.OrderServices.query
    
 
     public record GetUserOrderByIdQuery(
-        int OrderId,
-        string UserId)
+        int OrderId
+       )
         : IRequest<OrderDto?>;
 }
