@@ -9,6 +9,8 @@ namespace eCommerceApp.Application.Services.Interfaces
     {
         DbSet<Order> Orders { get; }
 
+        DbSet<Category> Categories { get; }
+
         DbSet<OrderItem> OrderItems { get; }
 
         DbSet<Product> Products { get; }
