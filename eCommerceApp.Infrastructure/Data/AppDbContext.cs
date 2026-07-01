@@ -1,4 +1,4 @@
-﻿﻿﻿﻿using ECommerce.Core.Entities;
+﻿﻿﻿﻿﻿﻿using ECommerce.Core.Entities;
 using eCommerceApp.Application.Services.Interfaces;
 using eCommerceApp.Domain.Entities;
 
@@ -115,6 +115,15 @@ namespace eCommerceApp.Infrastructure.Data
                      .WithMany()
                      .HasForeignKey(o => o.PaymentMethodId)
                      .OnDelete(DeleteBehavior.Restrict);*/
+            });
+
+            builder.Entity<OrderItem>(orderItem =>
+            {
+                orderItem.Property(oi => oi.Price).HasColumnType("decimal(18,2)");
+            });
+
+            builder.Entity<CartItem>(cartItem => {
+                cartItem.Property(ci => ci.PriceAtTime).HasColumnType("decimal(18,2)");
             });
 
             builder.Entity<Cart>()

@@ -32,5 +32,16 @@ namespace eCommerceApp.Host.Controllers
             var result = await _mediator.Send(query, cancellationToken);
             return Ok(result);
         }
+
+        [HttpGet("sales-analytics")]
+        [ProducesResponseType(typeof(eCommerceApp.Application.DTOs.Dashboard.SalesAnalyticsDto), 200)]
+        [ProducesResponseType(401)]
+        [ProducesResponseType(403)]
+        public async Task<IActionResult> GetSalesAnalytics([FromQuery] string period, CancellationToken cancellationToken)
+        {
+            var query = new GetSalesAnalyticsQuery { Period = period };
+            var result = await _mediator.Send(query, cancellationToken);
+            return Ok(result);
+        }
     }
 }
