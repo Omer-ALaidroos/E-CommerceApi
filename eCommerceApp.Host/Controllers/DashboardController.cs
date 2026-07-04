@@ -43,5 +43,28 @@ namespace eCommerceApp.Host.Controllers
             var result = await _mediator.Send(query, cancellationToken);
             return Ok(result);
         }
+
+        [HttpGet("order-analytics")]
+        [ProducesResponseType(typeof(eCommerceApp.Application.DTOs.Dashboard.OrderAnalyticsDto), 200)]
+        [ProducesResponseType(401)]
+        [ProducesResponseType(403)]
+        public async Task<IActionResult> GetOrderAnalytics(CancellationToken cancellationToken)
+        {
+            var query = new GetOrderAnalyticsQuery();
+            var result = await _mediator.Send(query, cancellationToken);
+            return Ok(result);
+        }
+
+        [HttpGet("customer-analytics")]
+        [ProducesResponseType(typeof(eCommerceApp.Application.DTOs.Dashboard.OrderAnalyticsDto), 200)]
+        [ProducesResponseType(401)]
+        [ProducesResponseType(403)]
+        public async Task<IActionResult> GetCustomerAnalytics(CancellationToken cancellationToken)
+        {
+            var query = new GetCustomerAnalyticsQuery();
+            var result = await _mediator.Send(query, cancellationToken);
+            return Ok(result);
+        }
+
     }
 }

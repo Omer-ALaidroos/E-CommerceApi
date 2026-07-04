@@ -33,7 +33,7 @@ namespace eCommerceApp.Application.Features.Dashboard.Handlers
             var totalOrders = await currentPeriodQuery.CountAsync(cancellationToken);
 
             var previousTotalRevenue = (double)(await previousPeriodQuery.Select(o => (decimal?)o.TotalAmount).SumAsync(cancellationToken) ?? 0);
-            var previousTotalOrders = await previousPeriodQuery.CountAsync(cancellationToken); 
+            var previousTotalOrders = await previousPeriodQuery.CountAsync(cancellationToken);
 
             var revenueGrowth = previousTotalRevenue > 0 ? ((totalRevenue - previousTotalRevenue) / previousTotalRevenue) * 100 : totalRevenue > 0 ? 100.0 : 0.0;
             var ordersGrowth = previousTotalOrders > 0 ? (((double)totalOrders - previousTotalOrders) / previousTotalOrders) * 100 : totalOrders > 0 ? 100.0 : 0.0;
@@ -42,7 +42,7 @@ namespace eCommerceApp.Application.Features.Dashboard.Handlers
             var previousAverageOrderValue = previousTotalOrders > 0 ? previousTotalRevenue / previousTotalOrders : 0;
             var averageGrowth = previousAverageOrderValue > 0 ? ((averageOrderValue - previousAverageOrderValue) / previousAverageOrderValue) * 100 : averageOrderValue > 0 ? 100.0 : 0.0;
 
-            // Also optimize the trend generation to be a database query
+          
             var revenueTrend = await GenerateRevenueTrend(currentPeriodQuery, request.Period, cancellationToken);
 
             return new SalesAnalyticsDto
@@ -51,7 +51,7 @@ namespace eCommerceApp.Application.Features.Dashboard.Handlers
                 RevenueGrowth = revenueGrowth,
                 TotalOrders = totalOrders,
                 OrdersGrowth = ordersGrowth,
-                AverageOrderValue = averageOrderValue,
+                AverageOrderValue = Math.Round(averageOrderValue, 2, MidpointRounding.AwayFromZero),
                 AverageGrowth = averageGrowth,
                 RevenueTrend = revenueTrend
             };

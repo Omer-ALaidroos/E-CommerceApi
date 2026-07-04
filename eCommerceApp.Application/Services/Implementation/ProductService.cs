@@ -161,5 +161,13 @@ namespace eCommerceApp.Application.Services.Implementation
 
             return mapper.Map<IEnumerable<GetProduct>>(products);
         }
+
+        public async Task<IEnumerable<GetProduct>> SearchByNameAsync(string name)
+        {
+            var products = await ProductInterface.SearchByNameAsync(name);
+            if (!products.Any()) return [];
+
+            return mapper.Map<IEnumerable<GetProduct>>(products);
+        }
     }
 }

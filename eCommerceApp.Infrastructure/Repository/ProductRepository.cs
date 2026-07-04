@@ -1,4 +1,4 @@
-﻿using eCommerceApp.Application.Exceptions;
+﻿﻿using eCommerceApp.Application.Exceptions;
 using eCommerceApp.Domain.Entities;
 using eCommerceApp.Domain.Interfaces;
 using eCommerceApp.Infrastructure.Data;
@@ -101,6 +101,14 @@ namespace eCommerceApp.Infrastructure.Repository
         {
             return await context.SaveChangesAsync();
             
+        }
+
+        public async Task<IEnumerable<Product>> SearchByNameAsync(string name)
+        {
+            return await context.Products
+                .Where(p => p.Name.Contains(name) && !p.IsDeleted)
+                .AsNoTracking()
+                .ToListAsync();
         }
     }
 

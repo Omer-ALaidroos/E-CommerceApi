@@ -1,4 +1,4 @@
-﻿using eCommerceApp.Domain.Entities;
+﻿﻿using eCommerceApp.Domain.Entities;
 
 namespace eCommerceApp.Domain.Interfaces
 {
@@ -16,5 +16,6 @@ namespace eCommerceApp.Domain.Interfaces
         Task<IEnumerable<Product>> GetAvailableProductsAsync();
         Task<IEnumerable<Product>> GetAvailableProductsByCategoryAsync(int categoryId);
         Task<int> SaveChangesAsync();
+        Task<IEnumerable<Product>> SearchByNameAsync(string name);
     }
 }
