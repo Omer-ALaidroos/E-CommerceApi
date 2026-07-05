@@ -36,7 +36,7 @@ namespace eCommerceApp.Application.Features.Dashboard.Handlers
                 {
                     oi.ProductId,
                     oi.Product.Name,
-                    oi.Product.ImageUrl
+                    oi.Product.Images.FirstOrDefault(i => i.IsPrimary).ImageUrl
                 })
                 .Select(g => new TopSellingProductDto
                 {
@@ -61,7 +61,7 @@ namespace eCommerceApp.Application.Features.Dashboard.Handlers
                 {
                     ProductId = p.Id,
                     ProductName = p.Name ?? string.Empty,
-                    ImageUrl = p.ImageUrl,
+                    ImageUrl = p.Images.FirstOrDefault(i => i.IsPrimary).ImageUrl,
                     CurrentStock = p.Quantity,
                     CategoryName = p.category != null
                         ? p.category.Name ?? string.Empty

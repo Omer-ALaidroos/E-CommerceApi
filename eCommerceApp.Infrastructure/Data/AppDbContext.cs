@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿using ECommerce.Core.Entities;
+﻿﻿﻿﻿﻿﻿﻿﻿using ECommerce.Core.Entities;
 using eCommerceApp.Application.Services.Interfaces;
 using eCommerceApp.Domain.Entities;
 
@@ -31,6 +31,8 @@ namespace eCommerceApp.Infrastructure.Data
 
         public DbSet<Cart> Carts { get; set; }
         public DbSet<CartItem> CartItems { get; set; }
+        public DbSet<ProductReview> ProductReviews => Set<ProductReview>();
+        public DbSet<ProductImage> ProductImages { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

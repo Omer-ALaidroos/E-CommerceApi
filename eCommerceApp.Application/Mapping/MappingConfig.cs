@@ -22,7 +22,11 @@ namespace eCommerceApp.Application.Mapping
             CreateMap<CreateProduct, Product>();
 
             CreateMap<Category, GetCategory>();
-            CreateMap<Product, GetProduct>();
+            CreateMap<Product, GetProduct>()
+                .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src =>
+                    src.Images.FirstOrDefault(i => i.IsPrimary) != null
+                        ? src.Images.FirstOrDefault(i => i.IsPrimary).ImageUrl
+                        : null));
 
             CreateMap<CreateUser,AppUser>();
             CreateMap<LoginUser,AppUser>();

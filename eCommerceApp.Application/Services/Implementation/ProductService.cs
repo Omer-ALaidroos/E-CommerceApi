@@ -1,4 +1,4 @@
-﻿﻿using AutoMapper;
+﻿using AutoMapper;
 using eCommerceApp.Application.DTOs;
 using eCommerceApp.Application.DTOs.Product;
 using eCommerceApp.Application.Services.Interfaces;
@@ -10,33 +10,48 @@ namespace eCommerceApp.Application.Services.Implementation
 {
     public class ProductService(IProduct ProductInterface, IMapper mapper,ImageUploader imageUploader) : IProductService
     {
-        public async Task<ServicesResponse> AddAsync(CreateProduct product,IFormFile formFile)
+        public async Task<ServicesResponse> AddAsync(CreateProduct product, IFormFileCollection images)
         {
-           
-            var imagePath = await imageUploader.UploadImage(formFile);
-
-            if (imagePath == null)
+            if (images == null || images.Count == 0)
             {
-                return new ServicesResponse(false, "Image not saved ,please upload image with extention jpg,jpeg,png");
+                return new ServicesResponse(false, "Image file is required.");
             }
-           
+
             var mappedProduct = mapper.Map<Product>(product);
 
-            mappedProduct.ImageUrl = imagePath;
+            // Ensure Images collection exists
+            if (mappedProduct.Images == null)
+                mappedProduct.Images = new List<ProductImage>();
+
+            int order = 1;
+            bool first = true;
+            foreach (var file in images)
+            {
+                var imagePath = await imageUploader.UploadImage(file);
+                if (imagePath == null)
+                {
+                    return new ServicesResponse(false, "Image not saved ,please upload image with extention jpg,jpeg,png");
+                }
+
+                var img = new ProductImage
+                {
+                    ImageUrl = imagePath,
+                    IsPrimary = first,
+                    DisplayOrder = (short)order
+                };
+
+                mappedProduct.Images.Add(img);
+
+                first = false;
+                order++;
+            }
 
             await ProductInterface.AddAsync(mappedProduct);
             int result = await ProductInterface.SaveChangesAsync();
 
-            if (result > 0)
-            {
-                return new ServicesResponse(true, "Product added successfully.");
-
-            }
-            else
-            {
-                return new ServicesResponse(false, "Failed to add product.");
-
-            }
+            return result > 0
+                ? new ServicesResponse(true, "Product added successfully.")
+                : new ServicesResponse(false, "Failed to add product.");
         }
 
         public async Task<ServicesResponse> DeleteAsync(int id)
@@ -77,7 +92,7 @@ namespace eCommerceApp.Application.Services.Implementation
             return mapper.Map<IEnumerable<GetProduct>>(products);
         }
 
-        public async Task<ServicesResponse> UpdateAsync(UpdateProduct product, IFormFile image)
+        public async Task<ServicesResponse> UpdateAsync(UpdateProduct product, IFormFileCollection? images)
         {
             var existingProduct = await ProductInterface.GetByIdAsync(product.Id);
 
@@ -88,24 +103,47 @@ namespace eCommerceApp.Application.Services.Implementation
 
             mapper.Map(product, existingProduct);
 
-            if (image != null)
+            if (images != null && images.Count > 0)
             {
-                if (!string.IsNullOrEmpty(existingProduct.ImageUrl))
+                // Handle uploaded images: set first uploaded as new primary (replace old primary), add others
+                var oldPrimary = existingProduct.Images.FirstOrDefault(pi => pi.IsPrimary);
+
+                bool firstNew = true;
+                int nextOrder = existingProduct.Images.Any() ? existingProduct.Images.Max(i => i.DisplayOrder) + 1 : 1;
+
+                foreach (var file in images)
                 {
-                    await imageUploader.DeleteImage(existingProduct.ImageUrl);
+                    var imagePath = await imageUploader.UploadImage(file);
+                    if (imagePath == null)
+                    {
+                        return new ServicesResponse(false, "Image not saved, please upload jpg, jpeg or png");
+                    }
+
+                    var newImage = new ProductImage
+                    {
+                        ImageUrl = imagePath,
+                        IsPrimary = false,
+                        DisplayOrder = (short)nextOrder
+                    };
+
+                    existingProduct.Images.Add(newImage);
+
+                    if (firstNew)
+                    {
+                        // Replace primary
+                        if (oldPrimary != null)
+                        {
+                            // delete old primary file
+                            await imageUploader.DeleteImage(oldPrimary.ImageUrl);
+                            oldPrimary.IsPrimary = false;
+                        }
+
+                        newImage.IsPrimary = true;
+                        firstNew = false;
+                    }
+
+                    nextOrder++;
                 }
-
-                var imagePath = await imageUploader.UploadImage(image);
-
-                if (imagePath == null)
-                {
-                    return new ServicesResponse(
-                        false,
-                        "Image not saved, please upload jpg, jpeg or png"
-                    );
-                }
-
-                existingProduct.ImageUrl = imagePath;
             }
 
             int result = await ProductInterface.SaveChangesAsync();

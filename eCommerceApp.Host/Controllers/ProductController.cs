@@ -63,13 +63,13 @@ namespace eCommerceApp.Host.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Add([FromForm] CreateProduct product, IFormFile formFile)
+        public async Task<IActionResult> Add([FromForm] CreateProduct product, IFormFileCollection formFiles)
         {
-            if (formFile == null || formFile.Length == 0)
+            if (formFiles == null || formFiles.Count == 0)
             {
                 return BadRequest("Image file is required.");
             }
-            var result = await _productService.AddAsync(product, formFile);
+            var result = await _productService.AddAsync(product, formFiles);
             if (!result.IsSuccess)
             {
                 return BadRequest(result);
@@ -79,9 +79,9 @@ namespace eCommerceApp.Host.Controllers
 
         [HttpPut]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Update([FromForm] UpdateProduct product, IFormFile? image)
+        public async Task<IActionResult> Update([FromForm] UpdateProduct product, IFormFileCollection? images)
         {
-            var result = await _productService.UpdateAsync(product, image);
+            var result = await _productService.UpdateAsync(product, images);
             if (!result.IsSuccess)
             {
                 return BadRequest(result);

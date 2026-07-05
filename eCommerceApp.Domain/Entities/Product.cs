@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace eCommerceApp.Domain.Entities
@@ -11,7 +11,7 @@ namespace eCommerceApp.Domain.Entities
         public string? Description { get; set; }
         [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
-        public string? ImageUrl { get; set; }
+      
 
         public int Quantity { get; set; }
         public Category? category { get; set; }
@@ -21,5 +21,11 @@ namespace eCommerceApp.Domain.Entities
         public bool IsDeleted { get; set; } = false;
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
+
+        public double AverageRating { get; set; } = 0.0;
+
+        public  int  ReviewsCount { get; set; } = 0;
+        public ICollection<ProductReview> Reviews { get; set; } = new List<ProductReview>();
+        public ICollection<ProductImage> Images { get; set; } = new List<ProductImage>(); // Already correct
     }
 }

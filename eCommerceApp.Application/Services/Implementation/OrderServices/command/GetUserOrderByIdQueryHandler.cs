@@ -60,7 +60,7 @@ namespace eCommerceApp.Application.Services.Implementation.OrderServices.command
                                 Name = oi.Product.Name,
                                 Description = oi.Product.Description,
                                 Price = oi.Product.Price,
-                                ImageUrl = oi.Product.ImageUrl
+                                ImageUrl = oi.Product.Images.FirstOrDefault(pi=>pi.IsPrimary).ImageUrl
                             }
                         })
                         .ToList()

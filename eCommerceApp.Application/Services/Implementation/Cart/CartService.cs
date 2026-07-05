@@ -84,7 +84,7 @@ class CartService(
 				Quantity = i.Quantity,
 				Price = i.PriceAtTime,
 				Total = i.Quantity * i.PriceAtTime,
-				ImageUrl = p?.ImageUrl
+				ImageUrl = p?.Images.FirstOrDefault(pi => pi.IsPrimary).ImageUrl
 			};
 		});
 	}
