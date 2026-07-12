@@ -6,9 +6,9 @@ namespace eCommerceApp.Application.DTOs.Product
     {
         [Required]
         public int Id { get; set; }
-        public string? ImageUrl { get; set; }
+        public string? PrimaryImageUrl { get; set; }
 
         public int CategoryId { get; set; }
-        public DateTime CreatedAt { get; set; }
+       
     }
 }

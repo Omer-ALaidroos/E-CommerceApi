@@ -11,6 +11,7 @@ namespace eCommerceApp.Infrastructure.Repository
          public async Task<IEnumerable<Product>> GetByIdsAsync(IEnumerable<int> ids)
     {
         return await context.Products
+            .Include(p => p.Images.Where(i => i.IsPrimary))
             .Where(p => ids.Contains(p.Id))
             .ToListAsync();
     }
@@ -32,6 +33,7 @@ namespace eCommerceApp.Infrastructure.Repository
         public async Task<IEnumerable<Product>> GetAllAsync()
         {
             return await context.Set<Product>()
+                .Include(p => p.Images.Where(i => i.IsPrimary))
                 .Where(p => p.Quantity > 0 && p.IsDeleted == false)
                 .AsNoTracking().ToListAsync();
         }
@@ -39,6 +41,7 @@ namespace eCommerceApp.Infrastructure.Repository
         public async Task<IEnumerable<Product>> GetAvailableProductsAsync()
         {
             return await context.Set<Product>()
+                .Include(p => p.Images.Where(i => i.IsPrimary))
                 .Where(p => p.Quantity > 0 && p.Quantity > 0 && p.IsDeleted == false)
                 .AsNoTracking()
                 .ToListAsync();
@@ -46,7 +49,9 @@ namespace eCommerceApp.Infrastructure.Repository
 
         public async Task<Product> GetByIdAsync(int id)
         {
-            var result = await context.Set<Product>().FindAsync(id) ??
+            var result = await context.Set<Product>()
+                .Include(p => p.Images)
+                .FirstOrDefaultAsync(p => p.Id == id) ??
                 throw new ItemNotFoundException($"Item with ID {id} not found.");
 
             return result;
@@ -56,6 +61,7 @@ namespace eCommerceApp.Infrastructure.Repository
         {
             var Products = await context.Products
                    .Include(p => p.category)
+                   .Include(p => p.Images.Where(i => i.IsPrimary))
                   .Where(p => p.CategoryId == categoryId && p.Quantity > 0 && p.IsDeleted == false)
                   .AsNoTracking()
                   .ToListAsync();
@@ -67,6 +73,7 @@ namespace eCommerceApp.Infrastructure.Repository
         {
             var products = await context.Products
                 .Include(p => p.category)
+                .Include(p => p.Images.Where(i => i.IsPrimary))
                 .Where(p => p.CategoryId == categoryId && p.Quantity > 0 && p.IsDeleted == false)
                 .AsNoTracking()
                 .ToListAsync();
@@ -106,6 +113,7 @@ namespace eCommerceApp.Infrastructure.Repository
         public async Task<IEnumerable<Product>> SearchByNameAsync(string name)
         {
             return await context.Products
+                .Include(p => p.Images.Where(i => i.IsPrimary))
                 .Where(p => p.Name.Contains(name) && !p.IsDeleted)
                 .AsNoTracking()
                 .ToListAsync();

@@ -19,11 +19,13 @@ namespace eCommerceApp.Application.Mapping
         public MappingConfig()
         {
             CreateMap<CreateCategory, Category>();
-            CreateMap<CreateProduct, Product>();
+           
+            CreateMap<CreateProduct, Product>()
+           .ForMember(dest => dest.Images, opt => opt.Ignore());
 
             CreateMap<Category, GetCategory>();
             CreateMap<Product, GetProduct>()
-                .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src =>
+                .ForMember(dest => dest.PrimaryImageUrl, opt => opt.MapFrom(src =>
                     src.Images.FirstOrDefault(i => i.IsPrimary) != null
                         ? src.Images.FirstOrDefault(i => i.IsPrimary).ImageUrl
                         : null));
@@ -33,7 +35,8 @@ namespace eCommerceApp.Application.Mapping
 
             CreateMap<PaymentMethod, GetPaymntMethod>();
             CreateMap<UpdateCategory, Category>();
-            CreateMap<UpdateProduct, Product>();
+            CreateMap<UpdateProduct, Product>()
+     .ForMember(dest => dest.Images, opt => opt.Ignore());
 
             CreateMap<CreateAddress, Address>();
             CreateMap<UpdateAddress, Address>();
@@ -43,6 +46,13 @@ namespace eCommerceApp.Application.Mapping
             CreateMap<CreateOrder,Order>();
 
             CreateMap<AppUser, GetUser>();
+
+            CreateMap<ProductImage, ProductImageDto>()
+                .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.ImageUrl));
+            CreateMap<ProductReview, ProductReviewDto>()
+                .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User.UserName));
+            CreateMap<Product, GetProductDetailsDto>();
+                
         }
 
        

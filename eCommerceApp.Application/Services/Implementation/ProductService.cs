@@ -5,12 +5,13 @@ using eCommerceApp.Application.Services.Interfaces;
 using eCommerceApp.Domain.Entities;
 using eCommerceApp.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace eCommerceApp.Application.Services.Implementation
 {
     public class ProductService(IProduct ProductInterface, IMapper mapper,ImageUploader imageUploader) : IProductService
     {
-        public async Task<ServicesResponse> AddAsync(CreateProduct product, IFormFileCollection images)
+        public async Task<ServicesResponse> AddAsync(CreateProduct product, List<IFormFile>? images)
         {
             if (images == null || images.Count == 0)
             {
@@ -27,6 +28,19 @@ namespace eCommerceApp.Application.Services.Implementation
             bool first = true;
             foreach (var file in images)
             {
+              
+                var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
+                var fileExtension = Path.GetExtension(file.FileName).ToLower();
+
+                if (!allowedExtensions.Contains(fileExtension))
+                {
+                    return new ServicesResponse(false,"Image extention must be jpg,jpeg,png"); // Invalid file extension
+                }
+
+                if (file.Length > 5 * 1024 * 1024)
+                {
+                    return new ServicesResponse(false, "Image must be less than 5MB"); ; // File size exceeds 5MB
+                }
                 var imagePath = await imageUploader.UploadImage(file);
                 if (imagePath == null)
                 {
@@ -75,13 +89,13 @@ namespace eCommerceApp.Application.Services.Implementation
             return mapper.Map<IEnumerable<GetProduct>>(products);
         }
 
-        public async Task<GetProduct> GetByIdAsync(int id)
+        public async Task<GetProductDetailsDto> GetByIdAsync(int id)
         {
           var product =  await ProductInterface.GetByIdAsync(id);
 
-          if(product == null) return new GetProduct();
+          if(product == null) return new GetProductDetailsDto();
 
-           return mapper.Map<GetProduct>(product);
+           return mapper.Map<GetProductDetailsDto>(product);
         }
 
         public async Task<IEnumerable<GetProduct>> GetProductsByCategoryAsync(int categoryId)
@@ -92,7 +106,7 @@ namespace eCommerceApp.Application.Services.Implementation
             return mapper.Map<IEnumerable<GetProduct>>(products);
         }
 
-        public async Task<ServicesResponse> UpdateAsync(UpdateProduct product, IFormFileCollection? images)
+        public async Task<ServicesResponse> UpdateAsync(UpdateProduct product, List<IFormFile>? images)
         {
             var existingProduct = await ProductInterface.GetByIdAsync(product.Id);
 

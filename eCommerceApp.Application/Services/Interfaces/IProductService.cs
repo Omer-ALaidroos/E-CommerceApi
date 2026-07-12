@@ -11,9 +11,9 @@ namespace eCommerceApp.Application.Services.Interfaces
         Task<IEnumerable<GetProduct>> GetAvaliableProductsByCategoryId(int categoryID);
 
         Task<IEnumerable<GetProduct>> GetProductsByCategoryAsync(int categoryId);
-        Task<GetProduct> GetByIdAsync(int id);
-        Task<ServicesResponse> AddAsync(CreateProduct product, IFormFileCollection images);
-        Task<ServicesResponse> UpdateAsync(UpdateProduct product, IFormFileCollection? images);
+        Task<GetProductDetailsDto> GetByIdAsync(int id);
+        Task<ServicesResponse> AddAsync(CreateProduct product, List<IFormFile>? images);
+        Task<ServicesResponse> UpdateAsync(UpdateProduct product, List<IFormFile>? images);
         Task<ServicesResponse> DeleteAsync(int id);
         Task<IEnumerable<GetProduct>> SearchByNameAsync(string name);
     }

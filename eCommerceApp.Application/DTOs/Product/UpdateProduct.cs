@@ -7,7 +7,7 @@ namespace eCommerceApp.Application.DTOs.Product
     {
         [Required]
         public int Id { get; set; }
-        public IFormFile? Image { get; set; }
+       
 
     }
 }

@@ -14,6 +14,11 @@ public class ImageUploader
         {
             return null; // Invalid file extension
         }
+      
+        if (image.Length > 5 * 1024 * 1024)
+        {
+            return null; // File size exceeds 5MB
+        }
 
         // Ensure the directory exists
         if (!Directory.Exists(_imageDirectory))

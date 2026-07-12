@@ -7,6 +7,7 @@ namespace eCommerceApp.Domain.Entities.Identity
        public string FullName { get; set; } = string.Empty;
       public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
 
-    public string? ImageUrl { get; set; }
+        public string? ImageUrl { get; set; }
+    
     }
 }
