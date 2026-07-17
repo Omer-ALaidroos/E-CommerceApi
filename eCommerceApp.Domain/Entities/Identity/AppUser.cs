@@ -8,6 +8,7 @@ namespace eCommerceApp.Domain.Entities.Identity
       public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
 
         public string? ImageUrl { get; set; }
-    
+        public ICollection<Wishlist> Wishlists { get; set; } = new List<Wishlist>();
+
     }
 }

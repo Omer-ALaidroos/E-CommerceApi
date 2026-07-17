@@ -49,9 +49,13 @@ namespace eCommerceApp.Application.Mapping
 
             CreateMap<ProductImage, ProductImageDto>()
                 .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.ImageUrl));
-            CreateMap<ProductReview, ProductReviewDto>()
-                .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User.UserName));
-            CreateMap<Product, GetProductDetailsDto>();
+            CreateMap<ProductReview, ProductReviewDto>();
+            CreateMap<AppUser, ProductReviewUserDto>()
+                .ForMember(dest => dest.ProfilePicture, opt => opt.MapFrom(src => src.ImageUrl))
+                .ForMember(dest=> dest.FullName,opt=> opt.MapFrom(src=> src.FullName));
+            CreateMap<Product, GetProductDetailsDto>()
+                .ForMember(dest => dest.ReviewsCount, opt => opt.MapFrom(src =>
+                    src.Reviews != null && src.Reviews.Any() ? src.Reviews.Count : src.ReviewsCount));
                 
         }
 

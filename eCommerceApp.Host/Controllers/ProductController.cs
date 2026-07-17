@@ -1,6 +1,7 @@
 ﻿﻿using eCommerceApp.Application.DTOs.Product;
 using eCommerceApp.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eCommerceApp.Host.Controllers
@@ -10,6 +11,12 @@ namespace eCommerceApp.Host.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
+
+        private string GetUserId()
+        {
+            return User.FindFirst("uid")?.Value
+                   ?? User.FindFirst(ClaimTypes.NameIdentifier)?.Value!;
+        }
 
         public ProductController(IProductService productService)
         {
@@ -28,16 +35,29 @@ namespace eCommerceApp.Host.Controllers
         [Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> GetAvailable()
         {
-            var products = await _productService.GetAvailableProductsAsync();
+            var userId = GetUserId();
+            var products = await _productService.GetAvailableProductsAsync(userId);
             return Ok(products);
         }
 
-        [HttpGet("GetById/{id}")]
-        //[Authorize(Roles = "User,Admin")]
-        [AllowAnonymous]
-        public async Task<IActionResult> GetById(int id)
+        [HttpGet("GetByIdForUser/{id}")]
+        [Authorize(Roles = "User,Admin")]
+       
+        public async Task<IActionResult> GetByIdForUser(int id)
         {
-            var product = await _productService.GetByIdAsync(id);
+            var product = await _productService.GetByIdForUserAsync(id);
+            if (product.Id == 0)
+            {
+                return NotFound();
+            }
+            return Ok(product);
+        }
+        [HttpGet("GetByIdForAdmin/{id}")]
+        [Authorize(Roles = "Admin")]
+
+        public async Task<IActionResult> GetByIdForAdmin(int id)
+        {
+            var product = await _productService.GetByIdForAdminAsync(id);
             if (product.Id == 0)
             {
                 return NotFound();
@@ -49,7 +69,8 @@ namespace eCommerceApp.Host.Controllers
         [Authorize(Roles = "User,Admin")]
         public async Task<IActionResult> GetByCategory(int categoryId)
         {
-            var products = await _productService.GetProductsByCategoryAsync(categoryId);
+           var userId = GetUserId();
+            var products = await _productService.GetAvaliableProductsByCategoryId(userId, categoryId);
             return Ok(products);
         }
 
@@ -103,6 +124,41 @@ namespace eCommerceApp.Host.Controllers
                 return BadRequest(result);
             }
             return Ok(result);
+        }
+
+        [HttpPost("AddToFavorite/{id}")]
+        [Authorize(Roles = "User,Admin")]
+        public async Task<IActionResult> AddToFavorite(int id)
+        {
+            var userId = GetUserId();
+            if (string.IsNullOrWhiteSpace(userId)) return Unauthorized();
+
+            var result = await _productService.AddToFavoriteAsync(userId, id);
+            if (!result.IsSuccess) return BadRequest(result);
+            return Ok(result);
+        }
+
+        [HttpDelete("RemoveFromFavorite/{id}")]
+        [Authorize(Roles = "User,Admin")]
+        public async Task<IActionResult> RemoveFromFavorite(int id)
+        {
+            var userId = GetUserId();
+            if (string.IsNullOrWhiteSpace(userId)) return Unauthorized();
+
+            var result = await _productService.RemoveFromFavoriteAsync(userId, id);
+            if (!result.IsSuccess) return BadRequest(result);
+            return Ok(result);
+        }
+
+        [HttpGet("MyFavorites")]
+        [Authorize(Roles = "User,Admin")]
+        public async Task<IActionResult> GetFavorites()
+        {
+            var userId = GetUserId();
+            if (string.IsNullOrWhiteSpace(userId)) return Unauthorized();
+
+            var products = await _productService.GetFavoriteProductsByUserAsync(userId);
+            return Ok(products);
         }
     }
 }

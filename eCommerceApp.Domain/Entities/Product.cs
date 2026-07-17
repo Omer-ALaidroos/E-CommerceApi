@@ -27,5 +27,6 @@ namespace eCommerceApp.Domain.Entities
         public  int  ReviewsCount { get; set; } = 0;
         public ICollection<ProductReview> Reviews { get; set; } = new List<ProductReview>();
         public ICollection<ProductImage> Images { get; set; } = new List<ProductImage>(); // Already correct
+        public ICollection<Wishlist> Wishlists { get; set; } = new List<Wishlist>();
     }
 }

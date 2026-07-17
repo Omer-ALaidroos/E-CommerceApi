@@ -13,7 +13,9 @@ namespace eCommerceApp.Application.DTOs.Product
         public int CategoryId { get; set; }
         public double AverageRating { get; set; }
         public int ReviewsCount { get; set; }
+      
         public DateTime CreatedAt { get; set; }
+       
         public ICollection<ProductImageDto> Images { get; set; }
         public ICollection<ProductReviewDto> Reviews { get; set; }
     }

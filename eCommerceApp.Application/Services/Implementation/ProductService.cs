@@ -5,7 +5,8 @@ using eCommerceApp.Application.Services.Interfaces;
 using eCommerceApp.Domain.Entities;
 using eCommerceApp.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
-using static System.Net.Mime.MediaTypeNames;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace eCommerceApp.Application.Services.Implementation
 {
@@ -84,31 +85,43 @@ namespace eCommerceApp.Application.Services.Implementation
         {
            var products = await ProductInterface.GetAllAsync();
 
-            if (!products.Any()) return [];
+            if (!products.Any()) return Enumerable.Empty<GetProduct>();
 
             return mapper.Map<IEnumerable<GetProduct>>(products);
         }
 
-        public async Task<GetProductDetailsDto> GetByIdAsync(int id)
+        public async Task<GetProductDetailsDto> GetByIdForUserAsync(int id)
         {
-          var product =  await ProductInterface.GetByIdAsync(id);
+          var product =  await ProductInterface.GetByIdForUserAsync(id);
 
           if(product == null) return new GetProductDetailsDto();
 
-           return mapper.Map<GetProductDetailsDto>(product);
+          
+
+          return mapper.Map<GetProductDetailsDto>(product); ;
+        }
+        public async Task<GetProductDetailsDto> GetByIdForAdminAsync(int id)
+        {
+            var product = await ProductInterface.GetByIdForAdminAsync(id);
+
+            if (product == null) return new GetProductDetailsDto();
+
+            
+
+            return mapper.Map<GetProductDetailsDto>(product);
         }
 
         public async Task<IEnumerable<GetProduct>> GetProductsByCategoryAsync(int categoryId)
         {
             var products = await ProductInterface.GetProductsByCategory(categoryId);
-            if (!products.Any()) return [];
+            if (!products.Any()) return Enumerable.Empty<GetProduct>();
 
             return mapper.Map<IEnumerable<GetProduct>>(products);
         }
 
         public async Task<ServicesResponse> UpdateAsync(UpdateProduct product, List<IFormFile>? images)
         {
-            var existingProduct = await ProductInterface.GetByIdAsync(product.Id);
+            var existingProduct = await ProductInterface.GetByIdForUserAsync(product.Id);
 
             if (existingProduct == null)
             {
@@ -197,29 +210,88 @@ namespace eCommerceApp.Application.Services.Implementation
             return result > 0;
         }
 
-        public async Task<IEnumerable<GetProduct>> GetAvailableProductsAsync()
+        public async Task<IEnumerable<GetProduct>> GetAvailableProductsAsync(string userId)
         {
             var products = await ProductInterface.GetAvailableProductsAsync();
 
-            if (!products.Any()) return [];
+            if (!products.Any()) return Enumerable.Empty<GetProduct>();
 
-            return mapper.Map<IEnumerable<GetProduct>>(products);
+            var productDtos = mapper.Map<IEnumerable<GetProduct>>(products).ToList();
+
+            if (!string.IsNullOrWhiteSpace(userId))
+            {
+                var favoriteIds = (await ProductInterface.GetFavoriteProductIdsByUserAsync(userId)).ToHashSet();
+                foreach (var dto in productDtos)
+                {
+                    dto.IsFavorite = favoriteIds.Contains(dto.Id);
+                }
+            }
+
+            return productDtos;
         }
 
-        public async Task<IEnumerable<GetProduct>> GetAvaliableProductsByCategoryId(int categoryID)
+        public async Task<IEnumerable<GetProduct>> GetAvaliableProductsByCategoryId(string userId, int categoryID)
         {
             var products = await ProductInterface.GetAvailableProductsByCategoryAsync(categoryID);
-            if (!products.Any()) return [];
 
-            return mapper.Map<IEnumerable<GetProduct>>(products);
+            if (!products.Any()) return Enumerable.Empty<GetProduct>();
+
+            var productDtos = mapper.Map<IEnumerable<GetProduct>>(products).ToList();
+
+            if (!string.IsNullOrWhiteSpace(userId))
+            {
+                var favoriteIds = (await ProductInterface.GetFavoriteProductIdsByUserAsync(userId)).ToHashSet();
+                foreach (var dto in productDtos)
+                {
+                    dto.IsFavorite = favoriteIds.Contains(dto.Id);
+                }
+            }
+
+            return productDtos;
         }
 
         public async Task<IEnumerable<GetProduct>> SearchByNameAsync(string name)
         {
             var products = await ProductInterface.SearchByNameAsync(name);
-            if (!products.Any()) return [];
+            if (!products.Any()) return Enumerable.Empty<GetProduct>();
 
             return mapper.Map<IEnumerable<GetProduct>>(products);
+        }
+
+        public async Task<ServicesResponse> AddToFavoriteAsync(string userId, int productId)
+        {
+            await ProductInterface.AddToFavoriteAsync(userId, productId);
+            int result = await ProductInterface.SaveChangesAsync();
+
+            return result > 0
+                ? new ServicesResponse(true, "Product added to favorites.")
+                : new ServicesResponse(false, "Failed to add product to favorites.");
+        }
+
+        public async Task<ServicesResponse> RemoveFromFavoriteAsync(string userId, int productId)
+        {
+            await ProductInterface.RemoveFromFavoriteAsync(userId, productId);
+            int result = await ProductInterface.SaveChangesAsync();
+
+            return result > 0
+                ? new ServicesResponse(true, "Product removed from favorites.")
+                : new ServicesResponse(false, "Failed to remove product from favorites.");
+        }
+
+        public async Task<IEnumerable<GetProduct>> GetFavoriteProductsByUserAsync(string userId)
+        {
+            if (string.IsNullOrWhiteSpace(userId)) return Enumerable.Empty<GetProduct>();
+
+            var products = await ProductInterface.GetFavoriteProductsByUserAsync(userId);
+            if (!products.Any()) return Enumerable.Empty<GetProduct>();
+
+            var productDtos = mapper.Map<IEnumerable<GetProduct>>(products).ToList();
+            foreach (var dto in productDtos)
+            {
+                dto.IsFavorite = true;
+            }
+
+            return productDtos;
         }
     }
 }

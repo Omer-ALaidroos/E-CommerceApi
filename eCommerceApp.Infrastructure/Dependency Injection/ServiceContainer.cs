@@ -114,6 +114,7 @@ namespace eCommerceApp.Infrastructure.Dependency_Injection
             services.AddScoped<IPaymentService, StripPaymentService>();
             services.AddScoped<ICategory, CategoryRepository>();
             services.AddScoped<IProduct, ProductRepository>();
+            services.AddScoped<IProductReviewRepository, ProductReviewRepository>();
             services.AddScoped<ICart, CartRepository>();
             services.AddScoped<IOrder,OrderRepository>();
             services.AddScoped<IAddress, AddressRepositroy>();

@@ -28,6 +28,7 @@ namespace eCommerceApp.Application.DependencyInjection
 
             services.AddAutoMapper(typeof(MappingConfig).Assembly);
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IProductReviewService, ProductReviewService>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IAddressService, AddressService>();
             services.AddScoped<IOrderService, OrderService>();

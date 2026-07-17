@@ -47,16 +47,34 @@ namespace eCommerceApp.Infrastructure.Repository
                 .ToListAsync();
         }
 
-        public async Task<Product> GetByIdAsync(int id)
+        public async Task<Product> GetByIdForAdminAsync(int id)
         {
             var result = await context.Set<Product>()
                 .Include(p => p.Images)
+                .Include(p => p.Reviews)
+                    .ThenInclude(r => r.User)
                 .FirstOrDefaultAsync(p => p.Id == id) ??
                 throw new ItemNotFoundException($"Item with ID {id} not found.");
 
             return result;
+
+
         }
-        
+        public async Task<Product> GetByIdForUserAsync(int id)
+        {
+           
+
+
+            var result = await context.Set<Product>()
+               .Include(p => p.Images)
+               .Include(p => p.Reviews.Where(r => r.IsApproved))
+                   .ThenInclude(r => r.User)
+               .FirstOrDefaultAsync(p => p.Id == id) ??
+               throw new ItemNotFoundException($"Item with ID {id} not found.");
+
+            return result;
+        }
+
         public async Task<IEnumerable<Product>> GetProductsByCategory(int categoryId)
         {
             var Products = await context.Products
@@ -78,6 +96,51 @@ namespace eCommerceApp.Infrastructure.Repository
                 .AsNoTracking()
                 .ToListAsync();
             return products.Count() > 0 ? products : [];
+        }
+
+        public async Task<IEnumerable<int>> GetFavoriteProductIdsByUserAsync(string userId)
+        {
+            return await context.Wishlists
+                .AsNoTracking()
+                .Where(w => w.UserId == userId)
+                .Select(w => w.ProductId)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Product>> GetFavoriteProductsByUserAsync(string userId)
+        {
+            var productIdsQuery = context.Wishlists
+                .AsNoTracking()
+                .Where(w => w.UserId == userId)
+                .Select(w => w.ProductId);
+
+            return await context.Products
+                .Include(p => p.Images.Where(i => i.IsPrimary))
+                .Where(p => productIdsQuery.Contains(p.Id) && p.IsDeleted == false)
+                .AsNoTracking()
+                .ToListAsync();
+        }
+
+        public async Task AddToFavoriteAsync(string userId, int productId)
+        {
+            var exists = await context.Wishlists.AnyAsync(w => w.UserId == userId && w.ProductId == productId);
+            if (exists) return;
+
+            var wishlist = new Wishlist
+            {
+                UserId = userId,
+                ProductId = productId,
+                CreatedAt = DateTime.UtcNow
+            };
+
+            await context.Wishlists.AddAsync(wishlist);
+        }
+
+        public async Task RemoveFromFavoriteAsync(string userId, int productId)
+        {
+            var entity = await context.Wishlists.FirstOrDefaultAsync(w => w.UserId == userId && w.ProductId == productId);
+            if (entity == null) return;
+            context.Wishlists.Remove(entity);
         }
 
         public Task UpdateAsync(Product entity)
@@ -117,6 +180,12 @@ namespace eCommerceApp.Infrastructure.Repository
                 .Where(p => p.Name.Contains(name) && !p.IsDeleted)
                 .AsNoTracking()
                 .ToListAsync();
+        }
+
+        public async Task<Product?> GetByIdAsync(int id)
+        {
+           return await context.Products
+                .FirstOrDefaultAsync(p => p.Id == id && !p.IsDeleted);
         }
     }
 

@@ -7,6 +7,8 @@ namespace eCommerceApp.Domain.Interfaces
         Task<IEnumerable<Product>> GetProductsByCategory(int categoryId);
         public Task<IEnumerable<Product>> GetAllAsync();
         Task<IEnumerable<Product>> GetByIdsAsync(IEnumerable<int> ids);
+        public Task<Product> GetByIdForUserAsync(int id);
+        public Task<Product> GetByIdForAdminAsync(int id);
         public Task<Product> GetByIdAsync(int id);
         public Task AddAsync(Product entity); // Changed return type to Task
         public Task UpdateAsync(Product entity); // Changed return type to Task
@@ -14,6 +16,10 @@ namespace eCommerceApp.Domain.Interfaces
         Task DecreaseProductQuantityAsync(int productId, int quantity);
         Task IncreaseProductQuantityAsync(int productId, int quantity);
         Task<IEnumerable<Product>> GetAvailableProductsAsync();
+        Task<IEnumerable<int>> GetFavoriteProductIdsByUserAsync(string userId);
+        Task<IEnumerable<Product>> GetFavoriteProductsByUserAsync(string userId);
+        Task AddToFavoriteAsync(string userId, int productId);
+        Task RemoveFromFavoriteAsync(string userId, int productId);
         Task<IEnumerable<Product>> GetAvailableProductsByCategoryAsync(int categoryId);
         Task<int> SaveChangesAsync();
         Task<IEnumerable<Product>> SearchByNameAsync(string name);

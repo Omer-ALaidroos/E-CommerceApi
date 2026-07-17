@@ -33,6 +33,7 @@ namespace eCommerceApp.Infrastructure.Data
         public DbSet<CartItem> CartItems { get; set; }
         public DbSet<ProductReview> ProductReviews => Set<ProductReview>();
         public DbSet<ProductImage> ProductImage { get; set; }
+        public DbSet<Wishlist> Wishlists { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
