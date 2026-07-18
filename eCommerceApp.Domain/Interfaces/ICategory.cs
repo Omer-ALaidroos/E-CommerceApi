@@ -1,5 +1,4 @@
 using eCommerceApp.Domain.Entities;
-using System.Security.Principal;
 
 namespace eCommerceApp.Domain.Interfaces
 {

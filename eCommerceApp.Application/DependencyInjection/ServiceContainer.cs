@@ -12,7 +12,6 @@ using eCommerceApp.Infrastructure.Settings;
 using eCommerceApp.Infrastructure.Sevices;
 using FluentValidation;
 using FluentValidation.AspNetCore;
-using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

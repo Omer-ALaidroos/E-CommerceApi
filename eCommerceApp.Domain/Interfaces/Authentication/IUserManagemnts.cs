@@ -12,6 +12,8 @@ namespace eCommerceApp.Domain.Interfaces.Authentication
 
         Task<IEnumerable<AppUser?>> GetAllUsers();
         Task<int> RemoveUserByEmail(string email);
+        Task<IEnumerable<AppUser?>> SearchUsersByName(string name);
+        Task<IEnumerable<AppUser?>> SearchUsersByEmail(string email);
         Task<List<Claim>> GetUserClaims(string email);
 
         Task<int> EditFullName(string fullName, string userId);

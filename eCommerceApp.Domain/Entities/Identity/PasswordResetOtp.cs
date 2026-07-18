@@ -1,5 +1,3 @@
-using System;
-
 namespace eCommerceApp.Domain.Entities.Identity
 {
     public class PasswordResetOtp

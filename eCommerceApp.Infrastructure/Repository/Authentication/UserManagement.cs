@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using System.Linq;
 using eCommerceApp.Domain.Entities.Identity;
 using eCommerceApp.Domain.Interfaces.Authentication;
 using eCommerceApp.Infrastructure.Data;
@@ -107,6 +108,22 @@ namespace eCommerceApp.Infrastructure.Repository.Authentication
                 return context.SaveChangesAsync();
             }
             return Task.FromResult(0);
+        }
+
+        public async Task<IEnumerable<AppUser?>> SearchUsersByName(string name)
+        {
+            if (string.IsNullOrEmpty(name)) return Enumerable.Empty<AppUser?>();
+            return await context.Users
+                .Where(u => u.FullName != null && EF.Functions.Like(u.FullName, $"%{name}%"))
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<AppUser?>> SearchUsersByEmail(string email)
+        {
+            if (string.IsNullOrEmpty(email)) return Enumerable.Empty<AppUser?>();
+            return await context.Users
+                .Where(u => u.Email != null && EF.Functions.Like(u.Email, $"%{email}%"))
+                .ToListAsync();
         }
     }
 }

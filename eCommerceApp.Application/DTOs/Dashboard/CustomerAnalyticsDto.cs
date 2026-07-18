@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace eCommerceApp.Application.DTOs.Dashboard
 {
     public class CustomerAnalyticsDto

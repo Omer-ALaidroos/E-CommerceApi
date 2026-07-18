@@ -6,6 +6,7 @@ namespace eCommerceApp.Domain.Interfaces.Authentication
     {
         Task<string?> GetUserRole(string useremail);
         Task<bool> AddUserToRole(AppUser user,string roleName);
+        Task<bool> RemoveUserFromRole(AppUser user, string roleName);
        
     }
 }

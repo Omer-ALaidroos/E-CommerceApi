@@ -72,5 +72,57 @@ namespace eCommerceApp.Host.Controllers
             }
             return Ok(user);
         }
+
+        [HttpGet("GetAllUsers")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var users = await userService.GetAllAsync();
+            return Ok(users);
         }
+
+        [HttpGet("SearchByName")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> SearchByName(string name)
+        {
+            if (string.IsNullOrEmpty(name)) return BadRequest("Name is required.");
+            var users = await userService.SearchByNameAsync(name);
+            return Ok(users);
+        }
+
+        [HttpGet("SearchByEmail")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> SearchByEmail(string email)
+        {
+            if (string.IsNullOrEmpty(email)) return BadRequest("Email is required.");
+            var users = await userService.SearchByEmailAsync(email);
+            return Ok(users);
+        }
+
+        [HttpPut("SetUserAsAdmin")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> SetUserAsAdmin(string email)
+        {
+            var response = await userService.SetUserAsAdmin(email);
+            if (!response.IsSuccess)
+            {
+                return BadRequest(response.Message);
+            }
+            return Ok(response.Message);
+        }
+
+        [HttpPut("RemoveFromAdminRole")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> RemoveFromAdminRole(string email)
+        {
+            var response = await userService.RemoveUserFromAdmin(email);
+            if (!response.IsSuccess)
+            {
+                return BadRequest(response.Message);
+            }
+            return Ok(response.Message);
+        }
+
+        
+    }
 }

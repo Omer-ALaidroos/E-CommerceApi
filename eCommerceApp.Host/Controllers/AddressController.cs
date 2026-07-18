@@ -1,5 +1,4 @@
 ﻿using eCommerceApp.Application.DTOs.Address;
-using eCommerceApp.Application.DTOs.Product;
 using eCommerceApp.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

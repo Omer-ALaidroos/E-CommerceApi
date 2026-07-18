@@ -3,7 +3,6 @@ using eCommerceApp.Domain.Entities.CartEntities;
 using eCommerceApp.Domain.Interfaces.CartInterface;
 using eCommerceApp.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
 
 namespace eCommerceApp.Infrastructure.Repository.CartRepo
 {

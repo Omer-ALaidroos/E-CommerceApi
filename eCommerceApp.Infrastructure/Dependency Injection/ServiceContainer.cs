@@ -1,5 +1,4 @@
-﻿﻿using ECommerce.Core.Entities;
-using eCommerceApp.Application.Services.Interfaces;
+﻿﻿using eCommerceApp.Application.Services.Interfaces;
 using eCommerceApp.Application.Services.Interfaces.CartInterface;
 using eCommerceApp.Application.Services.Interfaces.Logger;
 using eCommerceApp.Domain.Entities;

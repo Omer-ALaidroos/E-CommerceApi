@@ -1,7 +1,6 @@
 ﻿using ECommerce.Core.Entities;
 using eCommerceApp.Domain.Entities.CartEntities;
 using eCommerceApp.Domain.Entities.Identity;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace eCommerceApp.Domain.Entities.Orders
 {

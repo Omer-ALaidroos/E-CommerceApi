@@ -1,4 +1,3 @@
-using eCommerceApp.Application.DTOs;
 using FluentValidation;
 
 namespace eCommerceApp.Application.Validations.Authentication

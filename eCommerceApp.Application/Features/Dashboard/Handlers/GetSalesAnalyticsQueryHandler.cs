@@ -3,7 +3,6 @@ using eCommerceApp.Application.Features.Dashboard.Queries;
 using eCommerceApp.Application.Services.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System.Globalization;
 
 namespace eCommerceApp.Application.Features.Dashboard.Handlers
 {
@@ -50,7 +49,7 @@ namespace eCommerceApp.Application.Features.Dashboard.Handlers
                 TotalRevenue = totalRevenue,
                 RevenueGrowth = revenueGrowth,
                 TotalOrders = totalOrders,
-                OrdersGrowth = ordersGrowth,
+                OrdersGrowth = Math.Round(ordersGrowth, 2, MidpointRounding.AwayFromZero),
                 AverageOrderValue = Math.Round(averageOrderValue, 2, MidpointRounding.AwayFromZero),
                 AverageGrowth = averageGrowth,
                 RevenueTrend = revenueTrend

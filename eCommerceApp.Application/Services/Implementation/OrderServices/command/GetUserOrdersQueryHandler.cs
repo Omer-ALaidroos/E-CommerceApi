@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using eCommerceApp.Application.DTOs.Address;
+﻿using eCommerceApp.Application.DTOs.Address;
 using eCommerceApp.Application.DTOs.Order;
 using eCommerceApp.Application.DTOs.Product;
 using eCommerceApp.Application.Services.Implementation.OrderServices.query;

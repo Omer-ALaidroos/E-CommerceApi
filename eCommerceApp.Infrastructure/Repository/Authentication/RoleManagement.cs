@@ -16,5 +16,8 @@ namespace eCommerceApp.Infrastructure.Repository.Authentication
             var user = await UserManager.FindByEmailAsync(useremail);
           return (await UserManager.GetRolesAsync(user!)).FirstOrDefault();
         }
+
+        public async Task<bool> RemoveUserFromRole(AppUser user, string roleName) =>
+            (await UserManager.RemoveFromRoleAsync(user, roleName)).Succeeded;
     }
 }

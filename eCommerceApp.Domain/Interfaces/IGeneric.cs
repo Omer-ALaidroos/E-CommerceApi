@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace eCommerceApp.Domain.Interfaces
+﻿namespace eCommerceApp.Domain.Interfaces
 {
     public interface IGeneric<T> where T : class
     {

@@ -1,12 +1,9 @@
 using eCommerceApp.Application.DependencyInjection;
 using eCommerceApp.Application.Mapping;
 using eCommerceApp.Infrastructure.Dependency_Injection;
-using eCommerceApp.Infrastructure.Settings;
-using eCommerceApp.Application.Services.Interfaces;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using System.Text.Json.Serialization;
-using eCommerceApp.Application.Services.Implementation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +25,7 @@ builder.Services.AddControllers().AddJsonOptions(options =>
     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
 });
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddAuthorization();
 
 builder.Services.AddCors(builder =>
 {
@@ -100,6 +98,7 @@ try
     app.UseInfrastructureService();
     app.UseStaticFiles();
     app.UseHttpsRedirection();
+    app.UseAuthentication();
     app.UseAuthorization();
     app.MapControllers();
 

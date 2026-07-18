@@ -5,8 +5,6 @@ using eCommerceApp.Application.Services.Interfaces;
 using eCommerceApp.Domain.Entities;
 using eCommerceApp.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
-using System.Linq;
-using System.Collections.Generic;
 
 namespace eCommerceApp.Application.Services.Implementation
 {

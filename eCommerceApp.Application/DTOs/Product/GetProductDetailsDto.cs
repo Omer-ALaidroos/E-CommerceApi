@@ -1,6 +1,3 @@
-using eCommerceApp.Application.DTOs.Category;
-using System.Collections.Generic;
-
 namespace eCommerceApp.Application.DTOs.Product
 {
     public class GetProductDetailsDto
