@@ -44,7 +44,8 @@ namespace eCommerceApp.Application.DependencyInjection
             services.AddScoped<IEmailService, EmailService>();
 
             services.Configure<EmailSettings>(configuration.GetSection("EmailSettings"));
-        
+
+            services.AddRateLimitingPolicies();
 
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<GetUserOrdersQueryHandler>());
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<GetUserOrderByIdQueryHandler>());
