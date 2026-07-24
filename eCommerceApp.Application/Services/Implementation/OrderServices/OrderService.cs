@@ -106,7 +106,7 @@ namespace eCommerceApp.Application.Services.Implementation.OrderServices
                     PaymentMethodId = checkout.PaymentMethodId,
                     ShippingAddressId = checkout.ShippingAddressId,
                     TotalAmount = totalAmount,
-                    Status = OrderStatus.Pending,
+                    Status = OrderStatus.PendingPayment,
                     OrderItems = orderItems
                 };
 
@@ -133,7 +133,8 @@ namespace eCommerceApp.Application.Services.Implementation.OrderServices
 
                 return new ServicesResponse(
                     true,
-                    "Order created successfully."
+                    "Order created successfully.",
+                    order.Id
                 );
             }
             catch (Exception)
@@ -163,11 +164,11 @@ namespace eCommerceApp.Application.Services.Implementation.OrderServices
                 );
             }
 
-            if (order.Status == OrderStatus.Shipped)
+            if (order.Status == OrderStatus.Shipped || order.Status == OrderStatus.Delivered)
             {
                 return new ServicesResponse(
                     false,
-                    "Shipped orders cannot be cancelled."
+                    "Shipped or delivered orders cannot be cancelled."
                 );
             }
 
@@ -216,39 +217,153 @@ namespace eCommerceApp.Application.Services.Implementation.OrderServices
                 throw;
             }
         }
-        public async Task<ServicesResponse> UpdateOrderStatusAsync(int id)
+        public Task<ServicesResponse> UpdateOrderStatusAsync(int id)
+        {
+            return UpdateOrderStatusAsync(id, null);
+        }
+
+        public async Task<ServicesResponse> UpdateOrderStatusAsync(int id, OrderStatus status)
         {
             var order = await orderInterface.GetByIdAsync(id);
 
             if (order == null)
             {
+                return new ServicesResponse(false, "Order not found.");
+            }
+
+            if (!IsValidTransition(order.Status, status))
+            {
                 return new ServicesResponse(
                     false,
-                    "Order not found."
+                    $"Order status cannot transition from {order.Status} to {status}."
                 );
             }
 
-            order.Status = order.Status switch
-            {
-                OrderStatus.Pending => OrderStatus.Processing,
-                OrderStatus.Processing => OrderStatus.Shipped,
-                OrderStatus.Shipped => OrderStatus.Delivered,
-                _ => order.Status
-            };
-
+            order.Status = status;
             await orderInterface.UpdateAsync(order);
 
             int result = await orderInterface.SaveChangesAsync();
 
             return result > 0
-                ? new ServicesResponse(
-                    true,
-                    "Order status updated successfully."
-                )
-                : new ServicesResponse(
+                ? new ServicesResponse(true, "Order status updated successfully.")
+                : new ServicesResponse(false, "Failed to update order status.");
+        }
+
+        public async Task<ServicesResponse> UpdateOrderStatusAsync(UpdateOrderStatusDto orderStatusDto)
+        {
+            var order = await orderInterface.GetByIdAsync(orderStatusDto.Id);
+
+            if (order == null)
+            {
+                return new ServicesResponse(false, "Order not found.");
+            }
+
+            if (!Enum.TryParse<OrderStatus>(orderStatusDto.Status, true, out var status))
+            {
+                return new ServicesResponse(false, "Invalid status value.");
+            }
+
+            if (!IsValidTransition(order.Status, status))
+            {
+                return new ServicesResponse(
                     false,
-                    "Failed to update order status."
+                    $"Order status cannot transition from {order.Status} to {status}."
                 );
+            }
+
+            order.Status = status;
+            await orderInterface.UpdateAsync(order);
+
+            int result = await orderInterface.SaveChangesAsync();
+
+            return result > 0
+                ? new ServicesResponse(true, "Order status updated successfully.")
+                : new ServicesResponse(false, "Failed to update order status.");
+        }
+
+        public async Task<ServicesResponse> GetOrderStatusByIdAsync(int orderId)
+        {
+            var order = await orderInterface.GetByIdAsync(orderId);
+
+            if (order == null)
+            {
+                return new ServicesResponse(false, "Order not found.");
+            }
+
+            return new ServicesResponse(
+                true,
+                "Order status retrieved successfully.",
+                new { OrderId = order.Id, Status = order.Status.ToString() }
+            );
+        }
+
+        private async Task<ServicesResponse> UpdateOrderStatusAsync(int id, OrderStatus? status)
+        {
+            var order = await orderInterface.GetByIdAsync(id);
+
+            if (order == null)
+            {
+                return new ServicesResponse(false, "Order not found.");
+            }
+
+            if (status is null)
+            {
+                if(order.Status == OrderStatus.PendingPayment)
+                {
+                    return new ServicesResponse(false, "Order status cannot be progressed further.");
+                }
+                OrderStatus? nextStatus = order.Status switch
+                {
+                   
+                    OrderStatus.Paid => OrderStatus.Processing,
+                    OrderStatus.Processing => OrderStatus.Shipped,
+                    OrderStatus.Shipped => OrderStatus.Delivered,
+                    _ => null
+                };
+
+                if (nextStatus is null)
+                {
+                    return new ServicesResponse(false, "Order status cannot be progressed further.");
+                }
+
+                status = nextStatus;
+            }
+
+            if (!IsValidTransition(order.Status, status.Value))
+            {
+                return new ServicesResponse(
+                    false,
+                    $"Order status cannot transition from {order.Status} to {status.Value}."
+                );
+            }
+
+            order.Status = status.Value;
+            await orderInterface.UpdateAsync(order);
+
+            int result = await orderInterface.SaveChangesAsync();
+
+            return result > 0
+                ? new ServicesResponse(true, "Order status updated successfully.")
+                : new ServicesResponse(false, "Failed to update order status.");
+        }
+
+        private static bool IsValidTransition(OrderStatus currentStatus, OrderStatus targetStatus)
+        {
+            return (currentStatus, targetStatus) switch
+            {
+                (OrderStatus.PendingPayment, OrderStatus.Paid) => true,
+                (OrderStatus.PendingPayment, OrderStatus.PaymentFailed) => true,
+                (OrderStatus.PendingPayment, OrderStatus.Cancelled) => true,
+                (OrderStatus.Paid, OrderStatus.Processing) => true,
+                (OrderStatus.Paid, OrderStatus.PaymentFailed) => true,
+                (OrderStatus.Paid, OrderStatus.Cancelled) => true,
+                (OrderStatus.Processing, OrderStatus.Shipped) => true,
+                (OrderStatus.Processing, OrderStatus.Cancelled) => true,
+                (OrderStatus.Shipped, OrderStatus.Delivered) => true,
+                (OrderStatus.PaymentFailed, OrderStatus.Paid) => true,
+                (OrderStatus.PaymentFailed, OrderStatus.Cancelled) => true,
+                _ => false
+            };
         }
 
         public async Task<ServicesResponse> DeleteOrderAsync(int id)
@@ -308,43 +423,6 @@ namespace eCommerceApp.Application.Services.Implementation.OrderServices
             }
 
             return mapper.Map<GetOrder>(order);
-        }
-
-        public async Task<ServicesResponse> UpdateOrderStatusAsync(
-            UpdateOrderStatusDto orderstatus
-        )
-        {
-            var order =
-                await orderInterface.GetByIdAsync(orderstatus.Id);
-
-            if (order == null)
-            {
-                return new ServicesResponse(
-                    false,
-                    "Order not found."
-                );
-            }
-
-            if (!Enum.TryParse<OrderStatus>(orderstatus.Status, true, out var status))
-            {
-                return new ServicesResponse(false, "Invalid status value.");
-            }
-
-            order.Status = status;
-
-            await orderInterface.UpdateAsync(order);
-
-            int result = await orderInterface.SaveChangesAsync();
-
-            return result > 0
-                ? new ServicesResponse(
-                    true,
-                    "Order status updated successfully."
-                )
-                : new ServicesResponse(
-                    false,
-                    "Failed to update order status."
-                );
         }
 
         public Task<ServicesResponse> CancelORderAsync(int id)

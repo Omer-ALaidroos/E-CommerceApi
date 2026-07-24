@@ -1,6 +1,7 @@
 ﻿﻿using eCommerceApp.Application.Services.Interfaces;
-using eCommerceApp.Application.Services.Interfaces.CartInterface;
 using eCommerceApp.Application.Services.Interfaces.Logger;
+using eCommerceApp.Application.Services.Interfaces.Payment;
+using CartPaymentServiceInterface = eCommerceApp.Application.Services.Interfaces.CartInterface.IPaymentService;
 using eCommerceApp.Domain.Entities;
 using eCommerceApp.Domain.Entities.Identity;
 using eCommerceApp.Domain.Entities.Orders;
@@ -14,6 +15,7 @@ using eCommerceApp.Infrastructure.Repository.Authentication;
 using eCommerceApp.Infrastructure.Repository.CartRepo;
 using eCommerceApp.Infrastructure.Repository.Orders;
 using eCommerceApp.Infrastructure.Sevices;
+using eCommerceApp.Infrastructure.Settings;
 using EntityFramework.Exceptions.SqlServer;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -54,6 +56,7 @@ namespace eCommerceApp.Infrastructure.Dependency_Injection
 
 
             services.AddScoped(typeof(IAppLogger<>), typeof(SerilogLoggerAdapter<>));
+            services.Configure<StripeSettings>(config.GetSection("Stripe"));
             services.AddDefaultIdentity<AppUser>(options =>
             {
                 options.SignIn.RequireConfirmedEmail = true;
@@ -110,7 +113,8 @@ namespace eCommerceApp.Infrastructure.Dependency_Injection
             services.AddScoped<ITokenManagements, TokenManagement>();
             services.AddScoped<IPasswordResetOtpRepository, PasswordResetOtpRepository>();
             services.AddScoped<IPaymentMethod,PaymentMethodRepository>();
-            services.AddScoped<IPaymentService, StripPaymentService>();
+            services.AddScoped<CartPaymentServiceInterface, StripPaymentService>();
+            services.AddScoped<IPaymentGateway, StripePaymentService>();
             services.AddScoped<ICategory, CategoryRepository>();
             services.AddScoped<IProduct, ProductRepository>();
             services.AddScoped<IProductReviewRepository, ProductReviewRepository>();

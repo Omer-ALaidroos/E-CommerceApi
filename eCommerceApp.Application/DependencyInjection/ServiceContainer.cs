@@ -3,9 +3,11 @@ using eCommerceApp.Application.Services.Implementation;
 using eCommerceApp.Application.Services.Implementation.Cart;
 using eCommerceApp.Application.Services.Implementation.OrderServices;
 using eCommerceApp.Application.Services.Implementation.OrderServices.command;
+using eCommerceApp.Application.Services.Implementation.Payment;
 using eCommerceApp.Application.Services.Interfaces;
 using eCommerceApp.Application.Services.Interfaces.Authentication;
 using eCommerceApp.Application.Services.Interfaces.CartInterface;
+using eCommerceApp.Application.Services.Interfaces.Payment;
 using eCommerceApp.Application.Validations.Authentication;
 using eCommerceApp.Domain.Interfaces.Orders;
 using eCommerceApp.Infrastructure.Settings;
@@ -38,6 +40,8 @@ namespace eCommerceApp.Application.DependencyInjection
             services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddScoped<ICartService, CartService>();
             services.AddScoped<IPaymentMethodService, PaymentMethodService>();
+            services.AddScoped<eCommerceApp.Application.Services.Interfaces.Payment.IPaymentService, PaymentService>();
+            services.AddScoped<IStripeWebhookService, StripeWebhookService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ImageUploader, ImageUploader>();
 

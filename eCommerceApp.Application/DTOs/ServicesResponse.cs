@@ -1,5 +1,4 @@
 ﻿namespace eCommerceApp.Application.DTOs
 {
-    public record ServicesResponse ( bool IsSuccess =false,string Message = null! );
-  
+    public record ServicesResponse(bool IsSuccess = false, string Message = null!, object? Data = null);
 }

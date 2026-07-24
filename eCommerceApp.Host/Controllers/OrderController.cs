@@ -1,5 +1,8 @@
-﻿using eCommerceApp.Application.DTOs.Cart;
+﻿using ECommerce.Core.DTOs.Order;
+using eCommerceApp.Application.DTOs.Cart;
+using eCommerceApp.Application.DTOs.Payment;
 using eCommerceApp.Application.Services.Implementation.OrderServices.query;
+using eCommerceApp.Application.Services.Interfaces.Payment;
 using eCommerceApp.Domain.Interfaces.Orders;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -10,7 +13,7 @@ namespace eCommerceApp.Host.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OrderController(IOrderService orderService,IMediator _mediator) : ControllerBase
+    public class OrderController(IOrderService orderService, IMediator mediator, IPaymentService paymentService) : ControllerBase
     {
         
 
@@ -38,15 +41,36 @@ namespace eCommerceApp.Host.Controllers
             return Order != null ? Ok(Order) : NotFound();
         }*/
 
-        [HttpPost("Create")]
+        [HttpPost("checkout")]
         [Authorize(Roles = "User")]
-        public async Task<IActionResult> Create([FromBody] Checkout checkout)
+        public async Task<IActionResult> Checkout([FromBody] Checkout checkout)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+
             checkout.UserId = GetUserId();
             var response = await orderService.CreateOrder(checkout);
-            return response.IsSuccess ? Ok(response) : BadRequest(response);
+
+            if (!response.IsSuccess)
+                return BadRequest(response);
+
+            var orderId = response.Data as int? ?? 0;
+            if (orderId <= 0)
+                return BadRequest(new { message = "Order id was not returned after creation." });
+
+            var userId = GetUserId();
+            var paymentRequest = new CreatePaymentIntentRequestDto
+            {
+                OrderId = orderId,
+                Currency = "usd",
+                Description = $"Order {orderId}"
+            };
+
+            var paymentResult = await paymentService.CreatePaymentIntentAsync(paymentRequest, userId);
+
+            return paymentResult.IsSuccess
+                ? Ok(new { order = response, payment = paymentResult.Data })
+                : BadRequest(new { order = response, payment = paymentResult });
         }
         /* public async Task<IActionResult> Add([FromBody] CreateOrder Order)
          {
@@ -64,7 +88,7 @@ namespace eCommerceApp.Host.Controllers
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-            var result = await _mediator.Send(
+            var result = await mediator.Send(
                 new GetUserOrdersQuery(userId!));
 
             return Ok(result);
@@ -74,7 +98,7 @@ namespace eCommerceApp.Host.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetOrdersByStatus(string Status)
         {
-            var result = await _mediator.Send(
+            var result = await mediator.Send(
               new GetOrdersSummariesByStatusQuery(Status));
 
             return Ok(result);
@@ -82,13 +106,20 @@ namespace eCommerceApp.Host.Controllers
 
         [HttpPut("UpdateStatus/{orderId}")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> UpdateOrderStatus(int orderId)
+        public async Task<IActionResult> UpdateOrderStatus(int orderId, [FromBody] UpdateOrderStatusDto? request)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var response = await orderService.UpdateOrderStatusAsync(orderId);
-            return response.IsSuccess ? Ok(response) : BadRequest(response);
+            if (request is null)
+            {
+                var response = await orderService.UpdateOrderStatusAsync(orderId);
+                return response.IsSuccess ? Ok(response) : BadRequest(response);
+            }
+
+            request.Id = orderId;
+            var explicitResponse = await orderService.UpdateOrderStatusAsync(request);
+            return explicitResponse.IsSuccess ? Ok(explicitResponse) : BadRequest(explicitResponse);
         }
         [HttpGet("OrderSummaries")]
         [Authorize(Roles = "User")]
@@ -99,7 +130,7 @@ namespace eCommerceApp.Host.Controllers
             if (string.IsNullOrEmpty(userId))
                 return Unauthorized();
 
-            var result = await _mediator.Send(
+            var result = await mediator.Send(
                 new GetUserOrderSummariesQuery(userId));
 
             return Ok(result);
@@ -110,7 +141,7 @@ namespace eCommerceApp.Host.Controllers
         {
           
 
-            var result = await _mediator.Send(
+            var result = await mediator.Send(
                 new GetUserOrderByIdQuery(orderId));
 
             if (result is null)
@@ -118,6 +149,15 @@ namespace eCommerceApp.Host.Controllers
 
             return Ok(result);
         }
+
+        [HttpGet("GetStatusByOrderId/{orderId}")]
+        [Authorize(Roles = "User,Admin")]
+        public async Task<IActionResult> GetStatusByOrderId(int orderId)
+        {
+            var response = await orderService.GetOrderStatusByIdAsync(orderId);
+            return response.IsSuccess ? Ok(response) : NotFound(response);
+        }
+
         [HttpDelete("Delete/{id}")]
         [Authorize(Roles = "User")]
         public async Task<IActionResult> Delete(int id)
