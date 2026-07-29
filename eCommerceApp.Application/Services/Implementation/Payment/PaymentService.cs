@@ -34,7 +34,46 @@ namespace eCommerceApp.Application.Services.Implementation.Payment
                 Description = request.Description ?? $"Order {request.OrderId}"
             };
 
-            return await paymentGateway.CreatePaymentIntentAsync(paymentRequest, userId);
+            var paymentResult = await paymentGateway.CreatePaymentIntentAsync(paymentRequest, userId);
+
+            if (paymentResult.IsSuccess && paymentResult.Data != null)
+            {
+                order.PaymentIntentId = paymentResult.Data.PaymentIntentId;
+                order.PaymentStatus = paymentResult.Data.Status;
+                await orderRepository.UpdateAsync(order);
+                await orderRepository.SaveChangesAsync();
+            }
+
+            return paymentResult;
+        }
+
+        public async Task<PaymentResult<CreatePaymentIntentResponseDto>> PayOrderAsync(PayOrderRequestDto request, string userId)
+        {
+            var order = await orderRepository.GetByIdAsync(request.OrderId);
+            if (order == null)
+            {
+                return PaymentResult<CreatePaymentIntentResponseDto>.Failure("Order not found.");
+            }
+
+            if (order.Status != OrderStatus.PendingPayment && order.Status != OrderStatus.PaymentFailed)
+            {
+                return PaymentResult<CreatePaymentIntentResponseDto>.Failure($"Order is not payable. Current status: {order.Status}");
+            }
+
+            if (order.TotalAmount <= 0)
+            {
+                return PaymentResult<CreatePaymentIntentResponseDto>.Failure("Order total must be greater than zero.");
+            }
+
+            var paymentRequest = new CreatePaymentIntentRequestDto
+            {
+                OrderId = order.Id,
+                Amount = order.TotalAmount,
+                Currency = request.Currency ?? "usd",
+                Description = request.Description ?? $"Order {order.Id}"
+            };
+
+            return await CreatePaymentIntentAsync(paymentRequest, userId);
         }
 
         public async Task<PaymentResult<PaymentStatusResponseDto>> ConfirmPaymentAsync(ConfirmPaymentRequestDto request, string userId)

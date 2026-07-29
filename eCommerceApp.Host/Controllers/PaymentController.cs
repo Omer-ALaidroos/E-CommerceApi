@@ -27,6 +27,30 @@ namespace eCommerceApp.Host.Controllers
             return Ok(paymentMethods);
         }
 
+        [HttpPost("pay-order")]
+        [Authorize(Roles = "User")]
+        public async Task<IActionResult> PayOrder([FromBody] PayOrderRequestDto request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var userId = GetUserId();
+            if (string.IsNullOrWhiteSpace(userId))
+                return Unauthorized(new { message = "User ID not found in claims." });
+
+            var result = await paymentService.PayOrderAsync(request, userId);
+
+            return result.IsSuccess && result.Data != null
+                ? Ok(new
+                {
+                    orderId = request.OrderId,
+                    clientSecret = result.Data.ClientSecret,
+                    paymentIntentId = result.Data.PaymentIntentId,
+                    status = result.Data.Status
+                })
+                : BadRequest(new { message = result.Message, errorCode = result.ErrorCode });
+        }
+
         /*[HttpPost("create-intent")]
         [Authorize(Roles = "User")]
         public async Task<IActionResult> CreateIntent([FromBody] CreatePaymentIntentApiRequest request)

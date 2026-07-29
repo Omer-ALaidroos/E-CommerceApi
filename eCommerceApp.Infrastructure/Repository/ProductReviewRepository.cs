@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace eCommerceApp.Infrastructure.Repository
 {
-    public class ProductReviewRepository : GenericRepository<ProductReview>, IProductReviewRepository
+    public class ProductReviewRepository : IProductReviewRepository
     {
         private readonly AppDbContext _context;
 
-        public ProductReviewRepository(AppDbContext context) : base(context)
+        public ProductReviewRepository(AppDbContext context)
         {
             _context = context;
         }
@@ -41,10 +41,29 @@ namespace eCommerceApp.Infrastructure.Repository
                 .AnyAsync(o => o.UserId == userId && o.OrderItems.Any(oi => oi.ProductId == productId));
         }
           
-          public async Task<ProductReview?> GetByIdAsync(string reviewId)
+        public async Task AddAsync(ProductReview entity)
+        {
+            await _context.ProductReviews.AddAsync(entity);
+        }
+
+        public Task UpdateAsync(ProductReview entity)
+        {
+            _context.ProductReviews.Update(entity);
+            return Task.CompletedTask;
+        }
+
+        public async Task DeleteAsync(Guid id)
+        {
+            var review = await _context.ProductReviews.FindAsync(id);
+            if (review != null)
+            {
+                _context.ProductReviews.Remove(review);
+            }
+        }
+        public async Task<ProductReview?> GetByIdAsync(string reviewId)
         {
             return await _context.ProductReviews
-                .FirstOrDefaultAsync(r => r.Id.ToString() == reviewId);
+                .FirstOrDefaultAsync(r => r.Id.ToString() == reviewId); // This is inefficient. Consider using Guid.Parse
         }
 
         public async Task<bool> UpdateReviewApprovalStatusAsync(string reviewId, bool isApproved)
@@ -63,5 +82,11 @@ namespace eCommerceApp.Infrastructure.Repository
         }
 
         public Task<int> SaveChangesAsync() => _context.SaveChangesAsync();
+
+        public Task<IEnumerable<ProductReview>> GetAllAsync()
+        {
+           
+            return Task.FromResult<IEnumerable<ProductReview>>(_context.ProductReviews.AsNoTracking().ToList());
+        }
     }
 }

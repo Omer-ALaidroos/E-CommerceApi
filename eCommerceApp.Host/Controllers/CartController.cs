@@ -71,7 +71,7 @@ namespace eCommerceApp.API.Controllers
         }
 
 
-        [HttpPost("checkout")]
+        /*[HttpPost("checkout")]
         [Authorize(Roles = "User")]
         public async Task<ActionResult> Checkout([FromQuery] int paymentMethodId)
         {
@@ -101,6 +101,6 @@ namespace eCommerceApp.API.Controllers
             var achieves = await cartService.GetAchieves();
 
             return achieves.Any() ? Ok(achieves) : NotFound();
-        }
+        }*/
     }
 }

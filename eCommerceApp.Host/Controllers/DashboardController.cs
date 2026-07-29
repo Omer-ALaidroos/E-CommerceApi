@@ -17,11 +17,7 @@ namespace eCommerceApp.Host.Controllers
             _mediator = mediator;
         }
 
-        /// <summary>
-        /// Gets the product and inventory dashboard data.
-        /// </summary>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>An object containing dashboard metrics.</returns>
+       
         [HttpGet("product-inventory")]
         [ProducesResponseType(typeof(eCommerceApp.Application.DTOs.Dashboard.ProductInventoryDashboardDto), 200)]
         [ProducesResponseType(401)]

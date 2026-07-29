@@ -46,12 +46,14 @@ namespace eCommerceApp.Application.Features.Dashboard.Handlers
 
             return new SalesAnalyticsDto
             {
+                //i want teturn after point two digit 
+
                 TotalRevenue = totalRevenue,
-                RevenueGrowth = revenueGrowth,
+                RevenueGrowth = Math.Round(revenueGrowth, 0, MidpointRounding.AwayFromZero) ,
                 TotalOrders = totalOrders,
-                OrdersGrowth = Math.Round(ordersGrowth, 2, MidpointRounding.AwayFromZero),
-                AverageOrderValue = Math.Round(averageOrderValue, 2, MidpointRounding.AwayFromZero),
-                AverageGrowth = averageGrowth,
+                OrdersGrowth = Math.Round(ordersGrowth, 0, MidpointRounding.AwayFromZero),
+                AverageOrderValue = averageOrderValue,
+                AverageGrowth = Math.Round(averageGrowth, 0, MidpointRounding.AwayFromZero) ,
                 RevenueTrend = revenueTrend
             };
         }

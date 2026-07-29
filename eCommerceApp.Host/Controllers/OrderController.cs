@@ -1,7 +1,9 @@
 ﻿using ECommerce.Core.DTOs.Order;
 using eCommerceApp.Application.DTOs.Cart;
 using eCommerceApp.Application.DTOs.Payment;
+using eCommerceApp.Application.Services.Implementation;
 using eCommerceApp.Application.Services.Implementation.OrderServices.query;
+using eCommerceApp.Application.Services.Interfaces;
 using eCommerceApp.Application.Services.Interfaces.Payment;
 using eCommerceApp.Domain.Interfaces.Orders;
 using MediatR;
@@ -13,7 +15,7 @@ namespace eCommerceApp.Host.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OrderController(IOrderService orderService, IMediator mediator, IPaymentService paymentService) : ControllerBase
+    public class OrderController(IOrderService orderService,IAddressService addressService, IMediator mediator, IPaymentService paymentService) : ControllerBase
     {
         
 
@@ -48,6 +50,12 @@ namespace eCommerceApp.Host.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
+            var address =await addressService.GetUserAddressAsync(GetUserId());
+            if (address == null)
+                return BadRequest(new { message = "User address not found. Please add an address before checking out." });
+
+            checkout.ShippingAddressId = address.Id;
+
             checkout.UserId = GetUserId();
             var response = await orderService.CreateOrder(checkout);
 
@@ -58,6 +66,7 @@ namespace eCommerceApp.Host.Controllers
             if (orderId <= 0)
                 return BadRequest(new { message = "Order id was not returned after creation." });
 
+            
             var userId = GetUserId();
             var paymentRequest = new CreatePaymentIntentRequestDto
             {
@@ -68,8 +77,13 @@ namespace eCommerceApp.Host.Controllers
 
             var paymentResult = await paymentService.CreatePaymentIntentAsync(paymentRequest, userId);
 
-            return paymentResult.IsSuccess
-                ? Ok(new { order = response, payment = paymentResult.Data })
+            return paymentResult.IsSuccess && paymentResult.Data != null
+                ? Ok(new
+                {
+                    orderId = orderId,
+                    clientSecret = paymentResult.Data.ClientSecret,
+                    paymentIntentId = paymentResult.Data.PaymentIntentId
+                })
                 : BadRequest(new { order = response, payment = paymentResult });
         }
         /* public async Task<IActionResult> Add([FromBody] CreateOrder Order)

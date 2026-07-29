@@ -14,6 +14,8 @@ namespace eCommerceApp.Domain.Entities.Orders
         public required int ShippingAddressId { get; set; }
 
         public required int PaymentMethodId { get; set; }
+        public string? PaymentIntentId { get; set; }
+        public string? PaymentStatus { get; set; }
 
       
         public Address? ShippingAddress { get; set; }

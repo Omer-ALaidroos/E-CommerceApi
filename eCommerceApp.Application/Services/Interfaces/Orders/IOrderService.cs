@@ -13,6 +13,8 @@ namespace eCommerceApp.Domain.Interfaces.Orders
         Task<ServicesResponse> UpdateOrderStatusAsync(int orderId);
         Task<ServicesResponse> UpdateOrderStatusAsync(int orderId, OrderStatus status);
         Task<ServicesResponse> UpdateOrderStatusAsync(UpdateOrderStatusDto orderStatusDto);
+        Task<ServicesResponse> ProcessSuccessfulPaymentAsync(int orderId, string paymentIntentId);
+        Task<ServicesResponse> ProcessFailedPaymentAsync(int orderId, string paymentIntentId);
         Task<ServicesResponse> GetOrderStatusByIdAsync(int orderId);
         Task<ServicesResponse> CancelOrderAsync(int id);
         Task<ServicesResponse> DeleteOrderAsync(int id);

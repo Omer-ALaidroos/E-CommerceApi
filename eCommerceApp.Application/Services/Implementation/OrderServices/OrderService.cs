@@ -77,28 +77,6 @@ namespace eCommerceApp.Application.Services.Implementation.OrderServices
 
             try
             {
-                // Decrease product stock
-                foreach (var item in cart.Items)
-                {
-                   
-                        await productRepository
-                            .DecreaseProductQuantityAsync(
-                                item.ProductId,
-                                item.Quantity
-                            );
-                   int decreased = await productRepository.SaveChangesAsync();
-
-                    if (decreased <= 0)
-                    {
-                        await transaction.RollbackAsync();
-
-                        return new ServicesResponse(
-                            false,
-                            "Failed to update inventory."
-                        );
-                    }
-                }
-
                 // Create order
                 var order = new Order
                 {
@@ -136,6 +114,136 @@ namespace eCommerceApp.Application.Services.Implementation.OrderServices
                     "Order created successfully.",
                     order.Id
                 );
+            }
+            catch (Exception)
+            {
+                await transaction.RollbackAsync();
+                throw;
+            }
+        }
+
+        public async Task<ServicesResponse> ProcessSuccessfulPaymentAsync(int orderId, string paymentIntentId)
+        {
+            using var transaction = await orderInterface.BeginTransactionAsync();
+
+            try
+            {
+                var order = await orderInterface.GetByIdAsync(orderId);
+
+                if (order == null)
+                {
+                    return new ServicesResponse(false, "Order not found.");
+                }
+
+                if (order.Status == OrderStatus.Paid && string.Equals(order.PaymentStatus, "succeeded", StringComparison.OrdinalIgnoreCase))
+                {
+                    return new ServicesResponse(true, "Payment already processed.", order.Id);
+                }
+
+                if (order.Status != OrderStatus.PendingPayment)
+                {
+                    return new ServicesResponse(false, $"Order is no longer pending payment. Current status: {order.Status}.");
+                }
+
+                var orderItems = order.OrderItems?.ToList() ?? [];
+
+                foreach (var item in orderItems)
+                {
+                    var product = await productRepository.GetByIdAsync(item.ProductId);
+
+                    if (product == null)
+                    {
+                        await transaction.RollbackAsync();
+                        return new ServicesResponse(false, $"Product with ID {item.ProductId} was not found.");
+                    }
+
+                    if (product.Quantity < item.Quantity)
+                    {
+                        await transaction.RollbackAsync();
+                        return new ServicesResponse(false, $"Insufficient stock for product {product.Name}.");
+                    }
+
+                    product.Quantity -= item.Quantity;
+                    await productRepository.UpdateAsync(product);
+                }
+
+                int inventoryResult = await productRepository.SaveChangesAsync();
+
+                if (inventoryResult <= 0)
+                {
+                    await transaction.RollbackAsync();
+                    return new ServicesResponse(false, "Failed to update inventory.");
+                }
+
+                order.PaymentIntentId = paymentIntentId;
+                order.PaymentStatus = "succeeded";
+                order.Status = OrderStatus.Paid;
+
+                await orderInterface.UpdateAsync(order);
+
+                int result = await orderInterface.SaveChangesAsync();
+
+                if (result <= 0)
+                {
+                    await transaction.RollbackAsync();
+                    return new ServicesResponse(false, "Failed to update order payment state.");
+                }
+
+                await transaction.CommitAsync();
+
+                return new ServicesResponse(true, "Payment succeeded and stock updated.", order.Id);
+            }
+            catch (Exception)
+            {
+                await transaction.RollbackAsync();
+                throw;
+            }
+        }
+
+        public async Task<ServicesResponse> ProcessFailedPaymentAsync(int orderId, string paymentIntentId)
+        {
+            using var transaction = await orderInterface.BeginTransactionAsync();
+
+            try
+            {
+                var order = await orderInterface.GetByIdAsync(orderId);
+
+                if (order == null)
+                {
+                    return new ServicesResponse(false, "Order not found.");
+                }
+
+                if (order.Status == OrderStatus.Paid)
+                {
+                    return new ServicesResponse(true, "Order already paid.", order.Id);
+                }
+
+                if (order.Status != OrderStatus.PendingPayment && order.Status != OrderStatus.PaymentFailed)
+                {
+                    return new ServicesResponse(false, $"Order status cannot be updated to payment failed from {order.Status}.");
+                }
+
+                order.PaymentIntentId = paymentIntentId;
+                order.PaymentStatus = "failed";
+
+                if (order.Status == OrderStatus.PendingPayment)
+                {
+                    order.Status = OrderStatus.PaymentFailed;
+                }
+
+                await orderInterface.UpdateAsync(order);
+
+                int result = await orderInterface.SaveChangesAsync();
+
+                if (result <= 0)
+                {
+                    await transaction.RollbackAsync();
+                    return new ServicesResponse(false, "Failed to update order payment state.");
+                }
+
+                await transaction.CommitAsync();
+
+                return new ServicesResponse(true, "Payment failed.", order.Id);
             }
             catch (Exception)
             {

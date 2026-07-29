@@ -28,7 +28,7 @@ namespace eCommerceApp.Infrastructure.Repository
             if (entity is null)
                 return 0;
 
-            context.Set<Address>().Remove(entity);
+            entity.IsActive= false;
             return await context.SaveChangesAsync();
         }
 
@@ -47,7 +47,7 @@ namespace eCommerceApp.Infrastructure.Repository
 
         public async Task<Address> GetUserAddressAsync(string UserId)
         {
-            Address entity = await context.Set<Address>().Where(ad => ad.UserId == UserId).SingleOrDefaultAsync();
+            Address entity = await context.Addresses.Where(ad => ad.UserId == UserId && ad.IsActive).SingleOrDefaultAsync();
             if (entity is null) return null;
 
             return entity;

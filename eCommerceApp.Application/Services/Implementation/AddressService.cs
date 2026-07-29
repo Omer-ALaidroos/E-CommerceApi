@@ -62,13 +62,7 @@ namespace eCommerceApp.Application.Services.Implementation
             if (Address == null)
             {
                 // Provide default values for all required properties
-                return new GetAddress
-                {
-                    Id = 0,
-                    Street = string.Empty,
-                    City = string.Empty,
-                    Country = string.Empty
-                };
+                return null;
             }
 
             return mapper.Map<GetAddress>(Address);

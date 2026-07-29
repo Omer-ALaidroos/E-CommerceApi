@@ -10,8 +10,8 @@ namespace eCommerceApp.Application.DTOs.Cart
 
        public string? UserId { get; set; }
 
-        [Required]
-        public required int ShippingAddressId { get; set; }
+       
+        public  int ShippingAddressId { get; set; }
 
         
     }

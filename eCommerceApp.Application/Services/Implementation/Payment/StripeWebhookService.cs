@@ -2,16 +2,21 @@ using eCommerceApp.Application.Contracts.Payment;
 using eCommerceApp.Application.DTOs.Payment;
 using eCommerceApp.Application.Services.Interfaces.Logger;
 using eCommerceApp.Application.Services.Interfaces.Payment;
+using eCommerceApp.Domain.Interfaces;
 using eCommerceApp.Domain.Interfaces.Orders;
 using Microsoft.Extensions.Configuration;
 using Stripe;
+using eCommerceApp.Application.Services.Interfaces;
 
 namespace eCommerceApp.Application.Services.Implementation.Payment
 {
     public class StripeWebhookService(
         IConfiguration configuration,
         IAppLogger<StripeWebhookService> logger,
-        IOrderService orderService) : IStripeWebhookService
+        IOrderService orderService,
+        IEmailService emailService,
+        IOrder orderRepository
+        ) : IStripeWebhookService
     {
         public async Task<PaymentResult<PaymentStatusResponseDto>> HandleWebhookAsync(
     string payload,
@@ -86,12 +91,27 @@ namespace eCommerceApp.Application.Services.Implementation.Payment
                         {
                             case "payment_intent.succeeded":
                                 {
-                                    var result = await orderService.UpdateOrderStatusAsync(
+                                    var result = await orderService.ProcessSuccessfulPaymentAsync(
                                         orderId,
-                                        OrderStatus.Paid);
+                                        paymentIntent.Id);
 
                                     if (!result.IsSuccess)
                                         return PaymentResult<PaymentStatusResponseDto>.Failure(result.Message);
+
+                                    var order = await orderRepository.GetByIdAsync(orderId);
+                                    if (order != null && order.User != null)
+                                    {
+                                        var subject = $"Your Order #{order.Id} is Confirmed!";
+                                        var body = $@"
+                                            <h1>Thank you for your purchase!</h1>
+                                            <p>Hi {order.User.FullName},</p>
+                                            <p>We've received your payment and your order is now being processed. Here are the details:</p>
+                                            <p><strong>Order ID:</strong> {order.Id}</p>
+                                            <p><strong>Total Amount:</strong> {order.TotalAmount:C}</p>
+                                            <p>We'll notify you again once your order has shipped.</p>
+                                            <p>Thanks for shopping with us!</p>";
+                                        await emailService.SendEmailAsync(order.User.Email!, subject, body);
+                                    }
 
                                     response.Message = "Payment succeeded.";
 
@@ -99,10 +119,11 @@ namespace eCommerceApp.Application.Services.Implementation.Payment
                                 }
 
                             case "payment_intent.payment_failed":
+                           
                                 {
-                                    var result = await orderService.UpdateOrderStatusAsync(
+                                    var result = await orderService.ProcessFailedPaymentAsync(
                                         orderId,
-                                        OrderStatus.PaymentFailed);
+                                        paymentIntent.Id);
 
                                     if (!result.IsSuccess)
                                         return PaymentResult<PaymentStatusResponseDto>.Failure(result.Message);
@@ -113,10 +134,11 @@ namespace eCommerceApp.Application.Services.Implementation.Payment
                                 }
 
                             case "payment_intent.canceled":
+                           
                                 {
-                                    var result = await orderService.UpdateOrderStatusAsync(
+                                    var result = await orderService.ProcessFailedPaymentAsync(
                                         orderId,
-                                        OrderStatus.PaymentFailed);
+                                        paymentIntent.Id);
 
                                     if (!result.IsSuccess)
                                         return PaymentResult<PaymentStatusResponseDto>.Failure(result.Message);
