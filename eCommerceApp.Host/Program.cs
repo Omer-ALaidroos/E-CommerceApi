@@ -1,6 +1,7 @@
 using eCommerceApp.Application.DependencyInjection;
 using eCommerceApp.Application.Mapping;
 using eCommerceApp.Infrastructure.Dependency_Injection;
+using Hangfire;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using System.Text.Json.Serialization;
@@ -103,6 +104,7 @@ try
     app.UseRateLimiter();
     app.UseAuthorization();
     app.MapControllers();
+    app.UseHangfireDashboard("/Dashboard");
 
     Log.Logger.Information("Applicationis running ..");
     app.Run();

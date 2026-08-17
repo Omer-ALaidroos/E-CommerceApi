@@ -14,6 +14,7 @@ using eCommerceApp.Infrastructure.Settings;
 using eCommerceApp.Infrastructure.Sevices;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Hangfire;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -55,6 +56,7 @@ namespace eCommerceApp.Application.DependencyInjection
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<GetUserOrderByIdQueryHandler>());
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<GetUserOrderSummariesQueryHandler>());
 
+            services.AddHangfire(x => x.UseSqlServerStorage(configuration.GetConnectionString("Default")));
             return services;
         }
     }

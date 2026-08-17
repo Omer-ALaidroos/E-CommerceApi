@@ -1,7 +1,7 @@
-using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using eCommerceApp.Application.Features.Dashboard.Queries;
+using MediatR;
 
 namespace eCommerceApp.Host.Controllers
 {
