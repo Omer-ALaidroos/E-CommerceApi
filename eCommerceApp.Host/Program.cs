@@ -21,6 +21,7 @@ builder.Host.UseSerilog();
 Log.Logger.Information("Application is Building ...");
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddApplicationServices(builder.Configuration);
+builder.Services.AddHangfireServer();
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {

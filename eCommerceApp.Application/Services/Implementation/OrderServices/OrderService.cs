@@ -2,11 +2,13 @@
 using ECommerce.Core.DTOs.Order;
 using eCommerceApp.Application.DTOs;
 using eCommerceApp.Application.DTOs.Cart;
+using eCommerceApp.Application.Services.Interfaces;
 using eCommerceApp.Application.Services.Interfaces.CartInterface;
 using eCommerceApp.Domain.Interfaces;
 using eCommerceApp.Domain.Interfaces.Orders;
 using ECommerce.Core.Entities;
 using eCommerceApp.Domain.Entities.Orders;
+using Hangfire;
 
 namespace eCommerceApp.Application.Services.Implementation.OrderServices
 {
@@ -14,7 +16,9 @@ namespace eCommerceApp.Application.Services.Implementation.OrderServices
         IOrder orderInterface,
         IProduct productRepository,
         IMapper mapper,
-        ICartService cartService
+        ICartService cartService,
+        IBackgroundJobClient backgroundJobs,
+        IEmailNotificationJobs emailNotificationJobs
     ) : IOrderService
     {
 
@@ -190,6 +194,8 @@ namespace eCommerceApp.Application.Services.Implementation.OrderServices
                 }
 
                 await transaction.CommitAsync();
+
+                backgroundJobs.Enqueue(() => emailNotificationJobs.SendOrderConfirmationAsync(order.Id));
 
                 return new ServicesResponse(true, "Payment succeeded and stock updated.", order.Id);
             }
@@ -384,9 +390,23 @@ namespace eCommerceApp.Application.Services.Implementation.OrderServices
 
             int result = await orderInterface.SaveChangesAsync();
 
-            return result > 0
-                ? new ServicesResponse(true, "Order status updated successfully.")
-                : new ServicesResponse(false, "Failed to update order status.");
+            if (result > 0)
+            {
+                if (status == OrderStatus.Shipped)
+                {
+                    backgroundJobs.Enqueue(() => emailNotificationJobs.SendShippingConfirmationAsync(order.Id));
+                    backgroundJobs.Schedule(() => emailNotificationJobs.SendDeliveryReminderAsync(order.Id), TimeSpan.FromDays(3));
+                }
+
+                if (status == OrderStatus.Delivered)
+                {
+                    backgroundJobs.Schedule(() => emailNotificationJobs.SendReviewReminderAsync(order.Id), TimeSpan.FromDays(2));
+                }
+
+                return new ServicesResponse(true, "Order status updated successfully.");
+            }
+
+            return new ServicesResponse(false, "Failed to update order status.");
         }
 
         public async Task<ServicesResponse> GetOrderStatusByIdAsync(int orderId)

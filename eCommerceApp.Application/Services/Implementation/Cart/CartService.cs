@@ -2,11 +2,13 @@ using AutoMapper;
 using eCommerceApp.Application.DTOs;
 using eCommerceApp.Application.DTOs.Cart;
 
+using eCommerceApp.Application.Services.Interfaces;
 using eCommerceApp.Application.Services.Interfaces.CartInterface;
 using eCommerceApp.Domain.Entities.CartEntities;
 using eCommerceApp.Domain.Interfaces;
 using eCommerceApp.Domain.Interfaces.Authentication;
 using eCommerceApp.Domain.Interfaces.CartInterface;
+using Hangfire;
 
 class CartService(
 	ICart cartInterface,
@@ -14,7 +16,9 @@ class CartService(
 	IProduct ProductInterface,
 	IPaymentMethodService paymentMethodService,
 	IPaymentService paymentService,
-	IUserManagement userManagement) : ICartService
+	IUserManagement userManagement,
+	IBackgroundJobClient backgroundJobs,
+	IEmailNotificationJobs emailNotificationJobs) : ICartService
 {
 
 	public async Task<ServicesResponse> AddToCart(string userId, int productId, int quantity)
@@ -59,6 +63,10 @@ class CartService(
 		}
 
 		await cartInterface.SaveChanges();
+
+		backgroundJobs.Schedule(
+			() => emailNotificationJobs.SendCartReminderAsync(userId),
+			TimeSpan.FromHours(1));
 
 		return new ServicesResponse(true, "Added to cart");
 	}

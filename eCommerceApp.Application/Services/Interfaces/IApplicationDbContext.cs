@@ -1,5 +1,6 @@
 ﻿using ECommerce.Core.Entities;
 using eCommerceApp.Domain.Entities;
+using eCommerceApp.Domain.Entities.CartEntities;
 using eCommerceApp.Domain.Entities.Identity;
 using eCommerceApp.Domain.Entities.Orders;
 using Microsoft.EntityFrameworkCore;
@@ -10,14 +11,11 @@ namespace eCommerceApp.Application.Services.Interfaces
     {
         DbSet<Order> Orders { get; }
         DbSet<AppUser> Users { get; }
-        
-
         DbSet<Category> Categories { get; }
-
         DbSet<OrderItem> OrderItems { get; }
-
         DbSet<Product> Products { get; }
-
+        DbSet<ProductReview> ProductReviews { get; }
+        DbSet<Cart> Carts { get; }
         DbSet<Address> Addresses { get; }
 
         Task<int> SaveChangesAsync(

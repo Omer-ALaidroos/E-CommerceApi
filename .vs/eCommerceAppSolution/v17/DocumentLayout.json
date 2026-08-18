@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Dot Net Projects\\eCommerceAppSolution\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\services\\implementation\\emailnotificationjobs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\services\\implementation\\emailnotificationjobs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|d:\\dot net projects\\ecommerceappsolution\\ecommerceapp.application\\services\\implementation\\orderservices\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CF377E31-70C7-4ABF-884D-99A9500790F6}|eCommerceApp.Application\\eCommerceApp.Application.csproj|solutionrelative:ecommerceapp.application\\services\\implementation\\orderservices\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -39,19 +43,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "EmailNotificationJobs.cs",
+              "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Implementation\\EmailNotificationJobs.cs",
+              "RelativeDocumentMoniker": "eCommerceApp.Application\\Services\\Implementation\\EmailNotificationJobs.cs",
+              "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Implementation\\EmailNotificationJobs.cs",
+              "RelativeToolTip": "eCommerceApp.Application\\Services\\Implementation\\EmailNotificationJobs.cs",
+              "ViewState": "AgIAAGAAAAAAy8zMzMwqwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T20:04:25.085Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "OrderService.cs",
               "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Implementation\\OrderServices\\OrderService.cs",
               "RelativeDocumentMoniker": "eCommerceApp.Application\\Services\\Implementation\\OrderServices\\OrderService.cs",
               "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Implementation\\OrderServices\\OrderService.cs",
               "RelativeToolTip": "eCommerceApp.Application\\Services\\Implementation\\OrderServices\\OrderService.cs",
-              "ViewState": "AgIAAFUAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAALIAAAAAnJmZmZkpwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-17T20:28:31.27Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "IOrderService.cs",
               "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\Services\\Interfaces\\Orders\\IOrderService.cs",
               "RelativeDocumentMoniker": "eCommerceApp.Application\\Services\\Interfaces\\Orders\\IOrderService.cs",
@@ -59,12 +76,11 @@
               "RelativeToolTip": "eCommerceApp.Application\\Services\\Interfaces\\Orders\\IOrderService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-17T20:28:19.989Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-17T20:28:19.989Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Host\\Program.cs",
               "RelativeDocumentMoniker": "eCommerceApp.Host\\Program.cs",
@@ -72,12 +88,11 @@
               "RelativeToolTip": "eCommerceApp.Host\\Program.cs",
               "ViewState": "AgIAAFsAAAAAAAAAAAAAAGcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-17T20:20:22.1Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-17T20:20:22.1Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ServiceContainer.cs",
               "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Infrastructure\\Dependency Injection\\ServiceContainer.cs",
               "RelativeDocumentMoniker": "eCommerceApp.Infrastructure\\Dependency Injection\\ServiceContainer.cs",
@@ -85,12 +100,11 @@
               "RelativeToolTip": "eCommerceApp.Infrastructure\\Dependency Injection\\ServiceContainer.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAAACUAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-17T20:18:51.969Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-17T20:18:51.969Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ServiceContainer.cs",
               "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\DependencyInjection\\ServiceContainer.cs",
               "RelativeDocumentMoniker": "eCommerceApp.Application\\DependencyInjection\\ServiceContainer.cs",
@@ -98,21 +112,19 @@
               "RelativeToolTip": "eCommerceApp.Application\\DependencyInjection\\ServiceContainer.cs",
               "ViewState": "AgIAACwAAAAAAAAAAAAQwDoAAABrAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-17T20:17:13.44Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-17T20:17:13.44Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "eCommerceApp.Application",
+              "DocumentIndex": 6,
+              "Title": "eCommerceApp.Application.csproj",
               "DocumentMoniker": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\eCommerceApp.Application.csproj",
               "RelativeDocumentMoniker": "eCommerceApp.Application\\eCommerceApp.Application.csproj",
               "ToolTip": "D:\\Dot Net Projects\\eCommerceAppSolution\\eCommerceApp.Application\\eCommerceApp.Application.csproj",
               "RelativeToolTip": "eCommerceApp.Application\\eCommerceApp.Application.csproj",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-08-17T20:16:19.448Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-17T20:16:19.448Z"
             }
           ]
         }

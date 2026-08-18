@@ -14,7 +14,6 @@ namespace eCommerceApp.Application.Services.Implementation.Payment
         IConfiguration configuration,
         IAppLogger<StripeWebhookService> logger,
         IOrderService orderService,
-        IEmailService emailService,
         IOrder orderRepository
         ) : IStripeWebhookService
     {
@@ -97,21 +96,6 @@ namespace eCommerceApp.Application.Services.Implementation.Payment
 
                                     if (!result.IsSuccess)
                                         return PaymentResult<PaymentStatusResponseDto>.Failure(result.Message);
-
-                                    var order = await orderRepository.GetByIdAsync(orderId);
-                                    if (order != null && order.User != null)
-                                    {
-                                        var subject = $"Your Order #{order.Id} is Confirmed!";
-                                        var body = $@"
-                                            <h1>Thank you for your purchase!</h1>
-                                            <p>Hi {order.User.FullName},</p>
-                                            <p>We've received your payment and your order is now being processed. Here are the details:</p>
-                                            <p><strong>Order ID:</strong> {order.Id}</p>
-                                            <p><strong>Total Amount:</strong> {order.TotalAmount:C}</p>
-                                            <p>We'll notify you again once your order has shipped.</p>
-                                            <p>Thanks for shopping with us!</p>";
-                                        await emailService.SendEmailAsync(order.User.Email!, subject, body);
-                                    }
 
                                     response.Message = "Payment succeeded.";
 

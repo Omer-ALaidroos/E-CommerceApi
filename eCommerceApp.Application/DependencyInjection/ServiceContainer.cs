@@ -47,6 +47,7 @@ namespace eCommerceApp.Application.DependencyInjection
             services.AddScoped<ImageUploader, ImageUploader>();
 
             services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<IEmailNotificationJobs, EmailNotificationJobs>();
 
             services.Configure<EmailSettings>(configuration.GetSection("EmailSettings"));
 
