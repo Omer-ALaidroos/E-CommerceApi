@@ -119,16 +119,7 @@ If the Infrastructure project uses Entity Framework Core:
 
 If a different ORM or database strategy is used, follow the patterns implemented under eCommerceApp.Infrastructure.
 
-## Running tests
 
-If there are test projects included:
-- Run all tests:
-  dotnet test
-
-If there are no tests yet, consider adding unit and integration tests for:
-- Domain logic (unit tests)
-- Application services (unit/behavior tests)
-- Host endpoints (integration tests using TestServer or WebApplicationFactory)
 
 ## Development notes
 
@@ -146,9 +137,6 @@ Contributions are welcome. Suggested workflow:
 
 Please include clear commit messages and keep PRs focused.
 
-## License
-
-No license is specified in the repository. Add a LICENSE file (for example, MIT or Apache-2.0) to make the project's license explicit.
 
 ## Contact
 
